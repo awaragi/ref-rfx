@@ -59,9 +59,10 @@ Decompose → Backlog Items
 ┌──────────────────────────────────────────┐
 │  Per Item  (repeated for each item)      │
 │                                          │
-│  Explore                                 │
-│      ↓                                   │
-│  Decide                                  │
+│  Explore ◄───────────────────────────┐   │
+│      ↓                               │   │
+│  Decide ─────────────────────────────┘   │
+│  (loop until decisions complete)         │
 │      ↓                                   │
 │  Design                                  │
 │      ↓                                   │
@@ -89,7 +90,12 @@ Decompose → Backlog Items
 ┌──────────────────────────────────────────┐
 │  Per Item                                │
 │                                          │
-│  Explore → Decide → Design               │
+│  Explore ◄───────────────────────────┐   │
+│      ↓                               │   │
+│  Decide ─────────────────────────────┘   │
+│  (loop until decisions complete)         │
+│      ↓                                   │
+│  Design                                  │
 └──────────────────────────────────────────┘
     ↓
 Respond  (full pursuit)
@@ -175,6 +181,16 @@ Key activities:
 - Assess risks
 - Select evidence strategies
 
+AI assistance is applicable throughout Explore. Based on the item requirements, the Global Decision Registry, previously made item decisions, and best industry practices, AI can propose:
+
+- Positioning options and recommended approach
+- Differentiators aligned with the pursuit's win themes
+- QVA candidates with supporting rationale
+- Risk flags and mitigation strategies
+- Evidence and pattern recommendations from prior pursuits
+
+Proposed recommendations are reviewed and refined by the user before decisions are recorded. The user may cycle back to Explore at any point to investigate additional angles, test alternative positions, or gather more evidence before committing a decision.
+
 Output:
 
 - Explore findings (per item)
@@ -187,7 +203,9 @@ Output:
 
 Record the selected approach at two levels.
 
-**Global decisions** are established early and apply across the full pursuit, anchoring all item-level work.
+Explore and Decide operate as an iterative loop. The user explores an aspect, records a decision, and may then re-enter Explore to examine the next angle or revisit a prior one. This continues until the user is satisfied that all material decisions for the item are captured and complete.
+
+**Global decisions** are typically established early to anchor all item-level work, but can be introduced or revised at any point during the pursuit. When a new or updated global decision is added, it should be reapplied to any previously completed items to ensure consistency across the full response.
 
 Examples:
 
@@ -387,6 +405,8 @@ The Decision Registry is a core REF-RFP artifact operating at two levels.
 - Firm-level differentiators
 - Cross-cutting architectural or delivery approaches
 - Pursuit-level risk and assumption positions
+
+Global decisions are not restricted to the start of a pursuit. They can be introduced or revised at any time as the team's understanding of the opportunity evolves. When a global decision is added or changed, it triggers a reapplication pass across all previously completed items to ensure the full response remains consistent.
 
 **Item Decisions** capture choices scoped to a specific backlog item:
 
