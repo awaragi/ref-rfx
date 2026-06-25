@@ -73,14 +73,17 @@ Decompose → Backlog Items
 │  Refine                                  │
 └──────────────────────────────────────────┘
     ↓
-Final Submission
+Assemble Final Submission
+(auto-respond from design; placeholders for unstarted)
+    ↓
+final-submission.md · final-submission.docx
 ```
 
 ---
 
 ## Big Bang
 
-All backlog items complete their Explore, Decide, and Design cycles first. The full pursuit response is then drafted, validated, and refined together in a single coordinated pass.
+All backlog items complete their Explore, Decide, and Design cycles first. Respond, Validate, and Refine are not separate steps — the Assemble step produces a response for each item missing a response from its design, then assembles all responses into the final submission, inserting placeholders for any items with no design.
 
 ```text
 Intake
@@ -98,13 +101,10 @@ Decompose → Backlog Items
 │  Design                                  │
 └──────────────────────────────────────────┘
     ↓
-Respond  (full pursuit)
+Assemble Final Submission
+(auto-respond from design; placeholders for unstarted)
     ↓
-Validate
-    ↓
-Refine
-    ↓
-Final Submission
+final-submission.md · final-submission.docx
 ```
 
 Big Bang preserves decision quality while consolidating drafting, validation, and refinement into a single pursuit-level pass.
@@ -163,7 +163,7 @@ Each item becomes an independently managed work package.
 
 Output:
 
-- RFP Backlog
+- `backlog.md`
 
 ---
 
@@ -229,8 +229,8 @@ All decisions become authoritative guidance for all subsequent drafting activiti
 
 Output:
 
-- Global Decision Registry
-- Item Decision Registry (entries per item)
+- `registry.md` (global decisions)
+- `outputs/item-XX-decisions.md` (per-item decisions)
 
 ---
 
@@ -249,41 +249,53 @@ Key activities:
 
 Output:
 
-- Approach Document (per item)
+- `outputs/item-XX-design.md`
 
 ---
 
-### 6. Respond *(per item in Standard Path; consolidated pursuit-level in Big Bang)*
+### 6. Respond *(Standard Path only)*
 
-Generate the draft response content.
+Generate the draft response content for each backlog item.
 
-In the **Standard Path**, each item is responded to individually as its Explore/Decide/Design cycle completes.
+In the **Big Bang** path this step is not necessary — item response files are produced implicitly through the Design outputs and assembled by the Assemble step.
 
-In the **Big Bang** path, all items complete Explore/Decide/Design first, and response content is drafted across the full pursuit in a single coordinated pass.
+In the **Standard Path**, each item is responded to individually as its Explore/Decide/Design cycle completes. Response authors work from:
 
-Response authors work from:
-
-- Backlog Items
+- Backlog item
 - Global Decision Registry
-- Item Decision Registry
-- Design Documents
+- Item Decision Registry (`outputs/item-XX-decisions.md`)
+- Design document (`outputs/item-XX-design.md`)
 - Evidence Library
 
-This ensures consistency and traceability regardless of execution path.
+Response files contain only the response body. All metadata is stored in the YAML frontmatter, including item reference, linked decisions, evidence citations, QVAs, word count target, and submission section mapping. Example:
+
+```yaml
+---
+item: "01"
+title: "Corporate Qualifications"
+status: draft
+decisions: [D01-01, D01-02]
+evidence: [E-15, E-22]
+qvas:
+  - "20% faster onboarding through structured knowledge transfer"
+word_count_target: 800
+section_reference: "Section 4.2"
+---
+```
 
 Output:
 
-- Draft Response (per item in Standard Path, or consolidated full response in Big Bang)
+- `outputs/item-XX-response.md`
 
 ---
 
-### 7. Validate *(per item in Standard Path; full pursuit in Big Bang)*
+### 7. Validate *(Standard Path only)*
 
-Validate the response content against requirements and decisions.
+Validate each item's response content against its requirements and decisions.
+
+In the **Big Bang** path this step is not used — review happens on the generated final submission document directly.
 
 In the **Standard Path**, each item is validated as its response is completed.
-
-In the **Big Bang** path, the full response is validated together after all items have been drafted.
 
 Validation areas include:
 
@@ -302,62 +314,90 @@ Output:
 
 ---
 
-### 8. Refine *(per item in Standard Path; full pursuit in Big Bang)*
+### 8. Refine *(Standard Path only)*
 
-Address review findings and finalize the submission.
+Address review findings and finalize each item's response.
+
+In the **Big Bang** path this step is not used — refinement happens on the generated final submission document directly.
 
 In the **Standard Path**, each item is refined individually following its validation.
 
-In the **Big Bang** path, the full response is refined together.
+Output:
+
+- Refined item response files (`outputs/item-XX-response.md`)
+
+---
+
+### 9. Assemble *(full pursuit)*
+
+Produce the final submission through three sequential stages.
+
+**Stage 1 — Respond for items missing a response**
+
+For every item in `backlog.md` that has a design document (`outputs/item-XX-design.md`) but no response file yet, the Respond step logic is applied to generate `outputs/item-XX-response.md`. Items that already have a response are left untouched.
+
+**Stage 2 — Assemble `final-submission.md`**
+
+All item response files are concatenated in backlog order into `outputs/final-submission.md`. YAML frontmatter is stripped from each file before inclusion. Items that have no response and no design receive a labelled placeholder:
+
+```text
+[RESPONSE PENDING: Item 01 – Corporate Qualifications]
+```
+
+**Stage 3 — Convert to `final-submission.docx`**
+
+`final-submission.md` is converted to Word. All `[PLACEHOLDER TEXT]` spans are highlighted in yellow. Standard built-in Word styles are used throughout so the document can be copied directly into any corporate RFP template without reformatting.
+
+---
+
+Assemble is safe to run at any point in the pursuit. In the **Standard Path** it can be run incrementally at any stage to produce a draft submission reflecting work done so far. In the **Big Bang** path it replaces the Respond, Validate, and Refine steps — teams work through Explore/Decide/Design for each item, then run Assemble once to produce the complete response, and review and refine directly on the generated documents.
 
 Output:
 
-- Final RFP Response Package
+- `outputs/item-XX-response.md` (any newly generated item responses)
+- `outputs/final-submission.md`
+- `outputs/final-submission.docx`
 
 ---
 
 # REF-RFP Repository Structure
 
+The repository is designed as a downloadable starter kit. Teams clone or download a zip, populate the `intake/` folders with their RFP materials, and work through the framework using the provided files and templates as their starting point.
+
 ```text
 ref-rfp/
 │
+├── README.md
 ├── instructions.md
 │
-├── templates/
-│   ├── backlog-item.md          ← backlog item template
-│   ├── global-decisions.md      ← global decision registry template
-│   ├── item-decisions.md        ← item-specific decision registry template
-│   ├── item-design.md           ← item-specific design/approach template
-│   └── item-response.md         ← item response template
+├── intake/
+│   ├── rfp/                     ← drop RFP documents here
+│   └── supporting/              ← drop supporting docs here
 │
-├── backlog/
-│   ├── item-01.md
-│   ├── item-02.md
-│   └── ...
+├── backlog.md                   ← full pursuit backlog
+├── registry.md                  ← global decisions only
+├── evidence.md                  ← evidence registry
+├── assumptions.md               ← assumptions registry
 │
-├── registry/
-│   ├── global-decisions.md      ← pursuit-wide global decisions
-│   └── items/
-│       ├── item-01-decisions.md
-│       └── ...
+├── outputs/                     ← all outputs (sorts by item number)
+│   ├── item-01-decisions.md     ← item decisions
+│   ├── item-01-design.md        ← item design/approach
+│   ├── item-01-response.md      ← item response (body + frontmatter)
+│   ├── item-02-decisions.md
+│   ├── item-02-design.md
+│   ├── item-02-response.md
+│   ├── ...
+│   ├── final-submission.md      ← merged final response
+│   └── final-submission.docx    ← Word document for submission
 │
-├── explore/
-│
-├── design/
-│   ├── item-01-design.md
-│   └── ...
-│
-├── responses/
-│   ├── item-01-response.md
-│   └── ...
-│
-├── evidence/
-│
-├── assumptions/
-│
-├── patterns/
-│
-└── reviews/
+└── templates/
+    ├── backlog.md               ← backlog template
+    ├── registry.md              ← global decision registry template
+    ├── evidence.md              ← evidence registry template
+    ├── assumptions.md           ← assumptions registry template
+    ├── item-decisions.md        ← per-item decisions template
+    ├── item-design.md           ← per-item design template
+    └── item-response.md         ← per-item response template (body + frontmatter)
 ```
 
 ---
@@ -408,7 +448,7 @@ The Decision Registry is a core REF-RFP artifact operating at two levels.
 
 Global decisions are not restricted to the start of a pursuit. They can be introduced or revised at any time as the team's understanding of the opportunity evolves. When a global decision is added or changed, it triggers a reapplication pass across all previously completed items to ensure the full response remains consistent.
 
-**Item Decisions** capture choices scoped to a specific backlog item:
+**Item Decisions** are scoped to a specific backlog item and stored as individual files in the `outputs/` folder (`outputs/item-XX-decisions.md`), keeping all item-level outputs together and naturally sorted by item number:
 
 - Item narrative and positioning
 - Item-specific differentiators and QVAs
@@ -426,7 +466,7 @@ Decisions at both levels become organizational intellectual property that can be
 
 ---
 
-## Evidence-Based Responses
+## Evidence Registry
 
 REF-RFP distinguishes between:
 
@@ -434,37 +474,69 @@ REF-RFP distinguishes between:
 - Evidence
 - Differentiators
 
-The framework encourages every significant claim to be supported by one or more evidence sources such as:
+The framework encourages every significant claim to be supported by one or more evidence sources. All evidence is captured in a single `evidence.md` registry, making it easy to search, reuse, and reference across items.
 
-- Project experience
-- Delivery assets
-- Accelerators
-- Frameworks
-- Certifications
-- Metrics
+Typical evidence types:
+
+- Project experience and past performance
+- Delivery assets and accelerators
+- Proprietary frameworks and platforms
+- Certifications and accreditations
+- Metrics and outcomes
 - Client references
 
+During Design, response authors select the most relevant evidence items from the registry and map them to specific response sections.
+
 ---
 
-## Reusable Response Patterns
+## Assumption Registry
 
-Recurring RFP topics can be captured as reusable patterns.
+Assumptions that underpin response content are captured in a single `assumptions.md` registry.
 
-Examples:
+Assumptions may be:
+
+- Scope assumptions (what is and is not included)
+- Delivery assumptions (staffing, timeline, environment)
+- Client assumptions (access, decisions, dependencies)
+- Technical assumptions (existing infrastructure, integrations)
+
+The registry ensures assumptions are visible, traceable, and consistently applied across all items. Unvalidated assumptions are flagged during Validate.
+
+---
+
+## Word Document Generation
+
+`final-submission.docx` is generated from `final-submission.md`.
+
+**Placeholder highlighting**
+
+Any text matching the placeholder convention `[PLACEHOLDER TEXT]` is automatically highlighted in yellow in the generated Word document, making unfilled placeholders immediately visible for review before submission.
+
+Example placeholders:
 
 ```text
-Security Pattern
-Transition Pattern
-Cloud Migration Pattern
-Data Governance Pattern
-Delivery Governance Pattern
-Architecture Pattern
-Knowledge Transfer Pattern
+[CLIENT AGENCY NAME]
+[CONTRACT NUMBER]
+[SUBMISSION DATE]
+[OFFEROR LEGAL NAME]
+[POINT OF CONTACT]
 ```
 
-Patterns improve quality and reduce response-development effort over time.
+**Standard Word styles**
 
----
+All content uses standard built-in Word style names. This means the document can be copied directly into any corporate RFP template and the content will adopt the template's styles automatically without manual reformatting.
+
+| Markdown element | Word style    |
+|------------------|---------------|
+| `# Heading`      | Heading 1     |
+| `## Heading`     | Heading 2     |
+| `### Heading`    | Heading 3     |
+| Body text        | Normal        |
+| Bullet list      | List Bullet   |
+| Numbered list    | List Number   |
+| Table            | Table Grid    |
+| Bold inline      | Strong        |
+| Code / verbatim  | Verbatim Char |
 
 # Family Frameworks
 
@@ -482,6 +554,10 @@ Design
 Respond
 ↓
 Validate
+↓
+Refine
+↓
+Assemble
 ```
 
 but specializes for a specific document type or business outcome.
