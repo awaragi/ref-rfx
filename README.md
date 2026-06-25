@@ -1,11 +1,6 @@
-# REF-RFP
-## Response Engineering Framework (REF) for RFPs
+# Response Engineering Framework (REF) for RFPs
 
-**Tagline:** *Explore. Decide. Respond.*
-
----
-
-# Framework Purpose
+## Framework Purpose
 
 REF-RFP is a specialized Response Engineering Framework designed to transform Request for Proposal (RFP) requirements into high-quality, compliant, differentiated, and evidence-based responses.
 
@@ -25,11 +20,9 @@ The primary objectives of REF-RFP are to:
 
 REF-RFP treats proposal development as an engineering discipline rather than a document-writing exercise.
 
----
+## Framework Approach
 
-# Framework Approach
-
-## Core Principle
+### Core Principle
 
 The foundation of REF-RFP is simple:
 
@@ -43,13 +36,11 @@ Requirements
 Draft Response
 ```
 
-REF-RFP applies a structured decision layer at the **item level** — each backlog item goes through its own Explore, Decide, and Design cycle before response content is produced. The framework supports two execution paths.
+REF-RFP applies a structured decision layer at the **item level** — each backlog item goes through its own Deliberate and Design cycle before response content is produced. The framework supports two execution paths. The lifecycle steps referenced in the diagrams below are defined in full under Framework Lifecycle.
 
----
+### Standard Path
 
-## Standard Path
-
-Each backlog item is fully cycled through Explore, Decide, Design, Respond, Validate, and Refine independently.
+Each backlog item is fully cycled through Deliberate, Design, Respond, Validate, and Refine independently.
 
 ```text
 Intake
@@ -59,10 +50,9 @@ Decompose → Backlog Items
 ┌──────────────────────────────────────────┐
 │  Per Item  (repeated for each item)      │
 │                                          │
-│  Explore ◄───────────────────────────┐   │
+│  Deliberate ◄────────────────────────┐   │
 │      ↓                               │   │
-│  Decide ─────────────────────────────┘   │
-│  (loop until decisions complete)         │
+│  (continue until decisions complete) ─┘   │
 │      ↓                                   │
 │  Design                                  │
 │      ↓                                   │
@@ -79,11 +69,9 @@ Assemble Final Submission
 final-submission.md · final-submission.docx
 ```
 
----
+### Big Bang
 
-## Big Bang
-
-All backlog items complete their Explore, Decide, and Design cycles first. Respond, Validate, and Refine are not separate steps — the Assemble step produces a response for each item missing a response from its design, then assembles all responses into the final submission, inserting placeholders for any items with no design.
+All backlog items complete their Deliberate and Design cycles first. Validate and Refine are not mandatory separate steps. Respond is embedded within Assemble — the Assemble step generates responses for any items that have a design but no response file, then produces the final submission, inserting placeholders for any items with no design.
 
 ```text
 Intake
@@ -93,10 +81,9 @@ Decompose → Backlog Items
 ┌──────────────────────────────────────────┐
 │  Per Item                                │
 │                                          │
-│  Explore ◄───────────────────────────┐   │
+│  Deliberate ◄────────────────────────┐   │
 │      ↓                               │   │
-│  Decide ─────────────────────────────┘   │
-│  (loop until decisions complete)         │
+│  (continue until decisions complete) ─┘   │
 │      ↓                                   │
 │  Design                                  │
 └──────────────────────────────────────────┘
@@ -109,15 +96,13 @@ final-submission.md · final-submission.docx
 
 Big Bang preserves decision quality while consolidating drafting, validation, and refinement into a single pursuit-level pass.
 
----
+### Framework Lifecycle
 
-## Framework Lifecycle
-
-### 1. Intake
+#### 1. Intake
 
 Capture and organize proposal materials.
 
-Typical inputs:
+**RFP documents** (`intake/rfp/`):
 
 - RFP documents
 - Appendices
@@ -125,26 +110,18 @@ Typical inputs:
 - Evaluation criteria
 - Mandatory requirements
 - Submission instructions
-- Client background information
 
-Supporting documentation:
+**Client background** (`intake/client/`):
 
-- Previous RFP responses and winning submissions
-- Corporate qualification documents and capability statements
-- Intellectual property documentation
-- Proprietary frameworks and methodologies
-- Platform and technology documentation
-- Certifications and accreditations
-- Case studies and past performance references
-- Reusable patterns and accelerators
+Background materials about the client organization to inform evaluator-centric thinking during Deliberate. Can include previous RFPs, previous responses, winning submissions from prior pursuits, annual reports, strategic plans, org charts, press releases, or any other client-relevant research.
 
-Output:
+**Supporting documentation** (`intake/supporting/`):
 
-- Structured pursuit workspace
+Corporate assets relevant to the RFP that will support deliberation — proprietary intellectual property, frameworks, methodologies, platforms, capability statements, certifications, accreditations, case studies, past performance references, and reusable delivery accelerators.
 
----
+Once intake materials are in place, the pursuit is ready for Decompose.
 
-### 2. Decompose
+#### 2. Decompose
 
 Break the solicitation into manageable backlog items.
 
@@ -165,11 +142,9 @@ Output:
 
 - `backlog.md`
 
----
+#### 3. Deliberate *(per backlog item)*
 
-### 3. Explore *(per backlog item)*
-
-Before writing, evaluate options for each backlog item independently.
+Explore options and record decisions for each backlog item. Deliberate loops — examining one angle, committing a decision, then re-entering to investigate the next — until the user is satisfied that all material decisions for the item are captured and complete.
 
 Key activities:
 
@@ -180,8 +155,9 @@ Key activities:
 - Define Quantifiable Value Adds (QVAs)
 - Assess risks
 - Select evidence strategies
+- Record decisions at global and item levels
 
-AI assistance is applicable throughout Explore. Based on the item requirements, the Global Decision Registry, previously made item decisions, and best industry practices, AI can propose:
+AI assistance is applicable throughout Deliberate. Based on the item requirements, the Global Decision Registry, previously made item decisions, and best industry practices, AI can propose:
 
 - Positioning options and recommended approach
 - Differentiators aligned with the pursuit's win themes
@@ -189,21 +165,7 @@ AI assistance is applicable throughout Explore. Based on the item requirements, 
 - Risk flags and mitigation strategies
 - Evidence and pattern recommendations from prior pursuits
 
-Proposed recommendations are reviewed and refined by the user before decisions are recorded. The user may cycle back to Explore at any point to investigate additional angles, test alternative positions, or gather more evidence before committing a decision.
-
-Output:
-
-- Explore findings (per item)
-- Recommendations (per item)
-- Strategic decisions (per item)
-
----
-
-### 4. Decide *(global decisions at pursuit level; item decisions per backlog item)*
-
-Record the selected approach at two levels.
-
-Explore and Decide operate as an iterative loop. The user explores an aspect, records a decision, and may then re-enter Explore to examine the next angle or revisit a prior one. This continues until the user is satisfied that all material decisions for the item are captured and complete.
+Proposed recommendations are reviewed and refined by the user before decisions are recorded.
 
 **Global decisions** are typically established early to anchor all item-level work, but can be introduced or revised at any point during the pursuit. When a new or updated global decision is added, it should be reapplied to any previously completed items to ensure consistency across the full response.
 
@@ -215,7 +177,7 @@ G-02 – Differentiate on integrated delivery model
 G-03 – Zero trust as the cross-cutting security posture
 ```
 
-**Item decisions** are scoped to a specific backlog item and made as each item is explored.
+**Item decisions** are scoped to a specific backlog item and made as each item is deliberated.
 
 Examples:
 
@@ -232,9 +194,7 @@ Output:
 - `registry.md` (global decisions)
 - `outputs/item-XX-decisions.md` (per-item decisions)
 
----
-
-### 5. Design *(per backlog item)*
+#### 4. Design *(per backlog item)*
 
 Convert each item's decisions into a response blueprint.
 
@@ -251,21 +211,19 @@ Output:
 
 - `outputs/item-XX-design.md`
 
----
-
-### 6. Respond *(Standard Path only)*
+#### 5. Respond *(Standard Path only)*
 
 Generate the draft response content for each backlog item.
 
-In the **Big Bang** path this step is not necessary — item response files are produced implicitly through the Design outputs and assembled by the Assemble step.
+In the **Big Bang** path, this step is not a standalone activity — item responses are generated by Assemble Stage 1 for any items that have a design but no response file.
 
-In the **Standard Path**, each item is responded to individually as its Explore/Decide/Design cycle completes. Response authors work from:
+In the **Standard Path**, each item is responded to individually as its Deliberate/Design cycle completes. Response authors work from:
 
 - Backlog item
 - Global Decision Registry
 - Item Decision Registry (`outputs/item-XX-decisions.md`)
 - Design document (`outputs/item-XX-design.md`)
-- Evidence Library
+- Evidence Registry
 
 Response files contain only the response body. All metadata is stored in the YAML frontmatter, including item reference, linked decisions, evidence citations, QVAs, word count target, and submission section mapping. Example:
 
@@ -287,13 +245,11 @@ Output:
 
 - `outputs/item-XX-response.md`
 
----
-
-### 7. Validate *(Standard Path only)*
+#### 6. Validate *(Standard Path only)*
 
 Validate each item's response content against its requirements and decisions.
 
-In the **Big Bang** path this step is not used — review happens on the generated final submission document directly.
+In the **Big Bang** path, this step is not a mandatory part of the flow — responses are generated during Assemble rather than individually. However, Validate can be applied to individual items at any point, followed by a re-Assemble to incorporate updates.
 
 In the **Standard Path**, each item is validated as its response is completed.
 
@@ -307,18 +263,11 @@ Validation areas include:
 - QVA completeness
 - Risk and assumptions review
 
-Output:
-
-- Review Findings (per item in Standard Path, or consolidated in Big Bang)
-- Compliance Assessment
-
----
-
-### 8. Refine *(Standard Path only)*
+#### 7. Refine *(Standard Path only)*
 
 Address review findings and finalize each item's response.
 
-In the **Big Bang** path this step is not used — refinement happens on the generated final submission document directly.
+In the **Big Bang** path, this step is not a mandatory part of the flow — refinement is typically done directly on the generated final submission. However, Refine can be applied to individual items at any point, followed by a re-Assemble to incorporate updates.
 
 In the **Standard Path**, each item is refined individually following its validation.
 
@@ -326,13 +275,11 @@ Output:
 
 - Refined item response files (`outputs/item-XX-response.md`)
 
----
-
-### 9. Assemble *(full pursuit)*
+#### 8. Assemble *(full pursuit)*
 
 Produce the final submission through three sequential stages.
 
-**Stage 1 — Respond for items missing a response**
+**Stage 1 — Auto-generate missing item responses**
 
 For every item in `backlog.md` that has a design document (`outputs/item-XX-design.md`) but no response file yet, the Respond step logic is applied to generate `outputs/item-XX-response.md`. Items that already have a response are left untouched.
 
@@ -348,9 +295,7 @@ All item response files are concatenated in backlog order into `outputs/final-su
 
 `final-submission.md` is converted to Word. All `[PLACEHOLDER TEXT]` spans are highlighted in yellow. Standard built-in Word styles are used throughout so the document can be copied directly into any corporate RFP template without reformatting.
 
----
-
-Assemble is safe to run at any point in the pursuit. In the **Standard Path** it can be run incrementally at any stage to produce a draft submission reflecting work done so far. In the **Big Bang** path it replaces the Respond, Validate, and Refine steps — teams work through Explore/Decide/Design for each item, then run Assemble once to produce the complete response, and review and refine directly on the generated documents.
+Assemble is safe to run at any point in the pursuit. In the **Standard Path** it can be run incrementally at any stage to produce a draft submission reflecting work done so far. In the **Big Bang** path, Assemble is the terminal step — Respond runs embedded within it, and Validate and Refine are not mandatory separate steps. Teams work through Deliberate and Design for each item, then run Assemble once to produce the complete response and review and refine directly on the generated documents. Validate and Refine can still be applied to individual items at any point, with Assemble re-run to incorporate the refined responses into an updated submission.
 
 Output:
 
@@ -358,9 +303,7 @@ Output:
 - `outputs/final-submission.md`
 - `outputs/final-submission.docx`
 
----
-
-# REF-RFP Repository Structure
+## Repository Structure
 
 The repository is designed as a downloadable starter kit. Teams clone or download a zip, populate the `intake/` folders with their RFP materials, and work through the framework using the provided files and templates as their starting point.
 
@@ -371,8 +314,9 @@ ref-rfp/
 ├── instructions.md
 │
 ├── intake/
-│   ├── rfp/                     ← drop RFP documents here
-│   └── supporting/              ← drop supporting docs here
+│   ├── rfp/                     ← RFP documents, appendices, SOW, evaluation criteria
+│   ├── client/                  ← client background, previous RFPs/responses, research
+│   └── supporting/              ← corporate IPs, frameworks, platforms, capabilities, certifications
 │
 ├── backlog.md                   ← full pursuit backlog
 ├── registry.md                  ← global decisions only
@@ -400,13 +344,11 @@ ref-rfp/
     └── item-response.md         ← per-item response template (body + frontmatter)
 ```
 
----
-
-# RFP-Specific Features
+## RFP-Specific Features
 
 REF-RFP contains practices specifically optimized for competitive procurement responses.
 
-## Evaluator-Centric Thinking
+### Evaluator-Centric Thinking
 
 Responses are designed around evaluator buying signals rather than supplier capabilities alone.
 
@@ -417,9 +359,7 @@ Questions addressed include:
 - What proof do they need to see?
 - What would earn full scoring?
 
----
-
-## Quantifiable Value Add (QVA) Strategy
+### Quantifiable Value Add (QVA) Strategy
 
 REF-RFP encourages identification of measurable value commitments that exceed mandatory requirements.
 
@@ -433,9 +373,7 @@ Examples:
 
 QVAs provide additional evaluator value and differentiation.
 
----
-
-## Decision Registry
+### Decision Registry
 
 The Decision Registry is a core REF-RFP artifact operating at two levels.
 
@@ -464,9 +402,7 @@ The registry provides:
 
 Decisions at both levels become organizational intellectual property that can be reused across future pursuits.
 
----
-
-## Evidence Registry
+### Evidence Registry
 
 REF-RFP distinguishes between:
 
@@ -487,9 +423,7 @@ Typical evidence types:
 
 During Design, response authors select the most relevant evidence items from the registry and map them to specific response sections.
 
----
-
-## Assumption Registry
+### Assumption Registry
 
 Assumptions that underpin response content are captured in a single `assumptions.md` registry.
 
@@ -502,9 +436,7 @@ Assumptions may be:
 
 The registry ensures assumptions are visible, traceable, and consistently applied across all items. Unvalidated assumptions are flagged during Validate.
 
----
-
-## Word Document Generation
+### Word Document Generation
 
 `final-submission.docx` is generated from `final-submission.md`.
 
@@ -538,16 +470,18 @@ All content uses standard built-in Word style names. This means the document can
 | Bold inline      | Strong        |
 | Code / verbatim  | Verbatim Char |
 
-# Family Frameworks
+## Family Frameworks
 
 REF-RFP is intended to be part of a broader family of Response Engineering Frameworks.
 
 Each framework shares the same core lifecycle:
 
 ```text
-Explore
+Intake
 ↓
-Decide
+Decompose
+↓
+Deliberate
 ↓
 Design
 ↓
@@ -562,22 +496,9 @@ Assemble
 
 but specializes for a specific document type or business outcome.
 
-## REF-RFP
+This document describes REF-RFP in full. The sibling frameworks below share the same lifecycle.
 
-**Purpose**
-
-Competitive procurement responses.
-
-**Primary Outputs**
-
-- RFP responses
-- RFQ responses
-- RFSQ responses
-- Vendor submissions
-
----
-
-## REF-SOW
+### REF-SOW
 
 **Purpose**
 
@@ -591,9 +512,7 @@ Statement of Work development and negotiation.
 - Assumptions and dependencies
 - Delivery commitments
 
----
-
-## REF-EA
+### REF-EA
 
 **Purpose**
 
@@ -607,9 +526,7 @@ Architecture and technology decision documentation.
 - Technology assessments
 - Modernization strategies
 
----
-
-## REF-Strategy
+### REF-Strategy
 
 **Purpose**
 
@@ -623,9 +540,7 @@ Strategic business and transformation recommendations.
 - Strategic assessments
 - Executive recommendations
 
----
-
-## REF-Procurement
+### REF-Procurement
 
 **Purpose**
 
@@ -638,9 +553,7 @@ Procurement planning and sourcing strategies.
 - Market assessments
 - Vendor selection approaches
 
----
-
-# Guiding Philosophy
+## Guiding Philosophy
 
 REF-RFP is built on a simple belief:
 
