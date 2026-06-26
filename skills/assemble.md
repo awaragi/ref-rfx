@@ -1,0 +1,59 @@
+---
+name: Assemble
+description: Produce the final submission from all item response files
+command: /assemble
+---
+
+# Skill: Assemble
+
+## Backlog Awareness
+
+Read `workspace/backlog.md` in full before proceeding. Assemble operates on the entire pursuit, not a single item.
+
+## Purpose
+
+Produce the final submission document through three sequential stages. Assemble is safe to run at any point — it generates responses for items with a design but no response, compiles all responses in order, and converts the result to Word.
+
+## Stage 1 — Auto-generate missing item responses
+
+For every item in `workspace/backlog.md` that has a design file (`workspace/items/item-XX-design.md`) but no response file (`workspace/items/item-XX-response.md`):
+
+1. Apply the Respond skill logic to generate the response.
+2. Write `workspace/items/item-XX-response.md`.
+3. Update the item status in `workspace/backlog.md` to `Validating`.
+
+Items that already have a response file are left untouched.
+
+## Stage 2 — Assemble `workspace/final-submission.md`
+
+1. Read all item response files in backlog order.
+2. Strip YAML frontmatter from each file.
+3. Concatenate responses into `workspace/final-submission.md`.
+4. For any item with no response file and no design file, insert a labelled placeholder:
+   ```
+   [RESPONSE PENDING: Item XX — Title]
+   ```
+
+## Stage 3 — Convert to `workspace/final-submission.docx`
+
+Convert `workspace/final-submission.md` to Word using the following conventions:
+
+| Markdown element | Word style |
+|---|---|
+| `# Heading` | Heading 1 |
+| `## Heading` | Heading 2 |
+| `### Heading` | Heading 3 |
+| Body text | Normal |
+| Bullet list | List Bullet |
+| Numbered list | List Number |
+| Table | Table Grid |
+| Bold inline | Strong |
+| Code / verbatim | Verbatim Char |
+
+Any text matching `[PLACEHOLDER TEXT]` or `[RESPONSE PENDING: ...]` must be highlighted in yellow in the Word output.
+
+## Output
+
+- `workspace/items/item-XX-response.md` (any newly generated item responses)
+- `workspace/final-submission.md`
+- `workspace/final-submission.docx`

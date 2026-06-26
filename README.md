@@ -98,11 +98,37 @@ Big Bang preserves decision quality while consolidating drafting, validation, an
 
 ### Framework Lifecycle
 
+#### 0. Init
+
+Set up the `workspace/` folder structure and copy starter files from `templates/`. Run once at the start of every new pursuit.
+
+Init creates the following if they do not already exist:
+
+```text
+workspace/
+├── intake/
+│   ├── rfp/
+│   ├── client/
+│   └── supporting/
+├── items/
+├── backlog.md        ← copied from templates/backlog.md
+├── registry.md       ← copied from templates/registry.md
+├── evidences.md      ← copied from templates/evidences.md
+└── assumptions.md    ← copied from templates/assumptions.md
+```
+
+Init is idempotent — it never overwrites files that already exist.
+
+Output:
+
+- Initialized `workspace/` structure
+- Starter files ready to populate
+
 #### 1. Intake
 
 Capture and organize proposal materials.
 
-**RFP documents** (`intake/rfp/`):
+**RFP documents** (`workspace/intake/rfp/`):
 
 - RFP documents
 - Appendices
@@ -111,11 +137,11 @@ Capture and organize proposal materials.
 - Mandatory requirements
 - Submission instructions
 
-**Client background** (`intake/client/`):
+**Client background** (`workspace/intake/client/`):
 
 Background materials about the client organization to inform evaluator-centric thinking during Deliberate. Can include previous RFPs, previous responses, winning submissions from prior pursuits, annual reports, strategic plans, org charts, press releases, or any other client-relevant research.
 
-**Supporting documentation** (`intake/supporting/`):
+**Supporting documentation** (`workspace/intake/supporting/`):
 
 Corporate assets relevant to the RFP that will support deliberation — proprietary intellectual property, frameworks, methodologies, platforms, capability statements, certifications, accreditations, case studies, past performance references, and reusable delivery accelerators.
 
@@ -140,7 +166,7 @@ Each item becomes an independently managed work package.
 
 Output:
 
-- `backlog.md`
+- `workspace/backlog.md`
 
 #### 3. Deliberate *(per backlog item)*
 
@@ -191,8 +217,8 @@ All decisions become authoritative guidance for all subsequent drafting activiti
 
 Output:
 
-- `registry.md` (global decisions)
-- `outputs/item-XX-decisions.md` (per-item decisions)
+- `workspace/registry.md` (global decisions)
+- `workspace/items/item-XX-decisions.md` (per-item decisions)
 
 #### 4. Design *(per backlog item)*
 
@@ -209,7 +235,7 @@ Key activities:
 
 Output:
 
-- `outputs/item-XX-design.md`
+- `workspace/items/item-XX-design.md`
 
 #### 5. Respond *(Standard Path only)*
 
@@ -221,8 +247,8 @@ In the **Standard Path**, each item is responded to individually as its Delibera
 
 - Backlog item
 - Global Decision Registry
-- Item Decision Registry (`outputs/item-XX-decisions.md`)
-- Design document (`outputs/item-XX-design.md`)
+- Item Decision Registry (`workspace/items/item-XX-decisions.md`)
+- Design document (`workspace/items/item-XX-design.md`)
 - Evidence Registry
 
 Response files contain only the response body. All metadata is stored in the YAML frontmatter, including item reference, linked decisions, evidence citations, QVAs, word count target, and submission section mapping. Example:
@@ -243,7 +269,7 @@ section_reference: "Section 4.2"
 
 Output:
 
-- `outputs/item-XX-response.md`
+- `workspace/items/item-XX-response.md`
 
 #### 6. Validate *(Standard Path only)*
 
@@ -273,7 +299,7 @@ In the **Standard Path**, each item is refined individually following its valida
 
 Output:
 
-- Refined item response files (`outputs/item-XX-response.md`)
+- Refined item response files (`workspace/items/item-XX-response.md`)
 
 #### 8. Assemble *(full pursuit)*
 
@@ -281,63 +307,134 @@ Produce the final submission through three sequential stages.
 
 **Stage 1 — Auto-generate missing item responses**
 
-For every item in `backlog.md` that has a design document (`outputs/item-XX-design.md`) but no response file yet, the Respond step logic is applied to generate `outputs/item-XX-response.md`. Items that already have a response are left untouched.
+For every item in `workspace/backlog.md` that has a design document (`workspace/items/item-XX-design.md`) but no response file yet, the Respond step logic is applied to generate `workspace/items/item-XX-response.md`. Items that already have a response are left untouched.
 
-**Stage 2 — Assemble `final-submission.md`**
+**Stage 2 — Assemble `workspace/final-submission.md`**
 
-All item response files are concatenated in backlog order into `outputs/final-submission.md`. YAML frontmatter is stripped from each file before inclusion. Items that have no response and no design receive a labelled placeholder:
+All item response files are concatenated in backlog order into `workspace/final-submission.md`. YAML frontmatter is stripped from each file before inclusion. Items that have no response and no design receive a labelled placeholder:
 
 ```text
 [RESPONSE PENDING: Item 01 – Corporate Qualifications]
 ```
 
-**Stage 3 — Convert to `final-submission.docx`**
+**Stage 3 — Convert to `workspace/final-submission.docx`**
 
-`final-submission.md` is converted to Word. All `[PLACEHOLDER TEXT]` spans are highlighted in yellow. Standard built-in Word styles are used throughout so the document can be copied directly into any corporate RFP template without reformatting.
+`workspace/final-submission.md` is converted to Word. All `[PLACEHOLDER TEXT]` spans are highlighted in yellow. Standard built-in Word styles are used throughout so the document can be copied directly into any corporate RFP template without reformatting.
 
 Assemble is safe to run at any point in the pursuit. In the **Standard Path** it can be run incrementally at any stage to produce a draft submission reflecting work done so far. In the **Big Bang** path, Assemble is the terminal step — Respond runs embedded within it, and Validate and Refine are not mandatory separate steps. Teams work through Deliberate and Design for each item, then run Assemble once to produce the complete response and review and refine directly on the generated documents. Validate and Refine can still be applied to individual items at any point, with Assemble re-run to incorporate the refined responses into an updated submission.
 
 Output:
 
-- `outputs/item-XX-response.md` (any newly generated item responses)
-- `outputs/final-submission.md`
-- `outputs/final-submission.docx`
+- `workspace/items/item-XX-response.md` (any newly generated item responses)
+- `workspace/final-submission.md`
+- `workspace/final-submission.docx`
+
+## AI Integration
+
+REF-RFP is designed to be driven by AI agents. Each lifecycle step is implemented as a discrete **skill** — a self-contained instruction set that an AI agent executes when invoked.
+
+### Skill Model
+
+Each lifecycle step maps to a skill file in `skills/`:
+
+| Lifecycle Step | Skill file | Command |
+|---|---|---|
+| Init | `skills/init.md` | `/init` |
+| Intake | `skills/intake.md` | `/intake` |
+| Decompose | `skills/decompose.md` | `/decompose` |
+| Deliberate | `skills/deliberate.md` | `/deliberate` |
+| Design | `skills/design.md` | `/design` |
+| Respond | `skills/respond.md` | `/respond` |
+| Validate | `skills/validate.md` | `/validate` |
+| Refine | `skills/refine.md` | `/refine` |
+| Assemble | `skills/assemble.md` | `/assemble` |
+
+Skills are backlog-aware. Each skill reads `backlog.md` at invocation to identify the current active item. Passing an explicit item number (e.g., `/deliberate item-03`) overrides this.
+
+### AI Modes
+
+REF-RFP supports two AI execution modes.
+
+#### File-Based AI Agents
+
+Claude Code, Cursor, and GitHub Copilot can access the repository filesystem directly. These agents read and write files as part of the workflow — decisions, designs, and responses are persisted to disk automatically across sessions. The AI picks up where it left off by reading the backlog and working files at the start of each session.
+
+Each tool reads from its own skills folder, synced from the canonical `skills/` via `scripts/sync-skills.sh`:
+
+| Tool | Skills path | Entry point |
+|---|---|---|
+| Claude Code | `.claude/skills/` | `CLAUDE.md` |
+| Cursor | `.cursor/skills/` | (reads `.cursor/skills/` directly) |
+| GitHub Copilot | `.github/skills/` | `AGENTS.md` |
+
+#### Stateless AI Chat
+
+Claude.ai, ChatGPT, GitHub Copilot Chat, and similar web interfaces have no filesystem access. State must be carried manually via file attachments between turns.
+
+Drop `AI-CHAT.md` into any chat window to activate the agent operating contract. Then attach the files relevant to your current task:
+
+- `INSTRUCTIONS.md` — always include
+- `backlog.md` — always include
+- `registry.md` — always include
+- `skills/[step].md` — the skill for the current step
+- Working files for the active item (`outputs/item-XX-decisions.md`, etc.)
+
+The `AI-CHAT.md` contract governs how the AI interacts: it prompts for any missing files and outputs all file changes as copy-paste-ready blocks with explicit instructions on where to apply them.
 
 ## Repository Structure
 
-The repository is designed as a downloadable starter kit. Teams clone or download a zip, populate the `intake/` folders with their RFP materials, and work through the framework using the provided files and templates as their starting point.
+The repository is designed as a downloadable starter kit. Teams clone or download a zip, run `/init` to scaffold the workspace, populate `workspace/intake/` with their RFP materials, and work through the framework step by step using the skills.
 
 ```text
 ref-rfp/
 │
 ├── README.md
-├── instructions.md
+├── INSTRUCTIONS.md              ← cross-cutting rules (voice, evidence, file conventions)
+├── CLAUDE.md                    ← Claude Code agent entry point
+├── AGENTS.md                    ← GitHub Copilot agent entry point
+├── AI-CHAT.md                   ← stateless chat AI operating contract
 │
-├── intake/
-│   ├── rfp/                     ← RFP documents, appendices, SOW, evaluation criteria
-│   ├── client/                  ← client background, previous RFPs/responses, research
-│   └── supporting/              ← corporate IPs, frameworks, platforms, capabilities, certifications
+├── skills/                      ← canonical skill definitions (one per lifecycle step)
+│   ├── intake.md
+│   ├── decompose.md
+│   ├── deliberate.md
+│   ├── design.md
+│   ├── respond.md
+│   ├── validate.md
+│   ├── refine.md
+│   └── assemble.md
 │
-├── backlog.md                   ← full pursuit backlog
-├── registry.md                  ← global decisions only
-├── evidence.md                  ← evidence registry
-├── assumptions.md               ← assumptions registry
-│
-├── outputs/                     ← all outputs (sorts by item number)
-│   ├── item-01-decisions.md     ← item decisions
-│   ├── item-01-design.md        ← item design/approach
-│   ├── item-01-response.md      ← item response (body + frontmatter)
-│   ├── item-02-decisions.md
-│   ├── item-02-design.md
-│   ├── item-02-response.md
-│   ├── ...
-│   ├── final-submission.md      ← merged final response
-│   └── final-submission.docx    ← Word document for submission
+├── .claude/
+│   └── skills/                  ← Claude Code slash commands (synced from skills/)
+├── .cursor/
+│   └── skills/                  ← Cursor skills (synced from skills/)
+├── .github/
+│   └── skills/                  ← GitHub Copilot skills (synced from skills/)
+││
+├── workspace/                   ← all pursuit working files and outputs
+│   ├── intake/
+│   │   ├── rfp/                 ← RFP documents, appendices, SOW, evaluation criteria
+│   │   ├── client/              ← client background, previous RFPs/responses, research
+│   │   └── supporting/          ← corporate IPs, frameworks, platforms, capabilities, certifications
+│   ├── backlog.md               ← full pursuit backlog
+│   ├── registry.md              ← global decision registry
+│   ├── evidences.md             ← evidence registry
+│   ├── assumptions.md           ← assumptions registry
+│   ├── final-submission.md      ← assembled final response
+│   ├── final-submission.docx    ← Word document for submission
+│   └── items/                   ← per-item working artifacts (sorted by item number)
+│       ├── item-01-decisions.md ← item decisions
+│       ├── item-01-design.md    ← item design/blueprint
+│       ├── item-01-response.md  ← item response (body + frontmatter)
+│       ├── item-02-decisions.md
+│       ├── item-02-design.md
+│       ├── item-02-response.md
+│       └── ...
 │
 └── templates/
     ├── backlog.md               ← backlog template
-    ├── registry.md              ← global decision registry template
-    ├── evidence.md              ← evidence registry template
+    ├── registry.md              ← global decision registry template (includes guiding principles)
+    ├── evidences.md             ← evidence registry template
     ├── assumptions.md           ← assumptions registry template
     ├── item-decisions.md        ← per-item decisions template
     ├── item-design.md           ← per-item design template
