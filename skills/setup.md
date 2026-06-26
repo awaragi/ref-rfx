@@ -1,14 +1,14 @@
 ---
-name: Init
+name: Setup
 description: Initialize the workspace folder structure and starter files for a new pursuit
-command: /init
+command: /setup
 ---
 
-# Skill: Init
+# Skill: Setup
 
 ## Purpose
 
-Set up the `workspace/` folder structure for a new pursuit and copy starter files from `templates/`. Init is idempotent — it never overwrites files that already exist, so it is safe to run at any time.
+Set up the `workspace/` folder structure for a new pursuit and copy starter files from `templates/`. Setup is idempotent — it never overwrites files that already exist, so it is safe to run at any time.
 
 ## Steps
 

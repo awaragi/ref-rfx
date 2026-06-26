@@ -98,11 +98,11 @@ Big Bang preserves decision quality while consolidating drafting, validation, an
 
 ### Framework Lifecycle
 
-#### 0. Init
+#### 0. Setup
 
 Set up the `workspace/` folder structure and copy starter files from `templates/`. Run once at the start of every new pursuit.
 
-Init creates the following if they do not already exist:
+Setup creates the following if they do not already exist:
 
 ```text
 workspace/
@@ -117,7 +117,7 @@ workspace/
 └── assumptions.md    ← copied from templates/assumptions.md
 ```
 
-Init is idempotent — it never overwrites files that already exist.
+Setup is idempotent — it never overwrites files that already exist.
 
 Output:
 
@@ -339,7 +339,7 @@ Each lifecycle step maps to a skill file in `skills/`:
 
 | Lifecycle Step | Skill file | Command |
 |---|---|---|
-| Init | `skills/init.md` | `/init` |
+| Setup | `skills/setup.md` | `/setup` |
 | Intake | `skills/intake.md` | `/intake` |
 | Decompose | `skills/decompose.md` | `/decompose` |
 | Deliberate | `skills/deliberate.md` | `/deliberate` |
@@ -383,7 +383,7 @@ The `AI-CHAT.md` contract governs how the AI interacts: it prompts for any missi
 
 ## Repository Structure
 
-The repository is designed as a downloadable starter kit. Teams clone or download a zip, run `/init` to scaffold the workspace, populate `workspace/intake/` with their RFP materials, and work through the framework step by step using the skills.
+The repository is designed as a downloadable starter kit. Teams clone or download a zip, run `/setup` to scaffold the workspace, populate `workspace/intake/` with their RFP materials, and work through the framework step by step using the skills.
 
 ```text
 ref-rfp/
