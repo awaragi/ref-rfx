@@ -47,6 +47,8 @@ Intake
     ↓
 Analyse
     ↓
+Catalogue → Evidence Registry
+    ↓
 Decompose → Backlog Items
     ↓
 Strategise → Global Decisions
@@ -81,6 +83,8 @@ All backlog items complete their Deliberate and Design cycles first. Validate an
 Intake
     ↓
 Analyse
+    ↓
+Catalogue → Evidence Registry
     ↓
 Decompose → Backlog Items
     ↓
@@ -177,6 +181,18 @@ Additional A-xx items are added based on what the specific RFx contains — ther
 Output:
 
 - `workspace/analysis.md`
+
+#### Catalogue
+
+Scan all intake folders and catalogue available supporting evidence into `workspace/evidences.md`.
+
+Catalogue reads every file in `workspace/intake/`. For each file it writes one E-XX entry containing a brief summary, evidence type, and a direct reference to the file path, giving the team a searchable registry of available evidence before deliberation begins.
+
+Catalogue validates that at least one intake folder contains files before proceeding.
+
+Output:
+
+- `workspace/evidences.md` — populated evidence registry with one entry per intake file
 
 #### Decompose
 
@@ -392,6 +408,7 @@ Each lifecycle step maps to a skill file in `skills/`:
 | Setup | `skills/setup.md` | `/setup` |
 | Intake | — | — |
 | Analyse | `skills/analyse.md` | `/analyse` |
+| Catalogue | `skills/catalogue.md` | `/catalogue` |
 | Decompose | `skills/decompose.md` | `/decompose` |
 | Strategise | `skills/strategise.md` | `/strategise` |
 | Deliberate | `skills/deliberate.md` | `/deliberate` |
@@ -448,6 +465,7 @@ ref-rfx/
 │
 ├── skills/                      ← canonical skill definitions (one per lifecycle step)
 │   ├── analyse.md
+│   ├── catalogue.md
 │   ├── decompose.md
 │   ├── deliberate.md
 │   ├── design.md
@@ -631,6 +649,8 @@ Each framework shares the same core lifecycle:
 Intake
 ↓
 Analyse
+↓
+Catalogue
 ↓
 Decompose
 ↓

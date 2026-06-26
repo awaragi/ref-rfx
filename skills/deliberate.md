@@ -8,7 +8,10 @@ command: /deliberate
 
 ## Backlog Awareness
 
-Read `workspace/backlog.md`. Without an explicit item argument, work on the first item with status `Not Started` or `Deliberating`. With an explicit item number (e.g. `/deliberate item-03`), work on that item regardless of status.
+Read `workspace/backlog.md`.
+
+- **With an explicit item argument** (e.g. `/deliberate item-03`): work on that item regardless of status.
+- **Without an explicit item argument**: identify the first item with status `Not Started` or `Deliberating` and ask the user to confirm before proceeding — e.g. *"I'll work on **Item 03 – Team Structure** (status: Not Started). Shall I proceed, or would you like to work on a different item?"* Wait for confirmation.
 
 Update the item status to `Deliberating` in `workspace/backlog.md` before proceeding.
 
@@ -16,7 +19,7 @@ Update the item status to `Deliberating` in `workspace/backlog.md` before procee
 
 Explore all material angles for a backlog item and record the decisions that will govern its design and response. Deliberate loops — one angle at a time — until the user is satisfied that all decisions are captured.
 
-Global cross-cutting decisions (win theme, delivery model, technology posture, alliances, etc.) are set by `/strategise` and stored in `workspace/registry.md`. Read them before starting — they are authoritative and must not be contradicted at the item level.
+Global cross-cutting decisions (win theme, delivery model, technology posture, alliances, etc.) are set by `/strategise` and stored in `workspace/registry.md`. Read them before starting — they are authoritative and should not be contradicted at the item level.
 
 ## Explore Loop
 
