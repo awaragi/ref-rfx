@@ -32,6 +32,16 @@ Decisions are written to files **as they are made** — not batched at the end o
 - If a decision is revised later in the conversation, update the file immediately — do not defer.
 - Files are always the current source of truth. The conversation is not.
 
+## Skill Order
+
+`/setup` → `/analyse` → `/decompose` → `/strategise` → `/deliberate` → `/design` → `/respond` → `/validate` → `/assemble`
+
+`/analyse` is optional but recommended before `/decompose`. `/refine` can be run at any point after `/respond`.
+
+## Skill Completion
+
+When a skill finishes, briefly confirm what was produced and name the next skill to run. Do not include a hardcoded script — adapt the message to what actually happened.
+
 ## Guiding Principles
 
 1. **File-first.** Every decision, design, and draft lives in a file — never in conversation memory.

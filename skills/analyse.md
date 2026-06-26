@@ -29,24 +29,11 @@ Read every file in `workspace/intake/rfx/` in full. Also read available files in
 
 ### 3. Write the Analysis Document
 
-If `workspace/analysis.md` already exists, read it first and update it in place rather than overwriting unchanged sections.
+If `workspace/analysis.md` does not exist, copy `templates/analysis.md` to `workspace/analysis.md` and populate it in place. If it already exists, read it first and update it in place rather than overwriting unchanged sections.
 
-If it does not exist, create it using `templates/analysis.md` as the base.
+`templates/analysis.md` defines the required baseline items and the per-item format. Each item must be substantive paragraph-form analysis — not a bullet summary. Write for a pursuit team member making strategic positioning decisions; be specific, cite RFx sections where relevant, and surface implications and recommendations where they are clear.
 
-Always include the six common baseline items A-01 through A-06. Add as many additional A-xx items as warranted by the specific RFx — there is no maximum. Each item must be substantive paragraph-form analysis, not a bullet summary. Write for a pursuit team member who will use this to make strategic positioning decisions. Be specific, cite RFx sections where relevant, and surface implications and recommendations where they are clear.
-
-**Common baseline items (always required):**
-
-| ID | Topic |
-|----|-------|
-| A-01 | Procurement Overview |
-| A-02 | Scope Summary |
-| A-03 | Evaluation Framework |
-| A-04 | Mandatory Requirements |
-| A-05 | Submission Requirements |
-| A-06 | Key Risks and Constraints |
-
-**Additional items — add as applicable to the specific RFx:**
+Add as many additional A-xx items as warranted by the specific RFx — there is no maximum. The following are illustrative; add, rename, or omit based on what the solicitation actually contains:
 
 | Example ID | Example Topic |
 |------------|---------------|
@@ -63,28 +50,13 @@ Always include the six common baseline items A-01 through A-06. Add as many addi
 | A-17 | Penalties, Liquidated Damages, and SLAs |
 | A-18 | Questioning Period and Clarification Procedure |
 
-The list above is illustrative. Add, rename, or omit additional items based on what the solicitation actually contains.
-
-Each A-xx item must follow this format:
-
-```
-### A-XX
-**Topic:** [Topic name]
-
-[One or more paragraphs of substantive analysis.]
-
----
-```
-
 ### 4. Update Pursuit Metadata
 
 Extract the pursuit name, issuer, and due date from the RFx documents. Update the YAML frontmatter of `workspace/analysis.md`. Confirm these values are consistent with `workspace/backlog.md` — flag any discrepancy to the user.
 
 ### 5. Confirm and Prompt Next Step
 
-Present a brief summary of the analysis items written. Then:
-
-> "Analysis complete. Review `workspace/analysis.md` for accuracy and add any comments before proceeding. When ready, run `/decompose` to break the solicitation into backlog items."
+Present a brief summary of the analysis items written.
 
 ## Output
 

@@ -12,18 +12,9 @@ Set the pursuit-wide strategic foundation before any item-level work begins. Str
 
 Strategise runs once per pursuit, after Decompose and before item-level Deliberate.
 
-## Inputs
-
-Read the following before starting:
-
-- `workspace/backlog.md` — pursuit metadata and full item list
-- `workspace/analysis.md` — solicitation intelligence (if produced by /analyse)
-- `workspace/registry.md` — current global decisions (may be empty or partially filled)
-- All files in `workspace/intake/` — solicitation documents, client background, supporting materials
-
 ## Explore Loop
 
-Work through the dimensions below **one question at a time**. Follow the interaction pattern in INSTRUCTIONS.md: present numbered suggestions ranked by strategic fit, wait for the user's response, then move to the next dimension.
+Also read `workspace/analysis.md` (if it exists) and all files in `workspace/intake/` before exploring dimensions. Then work through the dimensions below **one question at a time**, following the interaction pattern in INSTRUCTIONS.md.
 
 Dimensions to cover:
 
@@ -55,6 +46,4 @@ Use the G-XX entry format defined in `templates/registry.md`. Populate **Categor
 ## Notes
 
 - Strategise does not create or modify backlog items.
-- Any decision recorded here is authoritative for all subsequent item-level steps.
-- If a global decision needs to change later, update `workspace/registry.md` and reapply the change to any already-completed items.
-- Strategise can be re-run at any point in the pursuit to revisit or extend global decisions; re-running does not reset item-level work.
+- Strategise can be re-run at any point to revisit or extend global decisions; re-running does not reset item-level work.

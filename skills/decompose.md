@@ -6,28 +6,19 @@ command: /decompose
 
 # Skill: Decompose
 
-## Backlog Awareness
-
-Read `workspace/backlog.md` before proceeding.
-
 ## Purpose
 
 Validate available materials, analyze the solicitation, and break it into discrete, independently manageable backlog items.
 
 ## Step 1 — Intake Pre-Flight
 
-1. Verify the following intake folders exist (create any that are missing):
-   - `workspace/intake/rfx/` — RFx documents, appendices, SOW, evaluation criteria, mandatory requirements, submission instructions
-   - `workspace/intake/client/` — client background, prior RFxs, prior responses, annual reports, strategic plans, org charts
-   - `workspace/intake/supporting/` — corporate IPs, frameworks, platforms, certifications, case studies, past performance references
-
+1. Verify the following intake folders exist; create any that are missing:
+   - `workspace/intake/rfx/`
+   - `workspace/intake/client/`
+   - `workspace/intake/supporting/`
 2. List all files found in each folder and present to the user.
-
-3. For any folder that is empty or missing expected materials, flag it and ask the user whether:
-   - Materials will be added later (note as pending), or
-   - The category is not applicable for this pursuit
-
-4. `workspace/intake/rfx/` must contain at least one document to proceed. If it is empty, stop and ask the user to add RFx documents before continuing.
+3. For any non-rfx folder that is empty, flag it and ask whether materials will be added later or the category is not applicable.
+4. If `workspace/intake/rfx/` is empty, stop and ask the user to add RFx documents before continuing.
 
 ## Step 2 — Decompose into Backlog Items
 
@@ -55,20 +46,4 @@ Validate available materials, analyze the solicitation, and break it into discre
 
 - `workspace/backlog.md` — full backlog with all items at status `Not Started`
 
-## workspace/backlog.md Format
-
-```markdown
----
-pursuit: [Pursuit name]
-issuer: [Issuing organization]
-due_date: [Submission due date]
-created_date: [Today's date]
----
-
-# Backlog
-
-| # | Title | RFx Ref | Limit | Weight | Status |
-|---|-------|---------|-------|--------|--------|
-| 01 | [Title] | [Section X.X] | [X words] | [X%] | Not Started |
-| 02 | [Title] | [Section X.X] | — | [X%] | Not Started |
-```
+Copy `templates/backlog.md` to `workspace/backlog.md` (if it does not already exist), then populate the YAML frontmatter and table rows from the confirmed item list.

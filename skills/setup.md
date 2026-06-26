@@ -38,9 +38,7 @@ Replace all resolved placeholders and write the file. Do not ask the user for pu
 
 ### 3. Confirm and prompt next step
 
-Show the user the filled-in content for each updated file and ask if it looks correct. Then:
-
-> "Workspace is ready. Populate `workspace/intake/` with your RFx documents and supporting materials, then run `/decompose`. Pursuit metadata (name, issuer, due date) will be filled in automatically from the RFx documents."
+Show the user the filled-in content for each updated file and ask if it looks correct.
 
 ## Output
 
