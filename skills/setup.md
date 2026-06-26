@@ -31,15 +31,16 @@ Check for each required starter file. Copy from `templates/` only if the file do
 For each file that was just copied, scan for `<...>` placeholders and resolve them:
 
 - `<auto: description>` — fill automatically using the description, no question needed
+- Any placeholder that relates to pursuit metadata (pursuit name, issuer, due date, etc.) — leave as-is; these will be populated automatically by `/decompose` when the RFP documents are parsed
 - `<anything else>` — ask the user one question at a time, using the placeholder text as the basis for the question
 
-Replace all placeholders and write the file.
+Replace all resolved placeholders and write the file. Do not ask the user for pursuit metadata.
 
 ### 3. Confirm and prompt next step
 
 Show the user the filled-in content for each updated file and ask if it looks correct. Then:
 
-> "Workspace is ready. Populate `workspace/intake/` with your RFP documents and supporting materials, then run `/intake`."
+> "Workspace is ready. Populate `workspace/intake/` with your RFP documents and supporting materials, then run `/decompose`. Pursuit metadata (name, issuer, due date) will be filled in automatically from the RFP documents."
 
 ## Output
 

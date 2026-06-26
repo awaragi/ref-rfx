@@ -45,6 +45,8 @@ Each backlog item is fully cycled through Deliberate, Design, Respond, Validate,
 ```text
 Intake
     ↓
+Analyse
+    ↓
 Decompose → Backlog Items
     ↓
 ┌──────────────────────────────────────────┐
@@ -75,6 +77,8 @@ All backlog items complete their Deliberate and Design cycles first. Validate an
 
 ```text
 Intake
+    ↓
+Analyse
     ↓
 Decompose → Backlog Items
     ↓
@@ -145,9 +149,32 @@ Background materials about the client organization to inform evaluator-centric t
 
 Corporate assets relevant to the RFP that will support deliberation — proprietary intellectual property, frameworks, methodologies, platforms, capability statements, certifications, accreditations, case studies, past performance references, and reusable delivery accelerators.
 
-Once intake materials are in place, the pursuit is ready for Decompose.
+Once intake materials are in place, the pursuit is ready for Analyse.
 
-#### 2. Decompose
+#### 2. Analyse
+
+Read and analyse all RFP documents in full, then produce a structured `workspace/analysis.md` that captures the key intelligence from the solicitation.
+
+Analyse validates that `workspace/intake/rfp/` contains at least one document before proceeding.
+
+Analysis items are written in paragraph form as A-xx entries. Six common baseline items are always required:
+
+```text
+A-01 – Procurement Overview
+A-02 – Scope Summary
+A-03 – Evaluation Framework
+A-04 – Mandatory Requirements
+A-05 – Submission Requirements
+A-06 – Key Risks and Constraints
+```
+
+Additional A-xx items are added based on what the specific RFP contains — there is no maximum. Each item is substantive paragraph-form analysis written for strategic decision-making, not a bullet summary.
+
+Output:
+
+- `workspace/analysis.md`
+
+#### 3. Decompose
 
 Break the solicitation into manageable backlog items.
 
@@ -168,7 +195,7 @@ Output:
 
 - `workspace/backlog.md`
 
-#### 3. Deliberate *(per backlog item)*
+#### 4. Deliberate *(per backlog item)*
 
 Explore options and record decisions for each backlog item. Deliberate loops — examining one angle, committing a decision, then re-entering to investigate the next — until the user is satisfied that all material decisions for the item are captured and complete.
 
@@ -220,7 +247,7 @@ Output:
 - `workspace/registry.md` (global decisions)
 - `workspace/items/item-XX-decisions.md` (per-item decisions)
 
-#### 4. Design *(per backlog item)*
+#### 5. Design *(per backlog item)*
 
 Convert each item's decisions into a response blueprint.
 
@@ -237,7 +264,7 @@ Output:
 
 - `workspace/items/item-XX-design.md`
 
-#### 5. Respond *(Standard Path only)*
+#### 6. Respond *(Standard Path only)*
 
 Generate the draft response content for each backlog item.
 
@@ -271,7 +298,7 @@ Output:
 
 - `workspace/items/item-XX-response.md`
 
-#### 6. Validate *(Standard Path only)*
+#### 7. Validate *(Standard Path only)*
 
 Validate each item's response content against its requirements and decisions.
 
@@ -289,7 +316,7 @@ Validation areas include:
 - QVA completeness
 - Risk and assumptions review
 
-#### 7. Refine *(Standard Path only)*
+#### 8. Refine *(Standard Path only)*
 
 Address review findings and finalize each item's response.
 
@@ -301,7 +328,7 @@ Output:
 
 - Refined item response files (`workspace/items/item-XX-response.md`)
 
-#### 8. Assemble *(full pursuit)*
+#### 9. Assemble *(full pursuit)*
 
 Produce the final submission through three sequential stages.
 
@@ -340,7 +367,8 @@ Each lifecycle step maps to a skill file in `skills/`:
 | Lifecycle Step | Skill file | Command |
 |---|---|---|
 | Setup | `skills/setup.md` | `/setup` |
-| Intake | `skills/intake.md` | `/intake` |
+| Intake | — | — |
+| Analyse | `skills/analyse.md` | `/analyse` |
 | Decompose | `skills/decompose.md` | `/decompose` |
 | Deliberate | `skills/deliberate.md` | `/deliberate` |
 | Design | `skills/design.md` | `/design` |
@@ -395,7 +423,7 @@ ref-rfp/
 ├── AI-CHAT.md                   ← stateless chat AI operating contract
 │
 ├── skills/                      ← canonical skill definitions (one per lifecycle step)
-│   ├── intake.md
+│   ├── analyse.md
 │   ├── decompose.md
 │   ├── deliberate.md
 │   ├── design.md
@@ -417,6 +445,7 @@ ref-rfp/
 │   │   ├── client/              ← client background, previous RFPs/responses, research
 │   │   └── supporting/          ← corporate IPs, frameworks, platforms, capabilities, certifications
 │   ├── backlog.md               ← full pursuit backlog
+│   ├── analysis.md              ← RFP analysis (produced by /analyse)
 │   ├── registry.md              ← global decision registry
 │   ├── evidences.md             ← evidence registry
 │   ├── assumptions.md           ← assumptions registry
@@ -433,6 +462,7 @@ ref-rfp/
 │
 └── templates/
     ├── backlog.md               ← backlog template
+    ├── analysis.md              ← RFP analysis template
     ├── registry.md              ← global decision registry template (includes guiding principles)
     ├── evidences.md             ← evidence registry template
     ├── assumptions.md           ← assumptions registry template
