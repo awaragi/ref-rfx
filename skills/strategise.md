@@ -4,11 +4,13 @@ description: Explore pursuit-level options and record global cross-cutting decis
 command: /strategise
 ---
 
+**Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+
 # Skill: Strategise
 
 ## Purpose
 
-Set the pursuit-wide strategic foundation before any item-level work begins. Strategise explores the key cross-cutting dimensions of the pursuit and records the global decisions that will govern all subsequent Deliberate, Design, and Respond steps.
+Set the pursuit-wide strategic foundation before any item-level work begins. Strategise explores the key cross-cutting dimensions of the pursuit and records the global decisions that will govern all subsequent Deliberate, Design, and Draft steps.
 
 Strategise runs once per pursuit, after Decompose and before item-level Deliberate.
 

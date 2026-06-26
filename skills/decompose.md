@@ -4,6 +4,8 @@ description: Validate intake materials, then break the solicitation into backlog
 command: /decompose
 ---
 
+**Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+
 # Skill: Decompose
 
 ## Purpose

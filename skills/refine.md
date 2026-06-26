@@ -4,6 +4,8 @@ description: Apply review feedback and finalize an item response
 command: /refine
 ---
 
+**Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+
 # Skill: Refine
 
 ## Backlog Awareness

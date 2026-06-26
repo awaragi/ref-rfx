@@ -4,6 +4,8 @@ description: Scan intake folders and catalogue all supporting evidence files int
 command: /catalogue
 ---
 
+**Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+
 # Skill: Catalogue
 
 ## Purpose

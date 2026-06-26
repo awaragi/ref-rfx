@@ -1,14 +1,16 @@
 ---
-name: Respond
+name: Draft
 description: Generate draft response content for a backlog item
-command: /respond
+command: /draft
 ---
 
-# Skill: Respond
+**Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+
+# Skill: Draft
 
 ## Backlog Awareness
 
-Read `workspace/backlog.md`. Without an explicit item argument, work on the first item with status `Design Complete`. With an explicit item number (e.g. `/respond item-03`), work on that item regardless of status.
+Read `workspace/backlog.md`. Without an explicit item argument, work on the first item with status `Design Complete`. With an explicit item number (e.g. `/draft item-03`), work on that item regardless of status.
 
 Read `workspace/items/item-XX-decisions.md` and `workspace/items/item-XX-design.md` for the active item before writing a single word.
 

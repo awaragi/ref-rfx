@@ -4,6 +4,8 @@ description: Convert item decisions into a response blueprint
 command: /design
 ---
 
+**Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+
 # Skill: Design
 
 ## Backlog Awareness

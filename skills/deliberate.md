@@ -4,6 +4,8 @@ description: Explore options and record decisions for a backlog item
 command: /deliberate
 ---
 
+**Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+
 # Skill: Deliberate
 
 ## Backlog Awareness

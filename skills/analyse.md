@@ -4,6 +4,8 @@ description: Validate intake materials and produce a structured RFx analysis doc
 command: /analyse
 ---
 
+**Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+
 # Skill: Analyse
 
 ## Purpose

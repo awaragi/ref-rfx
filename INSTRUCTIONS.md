@@ -34,9 +34,9 @@ Decisions are written to files **as they are made** — not batched at the end o
 
 ## Skill Order
 
-`/setup` → `/analyse` → `/catalogue` → `/decompose` → `/strategise` → `/deliberate` → `/design` → `/respond` → `/validate` → `/assemble`
+`/setup` → `/analyse` → `/catalogue` → `/decompose` → `/strategise` → `/deliberate` → `/design` → `/draft` → `/validate` → `/assemble`
 
-`/analyse` is optional but recommended before `/decompose`. `/catalogue` runs after `/analyse` to populate the evidence registry from intake files before deliberation begins. `/refine` can be run at any point after `/respond`.
+`/analyse` is optional but recommended before `/decompose`. `/catalogue` runs after `/analyse` to populate the evidence registry from intake files before deliberation begins. `/refine` can be run at any point after `/draft`.
 
 ## Skill Completion
 

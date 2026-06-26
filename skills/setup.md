@@ -4,6 +4,8 @@ description: Initialize the workspace folder structure and starter files for a n
 command: /setup
 ---
 
+**Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+
 # Skill: Setup
 
 ## Purpose

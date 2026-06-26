@@ -4,6 +4,8 @@ description: Validate an item response against its requirements and decisions
 command: /validate
 ---
 
+**Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+
 # Skill: Validate
 
 ## Backlog Awareness

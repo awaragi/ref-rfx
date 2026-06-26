@@ -4,6 +4,8 @@ description: Produce the final submission from all item response files
 command: /assemble
 ---
 
+**Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+
 # Skill: Assemble
 
 ## Backlog Awareness
@@ -18,7 +20,7 @@ Produce the final submission document through three sequential stages. Assemble 
 
 For every item in `workspace/backlog.md` that has a design file (`workspace/items/item-XX-design.md`) but no response file (`workspace/items/item-XX-response.md`):
 
-1. Apply the Respond skill logic to generate the response.
+1. Apply the Draft skill logic to generate the response.
 2. Write `workspace/items/item-XX-response.md`.
 3. Update the item status in `workspace/backlog.md` to `Validating`.
 
