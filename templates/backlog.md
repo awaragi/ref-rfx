@@ -1,12 +1,11 @@
-# Backlog
-
-**Pursuit:** [Pursuit name]
-**Issuer:** [Issuing organization]
-**Due date:** [Submission date]
-**Status:** Not Started
-**Last updated:** [Date]
-
 ---
+pursuit: <Pursuit name>
+issuer: <Issuing organization>
+due_date: <Submission due date>
+last_updated: <auto: today's date>
+---
+
+# Backlog
 
 | # | Title | RFP Ref | Limit | Weight | Status |
 |---|-------|---------|-------|--------|--------|
