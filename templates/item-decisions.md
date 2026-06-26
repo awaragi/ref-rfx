@@ -1,10 +1,10 @@
-# Item [XX] — [Title] — Decisions
-
-**Status:** Deliberate Complete
-**RFP Reference:** [Section X.X, p. X]
-**Last updated:** [Date]
-
 ---
+rfp_reference: [Section X.X, p. X]
+item: "[XX]"
+title: "[Item title]"
+---
+
+# Item [XX] — [Title] — Decisions
 
 ## Evaluator Intent
 

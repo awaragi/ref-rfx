@@ -1,9 +1,12 @@
+---
+pursuit: <Pursuit name>
+issuer: <Issuing organization>
+due_date: <Submission due date>
+last_updated: <auto: today's date>
+---
+
 # Assumptions Registry
 
-**Pursuit:** [Pursuit name]
-**Last updated:** [Date]
-
----
 
 | ID | Category | Assumption | Status | Item(s) affected |
 |----|----------|-----------|--------|-----------------|

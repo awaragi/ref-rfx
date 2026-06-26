@@ -1,10 +1,10 @@
-# Item [XX] — [Title] — Design
-
-**Status:** Design Complete
-**Based on:** `workspace/items/item-XX-decisions.md`
-**Last updated:** [Date]
-
 ---
+rfp_reference: [Section X.X, p. X]
+item: "[XX]"
+title: "[Item title]"
+---
+
+# Item [XX] — [Title] — Design
 
 ## Core Narrative
 
