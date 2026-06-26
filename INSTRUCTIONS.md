@@ -13,6 +13,25 @@ Before taking any action, read these files in order:
 
 **Files are the single source of truth. Do not rely on prior conversation context.**
 
+## Interaction Pattern
+
+When exploring options or making any decision during Strategise or Deliberate steps:
+
+- Ask **one question at a time**. Never present multiple questions in a single turn.
+- For each question, present **3–5 numbered suggestions** (ranked by recommended strategic fit), each in one sentence.
+- Always add a final option: **[N+1]. Other** — allow the user to provide their own answer.
+- Wait for the user's response before moving to the next question.
+
+## Incremental Writing
+
+Decisions are written to files **as they are made** — not batched at the end of the conversation.
+
+- After each confirmed decision during Strategise, write it to `workspace/registry.md` immediately.
+- After each confirmed decision during Deliberate, write it to the item's decisions file immediately.
+- Do not wait until all dimensions are explored before writing anything.
+- If a decision is revised later in the conversation, update the file immediately — do not defer.
+- Files are always the current source of truth. The conversation is not.
+
 ## Guiding Principles
 
 1. **File-first.** Every decision, design, and draft lives in a file — never in conversation memory.

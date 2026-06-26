@@ -16,9 +16,11 @@ Update the item status to `Deliberating` in `workspace/backlog.md` before procee
 
 Explore all material angles for a backlog item and record the decisions that will govern its design and response. Deliberate loops — one angle at a time — until the user is satisfied that all decisions are captured.
 
+Global cross-cutting decisions (win theme, delivery model, technology posture, alliances, etc.) are set by `/strategise` and stored in `workspace/registry.md`. Read them before starting — they are authoritative and must not be contradicted at the item level.
+
 ## Explore Loop
 
-For each dimension below, ask **one question per turn**. Present the question with three recommended options (A / B / C, one sentence each, ranked by strategic fit) plus D. Other. Wait for the user's selection before moving to the next question.
+Follow the interaction pattern in INSTRUCTIONS.md: ask **one question per turn**, present **3–5 numbered suggestions** ranked by strategic fit, add **Other** as the final option, and wait for the user's response before proceeding.
 
 Dimensions to work through:
 
@@ -41,44 +43,4 @@ Once the user confirms, write the decisions file:
 
 ## item-XX-decisions.md Format
 
-```markdown
-# Item [XX] — [Title] — Decisions
-
-**Status:** Deliberate Complete  
-**RFx Reference:** [Section X.X]
-
----
-
-## Evaluator Intent
-
-[What the evaluator is buying and the risk they are managing]
-
-## Positioning
-
-[The chosen narrative angle and rationale]
-
-## Differentiators
-
-- [Differentiator 1]
-- [Differentiator 2]
-
-## Quantifiable Value Adds (QVAs)
-
-- [QVA 1 — measurable commitment]
-- [QVA 2]
-
-## Evidence Selected
-
-- [Evidence item from workspace/evidences.md]
-
-## Risks to Avoid
-
-- [Risk or landmine 1]
-
-## Decisions
-
-| ID | Decision |
-|----|----------|
-| D[XX]-01 | [Decision text] |
-| D[XX]-02 | [Decision text] |
-```
+Use `templates/item-decisions.md` as the file template. Populate all fields from the deliberation outcomes and set the YAML front matter (`item`, `title`, `rfx_reference`) accordingly.

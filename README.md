@@ -49,6 +49,8 @@ Analyse
     ↓
 Decompose → Backlog Items
     ↓
+Strategise → Global Decisions
+    ↓
 ┌──────────────────────────────────────────┐
 │  Per Item  (repeated for each item)      │
 │                                          │
@@ -82,6 +84,8 @@ Analyse
     ↓
 Decompose → Backlog Items
     ↓
+Strategise → Global Decisions
+    ↓
 ┌──────────────────────────────────────────┐
 │  Per Item                                │
 │                                          │
@@ -102,7 +106,7 @@ Big Bang preserves decision quality while consolidating drafting, validation, an
 
 ### Framework Lifecycle
 
-#### 0. Setup
+#### Setup
 
 Set up the `workspace/` folder structure and copy starter files from `templates/`. Run once at the start of every new pursuit.
 
@@ -128,7 +132,7 @@ Output:
 - Initialized `workspace/` structure
 - Starter files ready to populate
 
-#### 1. Intake
+#### Intake
 
 Capture and organize solicitation materials.
 
@@ -151,7 +155,7 @@ Corporate assets relevant to the RFx that will support deliberation — propriet
 
 Once intake materials are in place, the pursuit is ready for Analyse.
 
-#### 2. Analyse
+#### Analyse
 
 Read and analyse all RFx documents in full, then produce a structured `workspace/analysis.md` that captures the key intelligence from the solicitation.
 
@@ -174,7 +178,7 @@ Output:
 
 - `workspace/analysis.md`
 
-#### 3. Decompose
+#### Decompose
 
 Break the solicitation into manageable backlog items.
 
@@ -195,7 +199,26 @@ Output:
 
 - `workspace/backlog.md`
 
-#### 4. Deliberate *(per backlog item)*
+#### Strategise
+
+Set the pursuit-wide strategic foundation before any item-level work begins. Strategise explores the key cross-cutting dimensions of the pursuit and records the global decisions that will govern all subsequent Deliberate, Design, and Respond steps.
+
+Sample dimensions to work through:
+
+- **Win theme** — the single overarching message the evaluator should be left with
+- **Competitive positioning** — how to frame against likely competition
+- **Delivery model** — onshore, offshore, nearshore, or hybrid staffing posture
+- **Technology environment** — which platforms, tools, or tech stack to lead with
+- **Alliances and partnerships** — teaming arrangements, JVs, named subcontractors
+- **Response format and medium** — document only, oral presentation, or both
+- **Pricing posture** — competitive, value-based, or cost-optimization focus
+- **Risk posture** — performance guarantees, risk-sharing, or mitigation commitments
+
+Output:
+
+- `workspace/registry.md` (Global Decisions section, G-XX entries)
+
+#### Deliberate *(per backlog item)*
 
 Explore options and record decisions for each backlog item. Deliberate loops — examining one angle, committing a decision, then re-entering to investigate the next — until the user is satisfied that all material decisions for the item are captured and complete.
 
@@ -247,7 +270,7 @@ Output:
 - `workspace/registry.md` (global decisions)
 - `workspace/items/item-XX-decisions.md` (per-item decisions)
 
-#### 5. Design *(per backlog item)*
+#### Design *(per backlog item)*
 
 Convert each item's decisions into a response blueprint.
 
@@ -264,7 +287,7 @@ Output:
 
 - `workspace/items/item-XX-design.md`
 
-#### 6. Respond *(Standard Path only)*
+#### Respond *(Standard Path only)*
 
 Generate the draft response content for each backlog item.
 
@@ -298,7 +321,7 @@ Output:
 
 - `workspace/items/item-XX-response.md`
 
-#### 7. Validate *(Standard Path only)*
+#### Validate *(Standard Path only)*
 
 Validate each item's response content against its requirements and decisions.
 
@@ -316,7 +339,7 @@ Validation areas include:
 - QVA completeness
 - Risk and assumptions review
 
-#### 8. Refine *(Standard Path only)*
+#### Refine *(Standard Path only)*
 
 Address review findings and finalize each item's response.
 
@@ -328,7 +351,7 @@ Output:
 
 - Refined item response files (`workspace/items/item-XX-response.md`)
 
-#### 9. Assemble *(full pursuit)*
+#### Assemble *(full pursuit)*
 
 Produce the final submission through three sequential stages.
 
@@ -370,6 +393,7 @@ Each lifecycle step maps to a skill file in `skills/`:
 | Intake | — | — |
 | Analyse | `skills/analyse.md` | `/analyse` |
 | Decompose | `skills/decompose.md` | `/decompose` |
+| Strategise | `skills/strategise.md` | `/strategise` |
 | Deliberate | `skills/deliberate.md` | `/deliberate` |
 | Design | `skills/design.md` | `/design` |
 | Respond | `skills/respond.md` | `/respond` |
@@ -606,7 +630,11 @@ Each framework shares the same core lifecycle:
 ```text
 Intake
 ↓
+Analyse
+↓
 Decompose
+↓
+Strategise
 ↓
 Deliberate
 ↓
