@@ -1,9 +1,10 @@
-# Decision Registry
-
-**Pursuit:** [Pursuit name]
-**Last updated:** [Date]
-
 ---
+pursuit: <Pursuit name>
+issuer: <Issuing organization>
+due_date: <Submission due date>
+---
+
+# Decision Registry
 
 ## Standing Decisions
 
@@ -18,26 +19,44 @@ These decisions are pre-set for every pursuit and must not be overridden. They r
 | S-05 | Include at least 3 Quantifiable Value Adds (QVAs) per scored criterion | QVAs are the primary mechanism for achieving maximum scores |
 | S-06 | All items must reflect the win theme and pursuit-level global decisions | Inconsistency across items undermines the overall submission |
 
----
-
 ## Global Decisions
 
 Complete these before beginning any item-level work. When any global decision changes, reapply it to all previously completed items.
 
-| ID | Category | Decision | Rationale | Date |
-|----|----------|----------|-----------|------|
-| G-01 | Win theme | [The single overarching positioning message for this pursuit] | | |
-| G-02 | Differentiators | [The 2–3 firm-level differentiators that apply across all items] | | |
-| G-03 | Delivery posture | [Cross-cutting delivery approach, e.g. agile, fixed-price, phased] | | |
-| G-04 | Security posture | [Cross-cutting security and risk position] | | |
-| G-05 | Value theme | [Primary value story: cost, speed, risk reduction, or innovation] | | |
+_Format:_
+_**Category:** value_
+_**Decision:** value_
+_**Rationale:** value_
+
+### G-01
+**Category:** Win theme
+**Decision:** [The single overarching positioning message for this pursuit]
+**Rationale:**
 
 ---
 
-## Item-Level Decisions
+### G-02
+**Category:** Differentiators
+**Decision:** [The 2–3 firm-level differentiators that apply across all items]
+**Rationale:**
 
-Item decisions are stored in individual files under `workspace/items/item-XX-decisions.md` and cross-referenced here for traceability.
+---
 
-| Item | Decision ID | Summary |
-|------|-------------|---------|
-| [XX] | D[XX]-01 | [One-line summary] |
+### G-03
+**Category:** Delivery posture
+**Decision:** [Cross-cutting delivery approach, e.g. agile, fixed-price, phased]
+**Rationale:**
+
+---
+
+### G-04
+**Category:** Security posture
+**Decision:** [Cross-cutting security and risk position]
+**Rationale:**
+
+---
+
+### G-05
+**Category:** Value theme
+**Decision:** [Primary value story: cost, speed, risk reduction, or innovation]
+**Rationale:**

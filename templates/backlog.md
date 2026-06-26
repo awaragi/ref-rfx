@@ -2,7 +2,7 @@
 pursuit: <Pursuit name>
 issuer: <Issuing organization>
 due_date: <Submission due date>
-last_updated: <auto: today's date>
+created_date: <auto: today's date>
 ---
 
 # Backlog
