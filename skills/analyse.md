@@ -1,6 +1,6 @@
 ---
 name: Analyse
-description: Validate intake materials and produce a structured RFP analysis document
+description: Validate intake materials and produce a structured RFx analysis document
 command: /analyse
 ---
 
@@ -8,24 +8,24 @@ command: /analyse
 
 ## Purpose
 
-Validate that RFP documents are present, read all intake materials in full, and produce a structured `workspace/analysis.md` that captures the key intelligence from the solicitation.
+Validate that RFx documents are present, read all intake materials in full, and produce a structured `workspace/analysis.md` that captures the key intelligence from the solicitation.
 
-Analyse is a standalone research step. Its output is for the team's strategic understanding before Decompose breaks the solicitation into backlog items. Decompose reads the raw RFP files independently and does not depend on the analysis document.
+Analyse is a standalone research step. Its output is for the team's strategic understanding before Decompose breaks the solicitation into backlog items. Decompose reads the raw RFx files independently and does not depend on the analysis document.
 
 ## Steps
 
 ### 1. Validate Intake
 
-1. Check that `workspace/intake/rfp/` exists and contains at least one file.
-   - If empty or missing, stop and ask the user to add RFP documents before continuing.
+1. Check that `workspace/intake/rfx/` exists and contains at least one file.
+   - If empty or missing, stop and ask the user to add RFx documents before continuing.
 2. List all files found in each intake folder and present them to the user:
-   - `workspace/intake/rfp/`
+   - `workspace/intake/rfx/`
    - `workspace/intake/client/`
    - `workspace/intake/supporting/`
 
 ### 2. Read All Documents
 
-Read every file in `workspace/intake/rfp/` in full. Also read available files in `workspace/intake/client/` and `workspace/intake/supporting/` to enrich context.
+Read every file in `workspace/intake/rfx/` in full. Also read available files in `workspace/intake/client/` and `workspace/intake/supporting/` to enrich context.
 
 ### 3. Write the Analysis Document
 
@@ -33,7 +33,7 @@ If `workspace/analysis.md` already exists, read it first and update it in place 
 
 If it does not exist, create it using `templates/analysis.md` as the base.
 
-Always include the six common baseline items A-01 through A-06. Add as many additional A-xx items as warranted by the specific RFP — there is no maximum. Each item must be substantive paragraph-form analysis, not a bullet summary. Write for a pursuit team member who will use this to make strategic positioning decisions. Be specific, cite RFP sections where relevant, and surface implications and recommendations where they are clear.
+Always include the six common baseline items A-01 through A-06. Add as many additional A-xx items as warranted by the specific RFx — there is no maximum. Each item must be substantive paragraph-form analysis, not a bullet summary. Write for a pursuit team member who will use this to make strategic positioning decisions. Be specific, cite RFx sections where relevant, and surface implications and recommendations where they are clear.
 
 **Common baseline items (always required):**
 
@@ -46,7 +46,7 @@ Always include the six common baseline items A-01 through A-06. Add as many addi
 | A-05 | Submission Requirements |
 | A-06 | Key Risks and Constraints |
 
-**Additional items — add as applicable to the specific RFP:**
+**Additional items — add as applicable to the specific RFx:**
 
 | Example ID | Example Topic |
 |------------|---------------|
@@ -78,7 +78,7 @@ Each A-xx item must follow this format:
 
 ### 4. Update Pursuit Metadata
 
-Extract the pursuit name, issuer, and due date from the RFP documents. Update the YAML frontmatter of `workspace/analysis.md`. Confirm these values are consistent with `workspace/backlog.md` — flag any discrepancy to the user.
+Extract the pursuit name, issuer, and due date from the RFx documents. Update the YAML frontmatter of `workspace/analysis.md`. Confirm these values are consistent with `workspace/backlog.md` — flag any discrepancy to the user.
 
 ### 5. Confirm and Prompt Next Step
 
@@ -88,4 +88,4 @@ Present a brief summary of the analysis items written. Then:
 
 ## Output
 
-- `workspace/analysis.md` — structured RFP analysis document
+- `workspace/analysis.md` — structured RFx analysis document

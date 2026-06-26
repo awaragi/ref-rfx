@@ -17,8 +17,8 @@ Validate available materials, analyze the solicitation, and break it into discre
 ## Step 1 — Intake Pre-Flight
 
 1. Verify the following intake folders exist (create any that are missing):
-   - `workspace/intake/rfp/` — RFP documents, appendices, SOW, evaluation criteria, mandatory requirements, submission instructions
-   - `workspace/intake/client/` — client background, prior RFPs, prior responses, annual reports, strategic plans, org charts
+   - `workspace/intake/rfx/` — RFx documents, appendices, SOW, evaluation criteria, mandatory requirements, submission instructions
+   - `workspace/intake/client/` — client background, prior RFxs, prior responses, annual reports, strategic plans, org charts
    - `workspace/intake/supporting/` — corporate IPs, frameworks, platforms, certifications, case studies, past performance references
 
 2. List all files found in each folder and present to the user.
@@ -27,21 +27,21 @@ Validate available materials, analyze the solicitation, and break it into discre
    - Materials will be added later (note as pending), or
    - The category is not applicable for this pursuit
 
-4. `workspace/intake/rfp/` must contain at least one document to proceed. If it is empty, stop and ask the user to add RFP documents before continuing.
+4. `workspace/intake/rfx/` must contain at least one document to proceed. If it is empty, stop and ask the user to add RFx documents before continuing.
 
 ## Step 2 — Decompose into Backlog Items
 
-1. Read all documents in `workspace/intake/rfp/` in full.
+1. Read all documents in `workspace/intake/rfx/` in full.
 2. Identify all response sections, evaluation criteria, mandatory requirements, and any other components that require a written response.
 3. Surface any submission constraints (due date, page/word limits, file format) in conversation so the user is aware before backlog items are created.
-4. Compare any pursuit metadata extracted from the RFP documents (pursuit name, issuer, due date, etc.) against the values currently in `workspace/backlog.md`. If any values differ or were previously unknown, confirm the correct values with the user and then propagate the updates to the YAML frontmatter of every `.md` file in `workspace/` that contains the affected field.
+4. Compare any pursuit metadata extracted from the RFx documents (pursuit name, issuer, due date, etc.) against the values currently in `workspace/backlog.md`. If any values differ or were previously unknown, confirm the correct values with the user and then propagate the updates to the YAML frontmatter of every `.md` file in `workspace/` that contains the affected field.
 5. Propose a backlog item list to the user. For each item include:
    - Item number (zero-padded: `01`, `02`, ...)
    - Item title
-   - RFP reference (section, page)
+   - RFx reference (section, page)
    - Word or page limit (if specified)
    - Evaluation weighting (if specified)
-6. Always include standard RFP response documents in the proposed list if they are not already required by the solicitation. Suggest any that are appropriate for the pursuit and flag them as recommended additions:
+6. Always include standard RFx response documents in the proposed list if they are not already required by the solicitation. Suggest any that are appropriate for the pursuit and flag them as recommended additions:
    - Cover / transmittal letter
    - Executive summary
    - Table of contents
@@ -67,7 +67,7 @@ created_date: [Today's date]
 
 # Backlog
 
-| # | Title | RFP Ref | Limit | Weight | Status |
+| # | Title | RFx Ref | Limit | Weight | Status |
 |---|-------|---------|-------|--------|--------|
 | 01 | [Title] | [Section X.X] | [X words] | [X%] | Not Started |
 | 02 | [Title] | [Section X.X] | — | [X%] | Not Started |

@@ -45,7 +45,7 @@ Once the user confirms, write the decisions file:
 # Item [XX] — [Title] — Decisions
 
 **Status:** Deliberate Complete  
-**RFP Reference:** [Section X.X]
+**RFx Reference:** [Section X.X]
 
 ---
 

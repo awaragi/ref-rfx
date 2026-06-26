@@ -1,34 +1,34 @@
-# Response Engineering Framework (REF) for RFPs
+# Response Engineering Framework (REF) for RFxs
 
 ## Framework Purpose
 
-REF-RFP is a specialized Response Engineering Framework designed to transform Request for Proposal (RFP) requirements into high-quality, compliant, differentiated, and evidence-based responses.
+REF-RFX is a specialized Response Engineering Framework designed to transform solicitation requirements into high-quality, compliant, differentiated, and evidence-based responses.
 
-The framework addresses a common challenge in proposal development: teams often move directly from requirements analysis to drafting. This results in inconsistent positioning, weak differentiators, contradictory responses, and loss of institutional knowledge across pursuits.
+The framework addresses a common challenge in response development: teams often move directly from requirements analysis to drafting. This results in inconsistent positioning, weak differentiators, contradictory responses, and loss of institutional knowledge across pursuits.
 
-REF-RFP introduces a structured decision-making process between requirements and drafting. Rather than immediately writing a response, teams first explore options, evaluate alternatives, document decisions, establish a response strategy, and then generate response content based on those decisions.
+REF-RFX introduces a structured decision-making process between requirements and drafting. Rather than immediately writing a response, teams first explore options, evaluate alternatives, document decisions, establish a response strategy, and then generate response content based on those decisions.
 
-The primary objectives of REF-RFP are to:
+The primary objectives of REF-RFX are to:
 
-- Improve proposal quality and consistency.
+- Improve response quality and consistency.
 - Increase evaluator alignment and scoring potential.
 - Capture and reuse institutional knowledge.
 - Create traceability between requirements, decisions, and responses.
 - Enable repeatable response development across pursuits.
-- Reduce proposal risk through structured decision management.
+- Reduce pursuit risk through structured decision management.
 - Build reusable libraries of evidence, patterns, and differentiators.
 
-REF-RFP treats proposal development as an engineering discipline rather than a document-writing exercise.
+REF-RFX treats response development as an engineering discipline rather than a document-writing exercise.
 
 ## Framework Approach
 
 ### Core Principle
 
-The foundation of REF-RFP is simple:
+The foundation of REF-RFX is simple:
 
 > Good responses are produced by good decisions.
 
-Most proposal processes follow:
+Most response processes follow:
 
 ```text
 Requirements
@@ -36,7 +36,7 @@ Requirements
 Draft Response
 ```
 
-REF-RFP applies a structured decision layer at the **item level** — each backlog item goes through its own Deliberate and Design cycle before response content is produced. The framework supports two execution paths. The lifecycle steps referenced in the diagrams below are defined in full under Framework Lifecycle.
+REF-RFX applies a structured decision layer at the **item level** — each backlog item goes through its own Deliberate and Design cycle before response content is produced. The framework supports two execution paths. The lifecycle steps referenced in the diagrams below are defined in full under Framework Lifecycle.
 
 ### Standard Path
 
@@ -111,7 +111,7 @@ Setup creates the following if they do not already exist:
 ```text
 workspace/
 ├── intake/
-│   ├── rfp/
+│   ├── rfx/
 │   ├── client/
 │   └── supporting/
 ├── items/
@@ -130,11 +130,11 @@ Output:
 
 #### 1. Intake
 
-Capture and organize proposal materials.
+Capture and organize solicitation materials.
 
-**RFP documents** (`workspace/intake/rfp/`):
+**RFx documents** (`workspace/intake/rfx/`):
 
-- RFP documents
+- RFx documents
 - Appendices
 - Statements of Work
 - Evaluation criteria
@@ -143,19 +143,19 @@ Capture and organize proposal materials.
 
 **Client background** (`workspace/intake/client/`):
 
-Background materials about the client organization to inform evaluator-centric thinking during Deliberate. Can include previous RFPs, previous responses, winning submissions from prior pursuits, annual reports, strategic plans, org charts, press releases, or any other client-relevant research.
+Background materials about the client organization to inform evaluator-centric thinking during Deliberate. Can include previous RFxs, previous responses, winning submissions from prior pursuits, annual reports, strategic plans, org charts, press releases, or any other client-relevant research.
 
 **Supporting documentation** (`workspace/intake/supporting/`):
 
-Corporate assets relevant to the RFP that will support deliberation — proprietary intellectual property, frameworks, methodologies, platforms, capability statements, certifications, accreditations, case studies, past performance references, and reusable delivery accelerators.
+Corporate assets relevant to the RFx that will support deliberation — proprietary intellectual property, frameworks, methodologies, platforms, capability statements, certifications, accreditations, case studies, past performance references, and reusable delivery accelerators.
 
 Once intake materials are in place, the pursuit is ready for Analyse.
 
 #### 2. Analyse
 
-Read and analyse all RFP documents in full, then produce a structured `workspace/analysis.md` that captures the key intelligence from the solicitation.
+Read and analyse all RFx documents in full, then produce a structured `workspace/analysis.md` that captures the key intelligence from the solicitation.
 
-Analyse validates that `workspace/intake/rfp/` contains at least one document before proceeding.
+Analyse validates that `workspace/intake/rfx/` contains at least one document before proceeding.
 
 Analysis items are written in paragraph form as A-xx entries. Six common baseline items are always required:
 
@@ -168,7 +168,7 @@ A-05 – Submission Requirements
 A-06 – Key Risks and Constraints
 ```
 
-Additional A-xx items are added based on what the specific RFP contains — there is no maximum. Each item is substantive paragraph-form analysis written for strategic decision-making, not a bullet summary.
+Additional A-xx items are added based on what the specific RFx contains — there is no maximum. Each item is substantive paragraph-form analysis written for strategic decision-making, not a bullet summary.
 
 Output:
 
@@ -346,7 +346,7 @@ All item response files are concatenated in backlog order into `workspace/final-
 
 **Stage 3 — Convert to `workspace/final-submission.docx`**
 
-`workspace/final-submission.md` is converted to Word. All `[PLACEHOLDER TEXT]` spans are highlighted in yellow. Standard built-in Word styles are used throughout so the document can be copied directly into any corporate RFP template without reformatting.
+`workspace/final-submission.md` is converted to Word. All `[PLACEHOLDER TEXT]` spans are highlighted in yellow. Standard built-in Word styles are used throughout so the document can be copied directly into any corporate RFx template without reformatting.
 
 Assemble is safe to run at any point in the pursuit. In the **Standard Path** it can be run incrementally at any stage to produce a draft submission reflecting work done so far. In the **Big Bang** path, Assemble is the terminal step — Respond runs embedded within it, and Validate and Refine are not mandatory separate steps. Teams work through Deliberate and Design for each item, then run Assemble once to produce the complete response and review and refine directly on the generated documents. Validate and Refine can still be applied to individual items at any point, with Assemble re-run to incorporate the refined responses into an updated submission.
 
@@ -358,7 +358,7 @@ Output:
 
 ## AI Integration
 
-REF-RFP is designed to be driven by AI agents. Each lifecycle step is implemented as a discrete **skill** — a self-contained instruction set that an AI agent executes when invoked.
+REF-RFX is designed to be driven by AI agents. Each lifecycle step is implemented as a discrete **skill** — a self-contained instruction set that an AI agent executes when invoked.
 
 ### Skill Model
 
@@ -381,7 +381,7 @@ Skills are backlog-aware. Each skill reads `backlog.md` at invocation to identif
 
 ### AI Modes
 
-REF-RFP supports two AI execution modes.
+REF-RFX supports two AI execution modes.
 
 #### File-Based AI Agents
 
@@ -411,10 +411,10 @@ The `AI-CHAT.md` contract governs how the AI interacts: it prompts for any missi
 
 ## Repository Structure
 
-The repository is designed as a downloadable starter kit. Teams clone or download a zip, run `/setup` to scaffold the workspace, populate `workspace/intake/` with their RFP materials, and work through the framework step by step using the skills.
+The repository is designed as a downloadable starter kit. Teams clone or download a zip, run `/setup` to scaffold the workspace, populate `workspace/intake/` with their RFx materials, and work through the framework step by step using the skills.
 
 ```text
-ref-rfp/
+ref-rfx/
 │
 ├── README.md
 ├── INSTRUCTIONS.md              ← cross-cutting rules (voice, evidence, file conventions)
@@ -441,11 +441,11 @@ ref-rfp/
 ││
 ├── workspace/                   ← all pursuit working files and outputs
 │   ├── intake/
-│   │   ├── rfp/                 ← RFP documents, appendices, SOW, evaluation criteria
-│   │   ├── client/              ← client background, previous RFPs/responses, research
+│   │   ├── rfx/                 ← RFx documents, appendices, SOW, evaluation criteria
+│   │   ├── client/              ← client background, previous RFxs/responses, research
 │   │   └── supporting/          ← corporate IPs, frameworks, platforms, capabilities, certifications
 │   ├── backlog.md               ← full pursuit backlog
-│   ├── analysis.md              ← RFP analysis (produced by /analyse)
+│   ├── analysis.md              ← RFx analysis (produced by /analyse)
 │   ├── registry.md              ← global decision registry
 │   ├── evidences.md             ← evidence registry
 │   ├── assumptions.md           ← assumptions registry
@@ -462,7 +462,7 @@ ref-rfp/
 │
 └── templates/
     ├── backlog.md               ← backlog template
-    ├── analysis.md              ← RFP analysis template
+    ├── analysis.md              ← RFx analysis template
     ├── registry.md              ← global decision registry template (includes guiding principles)
     ├── evidences.md             ← evidence registry template
     ├── assumptions.md           ← assumptions registry template
@@ -471,9 +471,9 @@ ref-rfp/
     └── item-response.md         ← per-item response template (body + frontmatter)
 ```
 
-## RFP-Specific Features
+## RFx-Specific Features
 
-REF-RFP contains practices specifically optimized for competitive procurement responses.
+REF-RFX contains practices specifically optimized for competitive procurement responses.
 
 ### Evaluator-Centric Thinking
 
@@ -488,7 +488,7 @@ Questions addressed include:
 
 ### Quantifiable Value Add (QVA) Strategy
 
-REF-RFP encourages identification of measurable value commitments that exceed mandatory requirements.
+REF-RFX encourages identification of measurable value commitments that exceed mandatory requirements.
 
 Examples:
 
@@ -502,7 +502,7 @@ QVAs provide additional evaluator value and differentiation.
 
 ### Decision Registry
 
-The Decision Registry is a core REF-RFP artifact operating at two levels.
+The Decision Registry is a core REF-RFX artifact operating at two levels.
 
 **Global Decisions** capture pursuit-wide choices that apply across all items:
 
@@ -531,7 +531,7 @@ Decisions at both levels become organizational intellectual property that can be
 
 ### Evidence Registry
 
-REF-RFP distinguishes between:
+REF-RFX distinguishes between:
 
 - Claims
 - Evidence
@@ -583,7 +583,7 @@ Example placeholders:
 
 **Standard Word styles**
 
-All content uses standard built-in Word style names. This means the document can be copied directly into any corporate RFP template and the content will adopt the template's styles automatically without manual reformatting.
+All content uses standard built-in Word style names. This means the document can be copied directly into any corporate RFx template and the content will adopt the template's styles automatically without manual reformatting.
 
 | Markdown element | Word style    |
 |------------------|---------------|
@@ -599,7 +599,7 @@ All content uses standard built-in Word style names. This means the document can
 
 ## Family Frameworks
 
-REF-RFP is intended to be part of a broader family of Response Engineering Frameworks.
+REF-RFX is intended to be part of a broader family of Response Engineering Frameworks.
 
 Each framework shares the same core lifecycle:
 
@@ -623,7 +623,7 @@ Assemble
 
 but specializes for a specific document type or business outcome.
 
-This document describes REF-RFP in full. The sibling frameworks below share the same lifecycle.
+This document describes REF-RFX in full. The sibling frameworks below share the same lifecycle.
 
 ### REF-SOW
 
@@ -682,10 +682,10 @@ Procurement planning and sourcing strategies.
 
 ## Guiding Philosophy
 
-REF-RFP is built on a simple belief:
+REF-RFX is built on a simple belief:
 
 > Strong responses are not written.
 >
 > Strong responses are engineered.
 
-By systematically exploring options, documenting decisions, designing response strategies, and validating outcomes, organizations can produce higher-quality, more consistent, and more reusable proposal responses while continuously building institutional knowledge for future pursuits.
+By systematically exploring options, documenting decisions, designing response strategies, and validating outcomes, organizations can produce higher-quality, more consistent, and more reusable responses while continuously building institutional knowledge for future pursuits.

@@ -5,19 +5,19 @@ due_date: <Submission due date>
 created_date: <auto: today's date>
 ---
 
-# RFP Analysis
+# RFx Analysis
 
 ### A-01
 **Topic:** Procurement Overview
 
-[Describe the procurement type (RFP, RFQ, RFSO, IDIQ call-up, etc.), issuing organization, contract vehicle, estimated contract value, submission deadline, and the stated purpose of the solicitation. Include contract term and any renewal options. Note the issuing authority and any co-issuing or partnering departments.]
+[Describe the procurement type (RFx, RFQ, RFSO, IDIQ call-up, etc.), issuing organization, contract vehicle, estimated contract value, submission deadline, and the stated purpose of the solicitation. Include contract term and any renewal options. Note the issuing authority and any co-issuing or partnering departments.]
 
 ---
 
 ### A-02
 **Topic:** Scope Summary
 
-[Describe what is being procured: key deliverables, major service or solution areas, geographic scope, user population, and any notable exclusions or out-of-scope items. Reference the relevant RFP sections. Identify what "done" looks like from the client's perspective.]
+[Describe what is being procured: key deliverables, major service or solution areas, geographic scope, user population, and any notable exclusions or out-of-scope items. Reference the relevant RFx sections. Identify what "done" looks like from the client's perspective.]
 
 ---
 
@@ -49,7 +49,7 @@ created_date: <auto: today's date>
 
 ---
 
-<!-- Add A-07, A-08, ... as needed for RFP-specific findings.
+<!-- Add A-07, A-08, ... as needed for RFx-specific findings.
      Examples: Incumbent and Competitive Landscape, Client Strategic Priorities,
      Technical Environment, Transition Requirements, Key Personnel Requirements,
      Pricing Structure, Timeline and Milestones.

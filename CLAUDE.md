@@ -1,4 +1,4 @@
-# Claude Code — REF-RFP Agent
+# Claude Code — REF-RFX Agent
 
 Read [`INSTRUCTIONS.md`](./INSTRUCTIONS.md) before taking any action in this repository.
 

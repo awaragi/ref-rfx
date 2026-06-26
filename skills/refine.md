@@ -23,7 +23,7 @@ Address validation findings and finalize the item response. Refine is the implem
 1. Read all review notes in `workspace/items/item-XX-response.md` (`## Review` and `## Human Review Notes` sections).
 2. Summarize the changes you will make and confirm with the user before editing.
 3. Apply all changes to the response draft.
-4. Re-read the RFP requirements, decisions file, and design file to verify nothing was inadvertently dropped.
+4. Re-read the RFx requirements, decisions file, and design file to verify nothing was inadvertently dropped.
 5. Present the refined draft to the user.
 6. If the user approves, add `**Status: APPROVED**` to the top of the response file and update `workspace/backlog.md` to `Approved`.
 7. If the user has further feedback, iterate — repeat from step 2.

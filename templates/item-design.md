@@ -1,5 +1,5 @@
 ---
-rfp_reference: [Section X.X, p. X]
+rfx_reference: [Section X.X, p. X]
 item: "[XX]"
 title: "[Item title]"
 ---

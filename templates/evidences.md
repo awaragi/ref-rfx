@@ -1,5 +1,5 @@
 ---
-rfp_reference: [Section X.X, p. X]
+rfx_reference: [Section X.X, p. X]
 item: "[XX]"
 title: "[Item title]"
 ---
@@ -37,7 +37,7 @@ Certification
 
 ### Description
 
-[Describe the certification scope, level, and relevance to the pursuit. Note any accrediting body, expiry, or coverage area that strengthens the proposal.]
+[Describe the certification scope, level, and relevance to the pursuit. Note any accrediting body, expiry, or coverage area that strengthens the response.]
 
 ## E-03
 

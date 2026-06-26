@@ -1,4 +1,4 @@
-# GitHub Copilot — REF-RFP Agent
+# GitHub Copilot — REF-RFX Agent
 
 Read [`INSTRUCTIONS.md`](./INSTRUCTIONS.md) before taking any action in this repository.
 

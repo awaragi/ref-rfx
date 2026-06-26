@@ -1,4 +1,4 @@
-# REF-RFP — Process Rules
+# REF-RFX — Process Rules
 
 Cross-cutting rules that apply to all skills and all AI agents working in this repository.
 
@@ -32,7 +32,7 @@ Update `workspace/backlog.md` at every phase transition. Log every significant p
 | Artifact | Path |
 |----------|------|
 | Backlog | `workspace/backlog.md` |
-| RFP analysis | `workspace/analysis.md` |
+| RFx analysis | `workspace/analysis.md` |
 | Global decisions | `workspace/registry.md` |
 | Evidence | `workspace/evidences.md` |
 | Assumptions | `workspace/assumptions.md` |

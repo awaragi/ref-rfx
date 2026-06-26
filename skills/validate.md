@@ -18,9 +18,9 @@ Produce a structured critique of the item response. Validation is a loop — AI 
 
 ## AI Automated Review
 
-Re-read the relevant RFP section, the decisions file, the design file, and the response draft, then produce a structured review covering:
+Re-read the relevant RFx section, the decisions file, the design file, and the response draft, then produce a structured review covering:
 
-1. **Compliance** — does the response address every stated RFP requirement for this item?
+1. **Compliance** — does the response address every stated RFx requirement for this item?
 2. **Decision alignment** — does the response reflect every decision in the decisions file?
 3. **Design alignment** — does the response follow the structure and section direction in the design file?
 4. **Evidence coverage** — are all selected evidence items used? Are claims substantiated?

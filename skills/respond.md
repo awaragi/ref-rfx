@@ -22,7 +22,7 @@ Generate the draft response body for the item, working strictly from the design 
 
 - Write in first-person plural ("we")
 - Respect word or page limits identified during Deliberate
-- Every significant claim must be backed by a named project, metric, methodology, or RFP-aligned outcome
+- Every significant claim must be backed by a named project, metric, methodology, or RFx-aligned outcome
 - Forbidden phrases: "world-class", "cutting-edge", "seamless", "robust", "synergies", "leveraging"
 - Follow the structure defined in the design file exactly
 - Place QVAs explicitly within the relevant section
