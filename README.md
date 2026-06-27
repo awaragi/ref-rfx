@@ -40,7 +40,7 @@ REF-RFX applies a structured decision layer at the **item level** — each backl
 
 ### Standard Path
 
-Each backlog item is fully cycled through Deliberate, Design, Draft, Validate, and Refine independently.
+Each backlog item is fully cycled through Deliberate, Design, Draft, and Refine independently.
 
 ```text
 Intake
@@ -64,8 +64,6 @@ Strategise → Global Decisions
 │      ↓                                   │
 │  Draft                                   │
 │      ↓                                   │
-│  Validate                                │
-│      ↓                                   │
 │  Refine                                  │
 └──────────────────────────────────────────┘
     ↓
@@ -77,7 +75,7 @@ final-submission.md · final-submission.docx
 
 ### Big Bang
 
-All backlog items complete their Deliberate and Design cycles first. Validate and Refine are not mandatory separate steps. Draft is embedded within Assemble — the Assemble step generates responses for any items that have a design but no response file, then produces the final submission, inserting placeholders for any items with no design.
+All backlog items complete their Deliberate and Design cycles first. Refine is not a mandatory separate step. Draft is embedded within Assemble — the Assemble step generates responses for any items that have a design but no response file, then produces the final submission, inserting placeholders for any items with no design.
 
 ```text
 Intake
@@ -106,7 +104,7 @@ Assemble Final Submission
 final-submission.md · final-submission.docx
 ```
 
-Big Bang preserves decision quality while consolidating drafting, validation, and refinement into a single pursuit-level pass.
+Big Bang preserves decision quality while consolidating drafting and refinement into a single pursuit-level pass.
 
 ### Framework Lifecycle
 
@@ -217,7 +215,7 @@ Output:
 
 #### Strategise
 
-Set the pursuit-wide strategic foundation before any item-level work begins. Strategise explores the key cross-cutting dimensions of the pursuit and records the global decisions that will govern all subsequent Deliberate, Design, and Draft steps.
+Set the pursuit-wide strategic foundation before any item-level work begins. Strategise explores the key cross-cutting dimensions of the pursuit and records the global decisions that will govern all subsequent Deliberate, Design, Draft, and Refine steps.
 
 Sample dimensions to work through:
 
@@ -337,35 +335,15 @@ Output:
 
 - `workspace/items/item-XX-response.md`
 
-#### Validate *(Standard Path only)*
+#### Refine *(per backlog item)*
 
-Validate each item's response content against its requirements and decisions.
+Review and finalize each item's response. Refine absorbs the full review loop — choose between automated AI critique across 8 dimensions (compliance, decision alignment, design alignment, evidence coverage, QVA completeness, evaluator alignment, cross-item consistency, suggested edits) or manual feedback. Apply changes and iterate until sign-off. Item status stays `Drafted` throughout and transitions to `Approved` on sign-off.
 
-In the **Big Bang** path, this step is not a mandatory part of the flow — responses are generated during Assemble rather than individually. However, Validate can be applied to individual items at any point, followed by a re-Assemble to incorporate updates.
-
-In the **Standard Path**, each item is validated as its response is completed.
-
-Validation areas include:
-
-- Compliance
-- Evaluator alignment
-- Decision consistency
-- Evidence coverage
-- Differentiator coverage
-- QVA completeness
-- Risk and assumptions review
-
-#### Refine *(Standard Path only)*
-
-Address review findings and finalize each item's response.
-
-In the **Big Bang** path, this step is not a mandatory part of the flow — refinement is typically done directly on the generated final submission. However, Refine can be applied to individual items at any point, followed by a re-Assemble to incorporate updates.
-
-In the **Standard Path**, each item is refined individually following its validation.
+In the **Big Bang** path, Refine is not a mandatory separate step — teams refine directly on the generated final submission. However, Refine can be applied to individual items at any point, followed by a re-Assemble to incorporate updates.
 
 Output:
 
-- Refined item response files (`workspace/items/item-XX-response.md`)
+- `workspace/items/item-XX-response.md` (approved)
 
 #### Assemble *(full pursuit)*
 
@@ -387,7 +365,7 @@ All item response files are concatenated in backlog order into `workspace/final-
 
 `workspace/final-submission.md` is converted to Word. All `[PLACEHOLDER TEXT]` spans are highlighted in yellow. Standard built-in Word styles are used throughout so the document can be copied directly into any corporate RFx template without reformatting.
 
-Assemble is safe to run at any point in the pursuit. In the **Standard Path** it can be run incrementally at any stage to produce a draft submission reflecting work done so far. In the **Big Bang** path, Assemble is the terminal step — Draft runs embedded within it, and Validate and Refine are not mandatory separate steps. Teams work through Deliberate and Design for each item, then run Assemble once to produce the complete response and review and refine directly on the generated documents. Validate and Refine can still be applied to individual items at any point, with Assemble re-run to incorporate the refined responses into an updated submission.
+Assemble is safe to run at any point in the pursuit. In the **Standard Path** it can be run incrementally at any stage to produce a draft submission reflecting work done so far. In the **Big Bang** path, Assemble is the terminal step — Draft runs embedded within it, and Refine is not a mandatory separate step. Teams work through Deliberate and Design for each item, then run Assemble once to produce the complete response and refine directly on the generated documents. Refine can still be applied to individual items at any point, with Assemble re-run to incorporate the refined responses into an updated submission.
 
 Output:
 
@@ -414,7 +392,6 @@ Each lifecycle step maps to a skill file in `skills/`:
 | Deliberate | `skills/deliberate.md` | `/deliberate` |
 | Design | `skills/design.md` | `/design` |
 | Draft | `skills/draft.md` | `/draft` |
-| Validate | `skills/validate.md` | `/validate` |
 | Refine | `skills/refine.md` | `/refine` |
 | Assemble | `skills/assemble.md` | `/assemble` |
 
@@ -470,7 +447,6 @@ ref-rfx/
 │   ├── deliberate.md
 │   ├── design.md
 │   ├── draft.md
-│   ├── validate.md
 │   ├── refine.md
 │   └── assemble.md
 │
@@ -603,7 +579,7 @@ Assumptions may be:
 - Client assumptions (access, decisions, dependencies)
 - Technical assumptions (existing infrastructure, integrations)
 
-The registry ensures assumptions are visible, traceable, and consistently applied across all items. Unvalidated assumptions are flagged during Validate.
+The registry ensures assumptions are visible, traceable, and consistently applied across all items. Unvalidated assumptions are flagged during Refine.
 
 ### Word Document Generation
 
@@ -661,8 +637,6 @@ Deliberate
 Design
 ↓
 Draft
-↓
-Validate
 ↓
 Refine
 ↓

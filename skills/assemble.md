@@ -10,7 +10,7 @@ command: /assemble
 
 ## Backlog Awareness
 
-Read `workspace/backlog.md` in full before proceeding. Assemble operates on the entire pursuit, not a single item.
+Read `workspace/backlog.md` in full before proceeding. Assemble operates on the entire pursuit, not a single item. It includes all items with a response file regardless of status.
 
 ## Purpose
 
@@ -22,13 +22,13 @@ For every item in `workspace/backlog.md` that has a design file (`workspace/item
 
 1. Apply the Draft skill logic to generate the response.
 2. Write `workspace/items/item-XX-response.md`.
-3. Update the item status in `workspace/backlog.md` to `Validating`.
+3. Update the item status in `workspace/backlog.md` to `Drafted`.
 
 Items that already have a response file are left untouched.
 
 ## Stage 2 — Assemble `workspace/final-submission.md`
 
-1. Read all item response files in backlog order.
+1. Read all item response files in backlog order, regardless of status.
 2. Strip YAML frontmatter from each file.
 3. Concatenate responses into `workspace/final-submission.md`.
 4. For any item with no response file and no design file, insert a labelled placeholder:

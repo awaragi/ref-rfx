@@ -33,9 +33,9 @@ Generate the draft response body for the item, working strictly from the design 
 
 1. Read the design file and decisions file in full.
 2. Draft the response following the design structure section by section.
-3. Present the draft to the user for review.
-4. Write `workspace/items/item-XX-response.md` once the user confirms the draft is ready for formal review.
-5. Update item status in `workspace/backlog.md` to `Validating`.
+3. Write `workspace/items/item-XX-response.md` immediately — do not wait for user confirmation.
+4. Update item status in `workspace/backlog.md` to `Drafted`.
+5. Notify the user that the draft has been written and suggest running `/refine` to review and finalize it.
 
 ## Output
 
