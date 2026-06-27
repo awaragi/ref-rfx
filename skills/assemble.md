@@ -14,7 +14,7 @@ Read `workspace/backlog.md` in full before proceeding. Assemble operates on the 
 
 ## Purpose
 
-Produce the final submission document through three sequential stages. Assemble is safe to run at any point — it generates responses for items with a design but no response, compiles all responses in order, and converts the result to Word.
+Produce the final submission document through three sequential stages. Assemble is safe to run at any point — it generates responses for items with a design but no response, compiles all responses in order, and optionally converts the result to Word.
 
 ## Stage 1 — Auto-generate missing item responses
 
@@ -36,7 +36,9 @@ Items that already have a response file are left untouched.
    [RESPONSE PENDING: Item XX — Title]
    ```
 
-## Stage 3 — Convert to `workspace/final-submission.docx`
+## Stage 3 — Convert to `workspace/final-submission.docx` *(optional)*
+
+After completing Stage 2, ask the user: *"Would you like to also generate the Word document (`final-submission.docx`)?"* Only proceed with this stage if the user confirms.
 
 Convert `workspace/final-submission.md` to Word using the following conventions:
 
@@ -58,4 +60,4 @@ Any text matching `[PLACEHOLDER TEXT]` or `[RESPONSE PENDING: ...]` must be high
 
 - `workspace/items/item-XX-response.md` (any newly generated item responses)
 - `workspace/final-submission.md`
-- `workspace/final-submission.docx`
+- `workspace/final-submission.docx` (if the user opted in)
