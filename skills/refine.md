@@ -60,7 +60,7 @@ After applying changes, ask: *"Would you like another review pass, or are you re
 
 ## Sign-Off
 
-Add `**Status: APPROVED**` to the top of `workspace/items/item-XX-response.md` and update `workspace/backlog.md` item status to `Approved`.
+Update the `status` field in the YAML frontmatter of `workspace/items/item-XX-response.md` to `approved` and update `workspace/backlog.md` item status to `Approved`.
 
 ## Output
 
