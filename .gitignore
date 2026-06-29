@@ -1,2 +1,6 @@
 workspace/
+workspace.*/
+workspace-*/
+workspace_*/
+workspace */
 .DS_Store
