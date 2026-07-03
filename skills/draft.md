@@ -5,16 +5,18 @@ command: /draft
 ---
 
 **Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+**Resolve the active workspace slug per the Workspace Resolution section of INSTRUCTIONS.md before accessing any `workspaces/<slug>/` paths.**
+
 
 # Skill: Draft
 
 ## Backlog Awareness
 
-Read `workspace/backlog.md`. Without an explicit item argument, work on the first item with status `Design Complete`. With an explicit item number (e.g. `/draft item-03`), work on that item regardless of status.
+Read `workspaces/<slug>/backlog.md`. Without an explicit item argument, work on the first item with status `Design Complete`. With an explicit item number (e.g. `/draft item-03`), work on that item regardless of status.
 
-Read `workspace/items/item-XX-decisions.md` and `workspace/items/item-XX-design.md` for the active item before writing a single word.
+Read `workspaces/<slug>/items/item-XX-decisions.md` and `workspaces/<slug>/items/item-XX-design.md` for the active item before writing a single word.
 
-Update the item status to `Drafting` in `workspace/backlog.md` before proceeding.
+Update the item status to `Drafting` in `workspaces/<slug>/backlog.md` before proceeding.
 
 ## Purpose
 
@@ -33,14 +35,14 @@ Generate the draft response body for the item, working strictly from the design 
 
 1. Read the design file and decisions file in full.
 2. Draft the response following the design structure section by section.
-3. Write `workspace/items/item-XX-response.md` immediately — do not wait for user confirmation.
-4. Update item status in `workspace/backlog.md` to `Drafted`.
+3. Write `workspaces/<slug>/items/item-XX-response.md` immediately — do not wait for user confirmation.
+4. Update item status in `workspaces/<slug>/backlog.md` to `Drafted`.
 5. Notify the user that the draft has been written and suggest running `/refine` to review and finalize it.
 
 ## Output
 
-- `workspace/items/item-XX-response.md`
-- Updated `workspace/backlog.md`
+- `workspaces/<slug>/items/item-XX-response.md`
+- Updated `workspaces/<slug>/backlog.md`
 
 ## item-XX-response.md Format
 

@@ -2,14 +2,27 @@
 
 Cross-cutting rules that apply to all skills and all AI agents working in this repository.
 
+## Workspace Resolution
+
+Every skill operates inside a pursuit-specific workspace folder under `workspaces/`. To determine the active workspace (`<slug>`) before taking any action:
+
+1. Read `.workspace` at the repository root. If the file exists, its first non-empty line is the active slug (e.g. `acme-rfp-2026`). Use `workspaces/<slug>/` as the base path for all file operations.
+2. If `.workspace` does not exist, list the contents of the `workspaces/` directory:
+   - **Exactly one subdirectory** — use it automatically and write its name to `.workspace`.
+   - **More than one subdirectory** — ask the user: *"Multiple workspaces found: [list them]. Which workspace are you working on?"* Once confirmed, write the chosen slug to `.workspace`.
+   - **Empty or missing `workspaces/`** — stop and tell the user to run `/setup` first.
+
+Throughout all skills and instructions, `workspaces/<slug>/` refers to the resolved active workspace path.
+
 ## Session Start
 
 Before taking any action, read these files in order:
 
-1. `workspace/backlog.md` — current status of all items
-2. `workspace/registry.md` — all decisions already made
-3. The skill file for the current step
-4. When working on a specific item, read the item's design and decisions files in `workspace/items/` if they exist
+1. Resolve the active workspace slug (see **Workspace Resolution** above)
+2. `workspaces/<slug>/backlog.md` — current status of all items
+3. `workspaces/<slug>/registry.md` — all decisions already made
+4. The skill file for the current step
+5. When working on a specific item, read the item's design and decisions files in `workspaces/<slug>/items/` if they exist
 
 **Files are the single source of truth. Do not rely on prior conversation context.**
 
@@ -26,7 +39,7 @@ When exploring options or making any decision during Strategise or Deliberate st
 
 Decisions are written to files **as they are made** — not batched at the end of the conversation.
 
-- After each confirmed decision during Strategise, write it to `workspace/registry.md` immediately.
+- After each confirmed decision during Strategise, write it to `workspaces/<slug>/registry.md` immediately.
 - After each confirmed decision during Deliberate, write it to the item's decisions file immediately.
 - Do not wait until all dimensions are explored before writing anything.
 - If a decision is revised later in the conversation, update the file immediately — do not defer.
@@ -46,12 +59,12 @@ When a skill finishes, briefly confirm what was produced and name the next skill
 
 1. **File-first.** Every decision, design, and draft lives in a file — never in conversation memory.
 2. **Skill-gated.** Do not begin a step until explicitly triggered. Do not combine steps.
-3. **Backlog-driven.** Always read `workspace/backlog.md` to determine the current active item before acting.
+3. **Backlog-driven.** Always read `workspaces/<slug>/backlog.md` to determine the current active item before acting.
 4. **Criteria-driven.** Every response must trace back to a specific requirement or evaluation criterion.
 5. **Iterative.** Review is a loop, not a gate. Expect multiple revision cycles.
 
 ## Content Standards
-Update `workspace/backlog.md` at every phase transition. Log every significant pursuit-level decision in `workspace/registry.md` as soon as it is determined and confirmed by user.
+Update `workspaces/<slug>/backlog.md` at every phase transition. Log every significant pursuit-level decision in `workspaces/<slug>/registry.md` as soon as it is determined and confirmed by user.
 
 ## Backlog Items Status Values
 `Not Started` →  `Deliberate Complete` → `Design Complete` → `Drafted` → `Approved`
@@ -60,12 +73,12 @@ Update `workspace/backlog.md` at every phase transition. Log every significant p
 
 | Artifact | Path |
 |----------|------|
-| Backlog | `workspace/backlog.md` |
-| RFx analysis | `workspace/analysis.md` |
-| Global decisions | `workspace/registry.md` |
-| Evidence | `workspace/evidences.md` |
-| Assumptions | `workspace/assumptions.md` |
-| Per-item decisions | `workspace/items/item-XX-decisions.md` |
-| Per-item design | `workspace/items/item-XX-design.md` |
-| Per-item response | `workspace/items/item-XX-response.md` |
-| Final submission | `workspace/final-submission.md` / `workspace/final-submission.docx` |
+| Backlog | `workspaces/<slug>/backlog.md` |
+| RFx analysis | `workspaces/<slug>/analysis.md` |
+| Global decisions | `workspaces/<slug>/registry.md` |
+| Evidence | `workspaces/<slug>/evidences.md` |
+| Assumptions | `workspaces/<slug>/assumptions.md` |
+| Per-item decisions | `workspaces/<slug>/items/item-XX-decisions.md` |
+| Per-item design | `workspaces/<slug>/items/item-XX-design.md` |
+| Per-item response | `workspaces/<slug>/items/item-XX-response.md` |
+| Final submission | `workspaces/<slug>/final-submission.md` / `workspaces/<slug>/final-submission.docx` |

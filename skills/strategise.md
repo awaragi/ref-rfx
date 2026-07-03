@@ -5,6 +5,8 @@ command: /strategise
 ---
 
 **Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+**Resolve the active workspace slug per the Workspace Resolution section of INSTRUCTIONS.md before accessing any `workspaces/<slug>/` paths.**
+
 
 # Skill: Strategise
 
@@ -16,7 +18,7 @@ Strategise runs once per pursuit, after Decompose and before item-level Delibera
 
 ## Explore Loop
 
-Also read `workspace/analysis.md` (if it exists) and all files in `workspace/intake/` before exploring dimensions. Then work through the dimensions below **one question at a time**, following the interaction pattern in INSTRUCTIONS.md.
+Also read `workspaces/<slug>/analysis.md` (if it exists) and all files in `workspaces/<slug>/intake/` before exploring dimensions. Then work through the dimensions below **one question at a time**, following the interaction pattern in INSTRUCTIONS.md.
 
 Dimensions to cover:
 
@@ -33,13 +35,13 @@ After all dimensions are covered, ask: *"I have covered all strategic dimensions
 
 ## Output
 
-Once the user confirms, update `workspace/registry.md`:
+Once the user confirms, update `workspaces/<slug>/registry.md`:
 
 - Populate or update the **Global Decisions** section with one G-XX entry per confirmed decision
 - Preserve all existing Standing Decisions (S-XX entries) unchanged
 - If the registry already contains G-XX entries, update them in place rather than duplicating
 
-Then confirm to the user: *"Global decisions recorded in workspace/registry.md. You are ready to begin item-level Deliberate."*
+Then confirm to the user: *"Global decisions recorded in workspaces/<slug>/registry.md. You are ready to begin item-level Deliberate."*
 
 ## G-XX Entry Format
 

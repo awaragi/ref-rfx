@@ -5,14 +5,16 @@ command: /refine
 ---
 
 **Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+**Resolve the active workspace slug per the Workspace Resolution section of INSTRUCTIONS.md before accessing any `workspaces/<slug>/` paths.**
+
 
 # Skill: Refine
 
 ## Backlog Awareness
 
-Read `workspace/backlog.md`. Without an explicit item argument, work on the first item with status `Drafted`. With an explicit item number (e.g. `/refine item-03`), work on that item regardless of status.
+Read `workspaces/<slug>/backlog.md`. Without an explicit item argument, work on the first item with status `Drafted`. With an explicit item number (e.g. `/refine item-03`), work on that item regardless of status.
 
-Read `workspace/items/item-XX-decisions.md`, `workspace/items/item-XX-design.md`, and `workspace/items/item-XX-response.md` for the active item.
+Read `workspaces/<slug>/items/item-XX-decisions.md`, `workspaces/<slug>/items/item-XX-design.md`, and `workspaces/<slug>/items/item-XX-response.md` for the active item.
 
 Status stays `Drafted` throughout the loop. Only transitions to `Approved` on sign-off.
 
@@ -43,13 +45,13 @@ Re-read the relevant RFx section, the decisions file, the design file, and the r
 7. **Cross-item consistency** — flag any terminology or claims that conflict with other completed response files.
 8. **Suggested edits** — specific, actionable changes (not general feedback).
 
-After presenting the review, ask: *"Would you like to add any notes before I apply these changes?"* Incorporate any additional user notes, then apply all changes to `workspace/items/item-XX-response.md`.
+After presenting the review, ask: *"Would you like to add any notes before I apply these changes?"* Incorporate any additional user notes, then apply all changes to `workspaces/<slug>/items/item-XX-response.md`.
 
 ## Step 2B — Manual Review
 
 Ask: *"Please share your feedback and I'll apply it to the draft."*
 
-Apply all changes to `workspace/items/item-XX-response.md`.
+Apply all changes to `workspaces/<slug>/items/item-XX-response.md`.
 
 ## Step 3 — Iterate
 
@@ -60,9 +62,9 @@ After applying changes, ask: *"Would you like another review pass, or are you re
 
 ## Sign-Off
 
-Update the `status` field in the YAML frontmatter of `workspace/items/item-XX-response.md` to `approved` and update `workspace/backlog.md` item status to `Approved`.
+Update the `status` field in the YAML frontmatter of `workspaces/<slug>/items/item-XX-response.md` to `approved` and update `workspaces/<slug>/backlog.md` item status to `Approved`.
 
 ## Output
 
-- Updated `workspace/items/item-XX-response.md`
-- Updated `workspace/backlog.md`
+- Updated `workspaces/<slug>/items/item-XX-response.md`
+- Updated `workspaces/<slug>/backlog.md`

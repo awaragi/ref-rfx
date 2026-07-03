@@ -10,25 +10,34 @@ command: /setup
 
 ## Purpose
 
-Set up the `workspace/` folder structure for a new pursuit and copy starter files from `templates/`. Setup is idempotent — it never overwrites files that already exist, so it is safe to run at any time.
+Set up the `workspaces/<slug>/` folder structure for a new pursuit and copy starter files from `templates/`. Setup is idempotent — it never overwrites files that already exist, so it is safe to run at any time.
 
 ## Steps
 
-### 1. Scaffold the workspace
+### 1. Determine the workspace slug
+
+Ask the user for a short, URL-friendly slug that identifies this pursuit (e.g. `acme-cloud-2026`). Suggest a slug derived from the client name and year if the user hasn't provided one. Rules:
+- Lowercase letters, digits, and hyphens only
+- No spaces or special characters
+- Concise — 2–4 words joined by hyphens
+
+Once confirmed, write the slug as a single line to `.workspace` at the repository root (overwriting any prior value). All subsequent file operations in this skill use `workspaces/<slug>/` as the base path.
+
+### 2. Scaffold the workspace
 
 Check for each required directory. Create it if missing:
-- `workspace/intake/rfx/`
-- `workspace/intake/client/`
-- `workspace/intake/supporting/`
-- `workspace/items/`
+- `workspaces/<slug>/intake/rfx/`
+- `workspaces/<slug>/intake/client/`
+- `workspaces/<slug>/intake/supporting/`
+- `workspaces/<slug>/items/`
 
-Check for each required starter file. Copy from `templates/` only if the file does not yet exist in `workspace/`:
-- `templates/backlog.md` → `workspace/backlog.md`
-- `templates/registry.md` → `workspace/registry.md`
-- `templates/evidences.md` → `workspace/evidences.md`
-- `templates/assumptions.md` → `workspace/assumptions.md`
+Check for each required starter file. Copy from `templates/` only if the file does not yet exist in `workspaces/<slug>/`:
+- `templates/backlog.md` → `workspaces/<slug>/backlog.md`
+- `templates/registry.md` → `workspaces/<slug>/registry.md`
+- `templates/evidences.md` → `workspaces/<slug>/evidences.md`
+- `templates/assumptions.md` → `workspaces/<slug>/assumptions.md`
 
-### 2. Fill in placeholders
+### 3. Fill in placeholders
 
 For each file that was just copied, scan for `<...>` placeholders and resolve them:
 
@@ -38,11 +47,12 @@ For each file that was just copied, scan for `<...>` placeholders and resolve th
 
 Replace all resolved placeholders and write the file. Do not ask the user for pursuit metadata.
 
-### 3. Confirm and prompt next step
+### 4. Confirm and prompt next step
 
 Show the user the filled-in content for each updated file and ask if it looks correct.
 
 ## Output
 
-- `workspace/` directory structure (created if missing)
+- `.workspace` — active workspace slug
+- `workspaces/<slug>/` directory structure (created if missing)
 - Starter files copied from `templates/` with all `<...>` placeholders resolved

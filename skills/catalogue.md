@@ -5,21 +5,23 @@ command: /catalogue
 ---
 
 **Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+**Resolve the active workspace slug per the Workspace Resolution section of INSTRUCTIONS.md before accessing any `workspaces/<slug>/` paths.**
+
 
 # Skill: Catalogue
 
 ## Purpose
 
-Scan all intake folders, read every file, and produce a populated `workspace/evidences.md` that catalogues available evidence with a brief summary of each file and a direct reference to its path. Catalogue runs after Analyse so the team knows what supporting material is available before deliberation begins.
+Scan all intake folders, read every file, and produce a populated `workspaces/<slug>/evidences.md` that catalogues available evidence with a brief summary of each file and a direct reference to its path. Catalogue runs after Analyse so the team knows what supporting material is available before deliberation begins.
 
 ## Steps
 
 ### 1. Validate Intake
 
-1. Check that `workspace/intake/` exists and contains at least one of:
-   - `workspace/intake/rfx/`
-   - `workspace/intake/client/`
-   - `workspace/intake/supporting/`
+1. Check that `workspaces/<slug>/intake/` exists and contains at least one of:
+   - `workspaces/<slug>/intake/rfx/`
+   - `workspaces/<slug>/intake/client/`
+   - `workspaces/<slug>/intake/supporting/`
 2. List all files found across all intake folders and present them to the user before proceeding.
 3. If all intake folders are empty, stop and ask the user to add materials before continuing.
 
@@ -34,7 +36,7 @@ For each file, capture:
 
 ### 3. Write the Evidence Registry
 
-If `workspace/evidences.md` does not exist, copy `templates/evidences.md` to `workspace/evidences.md` and populate it. If it already exists, read it first and append new entries only — do not overwrite or remove existing entries.
+If `workspaces/<slug>/evidences.md` does not exist, copy `templates/evidences.md` to `workspaces/<slug>/evidences.md` and populate it. If it already exists, read it first and append new entries only — do not overwrite or remove existing entries.
 
 Read `templates/evidences.md` to understand the required entry format and field structure.
 
@@ -48,4 +50,4 @@ After writing the evidence registry, present:
 
 ## Output
 
-- `workspace/evidences.md` — populated evidence registry with one entry per intake file
+- `workspaces/<slug>/evidences.md` — populated evidence registry with one entry per intake file

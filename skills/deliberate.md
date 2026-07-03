@@ -5,23 +5,25 @@ command: /deliberate
 ---
 
 **Before taking any action, read [`INSTRUCTIONS.md`](../INSTRUCTIONS.md) from the repository root (if not already read).**
+**Resolve the active workspace slug per the Workspace Resolution section of INSTRUCTIONS.md before accessing any `workspaces/<slug>/` paths.**
+
 
 # Skill: Deliberate
 
 ## Backlog Awareness
 
-Read `workspace/backlog.md`.
+Read `workspaces/<slug>/backlog.md`.
 
 - **With an explicit item argument** (e.g. `/deliberate item-03`): work on that item regardless of status.
 - **Without an explicit item argument**: identify the first item with status `Not Started` or `Deliberating` and ask the user to confirm before proceeding — e.g. *"I'll work on **Item 03 – Team Structure** (status: Not Started). Shall I proceed, or would you like to work on a different item?"* Wait for confirmation.
 
-Update the item status to `Deliberating` in `workspace/backlog.md` before proceeding.
+Update the item status to `Deliberating` in `workspaces/<slug>/backlog.md` before proceeding.
 
 ## Purpose
 
 Explore all material angles for a backlog item and record the decisions that will govern its design and response. Deliberate loops — one angle at a time — until the user is satisfied that all decisions are captured.
 
-Global cross-cutting decisions (win theme, delivery model, technology posture, alliances, etc.) are set by `/strategise` and stored in `workspace/registry.md`. Read them before starting — they are authoritative and should not be contradicted at the item level.
+Global cross-cutting decisions (win theme, delivery model, technology posture, alliances, etc.) are set by `/strategise` and stored in `workspaces/<slug>/registry.md`. Read them before starting — they are authoritative and should not be contradicted at the item level.
 
 ## Explore Loop
 
@@ -33,7 +35,7 @@ Dimensions to work through:
 2. **Differentiators** — which specific engagements, tools, credentials, or approaches are most relevant?
 3. **Positioning** — what is the single strongest narrative angle for this item?
 4. **QVAs** — what measurable value adds beyond mandatory requirements could be offered?
-5. **Evidence** — which evidence items from `workspace/evidences.md` best support this response?
+5. **Evidence** — which evidence items from `workspaces/<slug>/evidences.md` best support this response?
 6. **Risks / landmines** — what would a weak response look like? What could cost marks?
 
 Continue asking until all dimensions are covered. Only then ask: *"I have enough to write up the decisions. Is there anything else you'd like to add before I do?"*
@@ -42,9 +44,9 @@ Continue asking until all dimensions are covered. Only then ask: *"I have enough
 
 Once the user confirms, write the decisions file:
 
-- `workspace/items/item-XX-decisions.md`
-- Update `workspace/registry.md` with any global decisions surfaced during deliberation
-- Update item status in `workspace/backlog.md` to `Deliberate Complete`
+- `workspaces/<slug>/items/item-XX-decisions.md`
+- Update `workspaces/<slug>/registry.md` with any global decisions surfaced during deliberation
+- Update item status in `workspaces/<slug>/backlog.md` to `Deliberate Complete`
 
 ## item-XX-decisions.md Format
 
