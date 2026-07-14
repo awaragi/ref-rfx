@@ -51,6 +51,16 @@ Decisions are written to files **as they are made** — not batched at the end o
 
 `/analyse` is optional but recommended before `/decompose`. `/catalogue` runs after `/analyse` to populate the evidence registry from intake files before deliberation begins. `/refine` can be re-run at any point on a `Drafted` item.
 
+`/help` is not part of this sequence — it can be run at any time to explain the framework, diagnose the active pursuit's status, and recommend the next command. It is read-only.
+
+## Command Naming by Surface
+
+Skill files in `skills/` refer to each other using the short name (`/deliberate`, `/catalogue`, etc.) because that same text is read verbatim in the stateless chat contract (`AI-CHAT.md`), which has no command registry and no naming collisions to avoid.
+
+Claude Code and GitHub Copilot are different: they register each skill as an actual slash command prefixed `ref-rfx-` (e.g. `/ref-rfx-catalogue`), to namespace it against other projects' commands. The short form is **not** a valid command in either tool.
+
+So when confirming what was produced or recommending the next step to a user in Claude Code or GitHub Copilot, always say the registered form — `/ref-rfx-catalogue`, not `/catalogue`. Only use the short form verbatim when operating under the stateless `AI-CHAT.md` contract.
+
 ## Skill Completion
 
 When a skill finishes, briefly confirm what was produced and name the next skill to run. Do not include a hardcoded script — adapt the message to what actually happened.

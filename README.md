@@ -394,8 +394,11 @@ Each lifecycle step maps to a skill file in `skills/`:
 | Draft | `skills/draft.md` | `/draft` |
 | Refine | `skills/refine.md` | `/refine` |
 | Assemble | `skills/assemble.md` | `/assemble` |
+| Help | `skills/help.md` | `/help` |
 
 Skills are backlog-aware. Each skill reads `backlog.md` at invocation to identify the current active item. Passing an explicit item number (e.g., `/deliberate item-03`) overrides this.
+
+`/help` is not a lifecycle step — it can be run at any point to explain the framework, diagnose the active pursuit's status, and recommend the next command. It is read-only and never modifies the workspace.
 
 ### AI Modes
 
