@@ -413,7 +413,7 @@ Each tool reads from its own skills folder, synced from the canonical `skills/` 
 | Tool | Skills path | Entry point |
 |---|---|---|
 | Claude Code | `.claude/skills/` | `CLAUDE.md` |
-| Cursor | `.cursor/skills/` | (reads `.cursor/skills/` directly) |
+| Cursor | `.cursor/skills/` | `.cursor/rules/ref-rfx.mdc` |
 | GitHub Copilot | `.github/skills/` | `AGENTS.md` |
 
 #### Stateless AI Chat
@@ -456,6 +456,8 @@ ref-rfx/
 ├── .claude/
 │   └── skills/                  ← Claude Code slash commands (synced from skills/)
 ├── .cursor/
+│   ├── rules/
+│   │   └── ref-rfx.mdc          ← Cursor agent entry point
 │   └── skills/                  ← Cursor skills (synced from skills/)
 ├── .github/
 │   └── skills/                  ← GitHub Copilot skills (synced from skills/)

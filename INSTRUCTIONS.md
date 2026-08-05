@@ -57,9 +57,9 @@ Decisions are written to files **as they are made** — not batched at the end o
 
 Skill files in `skills/` refer to each other using the short name (`/deliberate`, `/catalogue`, etc.) because that same text is read verbatim in the stateless chat contract (`AI-CHAT.md`), which has no command registry and no naming collisions to avoid.
 
-Claude Code and GitHub Copilot are different: they register each skill as an actual slash command prefixed `ref-rfx-` (e.g. `/ref-rfx-catalogue`), to namespace it against other projects' commands. The short form is **not** a valid command in either tool.
+Claude Code, Cursor, and GitHub Copilot are different: they register each skill as an actual slash command prefixed `ref-rfx-` (e.g. `/ref-rfx-catalogue`), to namespace it against other projects' commands. The short form is **not** a valid command in any of them.
 
-So when confirming what was produced or recommending the next step to a user in Claude Code or GitHub Copilot, always say the registered form — `/ref-rfx-catalogue`, not `/catalogue`. Only use the short form verbatim when operating under the stateless `AI-CHAT.md` contract.
+So when confirming what was produced or recommending the next step to a user in Claude Code, Cursor, or GitHub Copilot, always say the registered form — `/ref-rfx-catalogue`, not `/catalogue`. Only use the short form verbatim when operating under the stateless `AI-CHAT.md` contract.
 
 ## Skill Completion
 

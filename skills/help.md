@@ -12,7 +12,7 @@ command: /help
 
 Orient the user in the REF-RFX lifecycle: explain what the framework does, show where the active pursuit currently stands, and recommend the next command to run. Help is **read-only** — it never writes or modifies any workspace file, and never changes an item's status.
 
-Every command name in this file (`/deliberate`, `/catalogue`, etc.) is the short, tool-agnostic form. Before saying it out loud to the user, apply the Command Naming by Surface rule in `INSTRUCTIONS.md`: in Claude Code or GitHub Copilot, say the registered `ref-rfx-` form instead (e.g. **`/ref-rfx-catalogue`**, not `/catalogue`); use the short form as-is only under the stateless `AI-CHAT.md` contract.
+Every command name in this file (`/deliberate`, `/catalogue`, etc.) is the short, tool-agnostic form. Before saying it out loud to the user, apply the Command Naming by Surface rule in `INSTRUCTIONS.md`: in Claude Code, Cursor, or GitHub Copilot, say the registered `ref-rfx-` form instead (e.g. **`/ref-rfx-catalogue`**, not `/catalogue`); use the short form as-is only under the stateless `AI-CHAT.md` contract.
 
 ## Step 1 — Resolve the workspace
 

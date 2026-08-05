@@ -1,0 +1,11 @@
+---
+description: REF-RFX agent entry point for Cursor
+alwaysApply: true
+---
+# Cursor — REF-RFX Agent
+
+Read [`INSTRUCTIONS.md`](../../INSTRUCTIONS.md) before taking any action in this repository.
+
+Skills are available in `.cursor/skills/`, registered as `ref-rfx-` prefixed Agent Skills (e.g. `ref-rfx-deliberate`). Invoke one explicitly by typing `/ref-rfx-<step>` in chat (e.g. `/ref-rfx-catalogue`) — they do not auto-trigger from ambient context.
+
+Skills are backlog-aware — invoke a skill without arguments to work on the current active item, or pass an explicit item number to target a specific item (e.g. `/ref-rfx-deliberate item-03`).
