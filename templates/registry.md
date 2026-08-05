@@ -12,12 +12,17 @@ These decisions are pre-set for every pursuit and must not be overridden. They r
 
 | ID | Decision | Rationale |
 |----|----------|-----------|
-| S-01 | Write in first-person plural ("we") throughout all responses | Consistent voice signals a unified team and avoids passive, distanced language |
-| S-02 | Back every significant claim with a named project, metric, methodology, or RFx-traceable outcome | Unsupported claims lose evaluator marks and damage credibility |
-| S-03 | Never use: "world-class", "cutting-edge", "seamless", "robust", "synergies", "leveraging" | These phrases are evaluator red flags — generic, unverifiable, and overused |
-| S-04 | Write for the evaluator's scoring criteria, not to showcase firm capabilities | Evaluator-centric framing directly maps to scoring rubrics |
-| S-05 | Include at least 3 Quantifiable Value Adds (QVAs) per scored criterion | QVAs are the primary mechanism for achieving maximum scores |
-| S-06 | All items must reflect the win theme and pursuit-level global decisions | Inconsistency across items undermines the overall submission |
+| S-01 | Write in first-person plural ("we") throughout all responses | Consistent voice signals a unified team; avoids passive, distanced language |
+| S-02 | Back every significant claim with a named project reference, quantified metric, accredited methodology, or direct RFx-traceable outcome | Unsupported claims score zero and damage credibility; evaluators are trained to discount anything unverifiable |
+| S-03 | Never use: "world-class", "cutting-edge", "seamless", "robust", "synergies", "leveraging", "innovative", "best-in-class", "holistic", "transformative", "strategic partner", "state-of-the-art", "unique ability" | These are evaluator red flags — generic, unverifiable, and overused; replace every instance with a specific proof point |
+| S-04 | Write for the evaluator's scoring criteria, not to showcase firm capabilities | Evaluator-centric framing maps directly to scoring rubrics; capability showcasing without criterion alignment scores poorly |
+| S-05 | Include at least 3 Quantifiable Value Adds (QVAs) per scored criterion; each QVA must name a specific outcome, a measurable benefit (time, cost, quality, risk), and the mechanism that produces it | QVAs are the primary lever for maximum scores; vague benefits and unattributed claims do not qualify |
+| S-06 | All items must reflect the win theme and pursuit-level global decisions | Inconsistency across items undermines the overall submission and signals a cut-and-paste response |
+| S-07 | Use the issuer's exact terminology and defined terms from the solicitation throughout all responses | Mirroring the client's language signals genuine comprehension; paraphrasing or substituting synonyms introduces ambiguity and reduces scoring alignment |
+| S-08 | Use commitment language throughout: "we will", "our approach is", "we deliver" — never "we would", "we could", "we may", or "if awarded" | Conditional language signals uncertainty and weakens competitive positioning; evaluators reward demonstrated intent |
+| S-09 | Open every response with the direct answer to the question, then prove compliance, then differentiate | Evaluators scan before reading; burying the headline in context or background is the most common cause of missed marks |
+| S-10 | Never leave an evaluation criterion unanswered or partially unaddressed without a stated rationale | A silent gap is scored as zero; if coverage is partial, acknowledge it explicitly and offer mitigation or a forward commitment |
+| S-11 | Acknowledge the client's stated challenge or pain point before presenting the solution | Demonstrates that the response is tailored, not templated; evaluators respond to evidence of listening |
 
 ## Global Decisions
 
@@ -58,5 +63,26 @@ _**Rationale:** value_
 
 ### G-05
 **Category:** Value theme
-**Decision:** [Primary value story: cost, speed, risk reduction, or innovation]
+**Decision:** [Primary value story: cost, speed, risk reduction, or innovation — pick one; the others become supporting evidence]
+**Rationale:**
+
+---
+
+### G-06
+**Category:** Pricing narrative
+**Decision:** [How the price is positioned: value-based, risk-adjusted, market-competitive, or investment framing]
+**Rationale:**
+
+---
+
+### G-07
+**Category:** Past performance selection
+**Decision:** [Which 2–3 reference engagements best prove capability for this pursuit and will be cited consistently across all items]
+**Rationale:**
+
+---
+
+### G-08
+**Category:** Competitive posture
+**Decision:** [How to position against the likely incumbent or primary competitors — ghost their weaknesses without naming them]
 **Rationale:**
