@@ -35,24 +35,9 @@ Read every file in `workspaces/<slug>/intake/rfx/` in full. Also read available 
 
 If `workspaces/<slug>/analysis.md` does not exist, copy `templates/analysis.md` to `workspaces/<slug>/analysis.md` and populate it in place. If it already exists, read it first and update it in place rather than overwriting unchanged sections.
 
-`templates/analysis.md` defines the required baseline items and the per-item format. Each item must be substantive paragraph-form analysis — not a bullet summary. Write for a pursuit team member making strategic positioning decisions; be specific, cite RFx sections where relevant, and surface implications and recommendations where they are clear.
+`templates/analysis.md` defines the required baseline items (A-01 through A-06) and the per-item format. Each item must be a numbered list of detailed points — not a single dense paragraph, and not a shallow bullet summary. Each numbered point should still be substantive (a full sentence or several) and cover one discrete fact, finding, or implication; split sub-findings into their own numbered point rather than compressing them together. Write for a pursuit team member making strategic positioning decisions; be specific, cite RFx sections where relevant, and surface implications and recommendations where they are clear.
 
-Add as many additional A-xx items as warranted by the specific RFx — there is no maximum. The following are illustrative; add, rename, or omit based on what the solicitation actually contains:
-
-| Example ID | Example Topic |
-|------------|---------------|
-| A-07 | Incumbent and Competitive Landscape |
-| A-08 | Client Strategic Priorities |
-| A-09 | Technical Environment |
-| A-10 | Transition Requirements |
-| A-11 | Key Personnel Requirements |
-| A-12 | Pricing Structure and Constraints |
-| A-13 | Timeline and Milestones |
-| A-14 | Onshore / Offshore and Location Requirements |
-| A-15 | Resource and Staffing Restrictions |
-| A-16 | Delivery Constraints |
-| A-17 | Penalties, Liquidated Damages, and SLAs |
-| A-18 | Questioning Period and Clarification Procedure |
+The template's own "Adding Additional Items" section explains how and when to add further A-xx items beyond the baseline (there is no maximum) and lists illustrative example topics — follow it, and remove that scaffolding section from the workspace copy once the analysis is finalized.
 
 ### 4. Update Pursuit Metadata
 
