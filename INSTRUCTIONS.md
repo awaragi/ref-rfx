@@ -53,6 +53,8 @@ Decisions are written to files **as they are made** — not batched at the end o
 
 `/help` is not part of this sequence — it can be run at any time to explain the framework, diagnose the active pursuit's status, and recommend the next command. It is read-only.
 
+`/questions` is also not part of this sequence — it can be run at any time to generate a candidate list of clarification questions for the issuer, but is recommended after `/analyse`, since `analysis.md` is a strong source of leads. It does not gate, and is not gated by, any other skill.
+
 ## Command Naming by Surface
 
 Skill files in `skills/` refer to each other using the short name (`/deliberate`, `/catalogue`, etc.) because that same text is read verbatim in the stateless chat contract (`AI-CHAT.md`), which has no command registry and no naming collisions to avoid.
@@ -85,6 +87,7 @@ Update `workspaces/<slug>/backlog.md` at every phase transition. Log every signi
 |----------|------|
 | Backlog | `workspaces/<slug>/backlog.md` |
 | RFx analysis | `workspaces/<slug>/analysis.md` |
+| Clarification questions | `workspaces/<slug>/questions.md` |
 | Global decisions | `workspaces/<slug>/registry.md` |
 | Evidence | `workspaces/<slug>/evidences.md` |
 | Assumptions | `workspaces/<slug>/assumptions.md` |

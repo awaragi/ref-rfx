@@ -26,7 +26,7 @@ Follow the Workspace Resolution section of `INSTRUCTIONS.md`, with one differenc
 
 Read whichever of these exist under `workspaces/<slug>/`; silently skip any that don't (a missing file is signal, not an error):
 
-- `backlog.md`, `registry.md`, `evidences.md`, `analysis.md`, `assumptions.md`
+- `backlog.md`, `registry.md`, `evidences.md`, `analysis.md`, `questions.md`, `assumptions.md`
 - `intake/rfx/`, `intake/client/`, `intake/supporting/` (list contents, don't read every document in full)
 - `items/item-XX-decisions.md`, `items/item-XX-design.md`, `items/item-XX-response.md`
 - `final-submission.md`, `final-submission.docx`
@@ -96,6 +96,7 @@ Use this to explain the flow when the user is new to the framework or asks "what
 ```
 
 - `/analyse` is optional but recommended before `/decompose`.
+- `/questions` is not part of this sequence — it can be run at any time, but is recommended right after `/analyse`, to generate a candidate list of clarification questions for the issuer.
 - `/catalogue` runs after `/analyse` to populate the evidence registry before deliberation.
 - **Standard Path**: each item is fully cycled through Deliberate → Design → Draft → Refine independently, then `/assemble` concatenates everything.
 - **Big Bang**: every item completes Deliberate → Design first; `/assemble` then drafts any item that has a design but no response, and produces the final submission in one pass. Refine is optional and can still be applied per item afterward, followed by a re-`/assemble`.
@@ -106,6 +107,7 @@ Use this to explain the flow when the user is new to the framework or asks "what
 | Setup | `/setup` | Scaffold `workspaces/<slug>/` and copy starter files |
 | Intake | *(manual)* | Drop RFx, client background, and supporting materials into `intake/` |
 | Analyse | `/analyse` | Produce a structured `analysis.md` from the RFx documents |
+| Questions | `/questions` | Generate a candidate list of clarification questions for the issuer (`questions.md`) — optional, any time |
 | Catalogue | `/catalogue` | Scan intake and populate the evidence registry (`evidences.md`) |
 | Decompose | `/decompose` | Break the solicitation into backlog items (`backlog.md`) |
 | Strategise | `/strategise` | Set pursuit-wide global decisions (`registry.md`) |

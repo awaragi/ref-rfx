@@ -180,6 +180,20 @@ Output:
 
 - `workspace/analysis.md`
 
+#### Questions *(optional, callable at any time)*
+
+Generate an exhaustive, unfiltered brainstorm of clarification questions for the RFx issuer — every ambiguity, gap, inconsistency, and risk-worthy detail surfaced in the solicitation.
+
+Questions is not part of the linear lifecycle sequence: it doesn't gate, and isn't gated by, any other skill. It can be run at any point in the pursuit — including after an addendum is issued, to add new questions and correct anything the addendum invalidated — but is recommended right after Analyse, since `analysis.md`'s Key Risks and Constraints item is a strong source of leads.
+
+Each question is written in a `section.question`-numbered structure (e.g. `4.3`), grouped into topic categories, with a `Batch` field (for the team to assign later when grouping questions into submission rounds), a `Sensitivity` flag (for questions that would reveal competitive positioning if answered publicly), and the question itself written as a plain, pasteable paragraph — kept separate from any internal-only rationale, which is preserved in a `> [!NOTE]` callout instead. A table of contents links to every section and question.
+
+Questions produces a working list, not a submission-ready set — the pursuit team triages it down (for necessity and competitive exposure) before anything is actually sent to the issuer.
+
+Output:
+
+- `workspace/questions.md`
+
 #### Catalogue
 
 Scan all intake folders and catalogue available supporting evidence into `workspace/evidences.md`.
@@ -386,6 +400,7 @@ Each lifecycle step maps to a skill file in `skills/`:
 | Setup | `skills/setup.md` | `/setup` |
 | Intake | — | — |
 | Analyse | `skills/analyse.md` | `/analyse` |
+| Questions *(optional, any time)* | `skills/questions.md` | `/questions` |
 | Catalogue | `skills/catalogue.md` | `/catalogue` |
 | Decompose | `skills/decompose.md` | `/decompose` |
 | Strategise | `skills/strategise.md` | `/strategise` |
@@ -445,6 +460,7 @@ ref-rfx/
 │
 ├── skills/                      ← canonical skill definitions (one per lifecycle step)
 │   ├── analyse.md
+│   ├── questions.md
 │   ├── catalogue.md
 │   ├── decompose.md
 │   ├── deliberate.md
@@ -469,6 +485,7 @@ ref-rfx/
 │   │   └── supporting/          ← corporate IPs, frameworks, platforms, capabilities, certifications
 │   ├── backlog.md               ← full pursuit backlog
 │   ├── analysis.md              ← RFx analysis (produced by /analyse)
+│   ├── questions.md             ← clarification questions for the issuer (produced by /questions)
 │   ├── registry.md              ← global decision registry
 │   ├── evidences.md             ← evidence registry
 │   ├── assumptions.md           ← assumptions registry
@@ -486,6 +503,7 @@ ref-rfx/
 └── templates/
     ├── backlog.md               ← backlog template
     ├── analysis.md              ← RFx analysis template
+    ├── questions.md             ← clarification questions template
     ├── registry.md              ← global decision registry template (includes guiding principles)
     ├── evidences.md             ← evidence registry template
     ├── assumptions.md           ← assumptions registry template
