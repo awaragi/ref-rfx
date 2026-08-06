@@ -7,8 +7,23 @@ created_date: <auto: today's date>
 
 # RFx Analysis
 
-### A-01
-**Topic:** Procurement Overview
+## Table of Contents
+
+<!-- Regenerate this list to match the items actually written below, in order.
+     Anchors must be plain GitHub/Cursor-style slugs of the heading text
+     (lowercase, spaces -> hyphens, punctuation stripped) — do not use custom
+     <a id> anchors, they are not honored by Cursor's or GitHub's link navigation. -->
+
+- [A-01: Procurement Overview](#a-01-procurement-overview)
+- [A-02: Scope Summary](#a-02-scope-summary)
+- [A-03: Evaluation Framework](#a-03-evaluation-framework)
+- [A-04: Mandatory Requirements](#a-04-mandatory-requirements)
+- [A-05: Submission Requirements](#a-05-submission-requirements)
+- [A-06: Key Risks and Constraints](#a-06-key-risks-and-constraints)
+
+---
+
+### A-01: Procurement Overview
 
 1. [Procurement type (RFx, RFQ, RFSO, IDIQ call-up, etc.), issuing organization, and contract vehicle. Cite the relevant RFx section.]
 2. [Estimated contract value, contract term, and any renewal/extension options.]
@@ -19,8 +34,7 @@ created_date: <auto: today's date>
 
 ---
 
-### A-02
-**Topic:** Scope Summary
+### A-02: Scope Summary
 
 1. [Key deliverables and major service or solution areas.]
 2. [Geographic scope and user population served.]
@@ -30,8 +44,7 @@ created_date: <auto: today's date>
 
 ---
 
-### A-03
-**Topic:** Evaluation Framework
+### A-03: Evaluation Framework
 
 1. [Evaluation methodology and overall structure — stages/gates, pass-fail elements, total points.]
 2. [Rated criteria and their weighting, broken out by stage or category.]
@@ -42,8 +55,7 @@ created_date: <auto: today's date>
 
 ---
 
-### A-04
-**Topic:** Mandatory Requirements
+### A-04: Mandatory Requirements
 
 1. [Each must-meet or pass/fail requirement as its own numbered point, citing the RFx section.]
 2. [For each, flag whether it is straightforward or whether it warrants a pursuit-level decision.]
@@ -52,8 +64,7 @@ created_date: <auto: today's date>
 
 ---
 
-### A-05
-**Topic:** Submission Requirements
+### A-05: Submission Requirements
 
 1. [Submission channel and structure — number of volumes/envelopes, what each contains.]
 2. [Format requirements: page or word limits (per section and in total), file format, font, margin, upload/file-size constraints.]
@@ -63,8 +74,7 @@ created_date: <auto: today's date>
 
 ---
 
-### A-06
-**Topic:** Key Risks and Constraints
+### A-06: Key Risks and Constraints
 
 1. [Each material risk, ambiguity, or red flag as its own numbered point — unrealistic timelines, vague scope, restrictive mandatory requirements, tight pricing constraints, unusual contract terms, bid-and-proposal cost constraints, etc.]
 2. [For each risk, state the potential impact and any mitigation options in the same point.]
@@ -77,7 +87,9 @@ created_date: <auto: today's date>
 
 A-01 through A-06 above are the required baseline — they must always be present. Add as many further items as warranted by the specific RFx (A-07, A-08, A-09, ...); **there is no maximum**. Additional items are just as welcome for RFx-specific findings that don't fit the baseline six as they are for splitting an overloaded baseline topic into more focused ones.
 
-Format every additional item exactly like the baseline: a `### A-xx` heading, a **Topic** line, and a numbered list of detailed points — not a prose paragraph. Each numbered point should still be substantive (a full sentence or several), cite RFx sections where relevant, and surface implications or recommendations where clear. Numbering resets per item (1, 2, 3, ...), and there is no maximum number of points per item — split sub-findings into their own numbered point rather than compressing them into one dense sentence.
+Format every additional item exactly like the baseline: a single `### A-xx: Topic Name` heading followed by a numbered list of detailed points — not a prose paragraph. Each numbered point should still be substantive (a full sentence or several), cite RFx sections where relevant, and surface implications or recommendations where clear. Numbering resets per item (1, 2, 3, ...), and there is no maximum number of points per item — split sub-findings into their own numbered point rather than compressing them into one dense sentence.
+
+Every time an item is added, renamed, or reordered, update the **Table of Contents** at the top to match — one entry per item, in document order, linking to that item's heading anchor.
 
 The following are illustrative starting points only — add, rename, or omit based on what the specific RFx actually raises. Number each one sequentially as the next available A-xx (A-07, A-08, ...) based on where it lands among the items actually written, not the order listed here:
 
