@@ -12,8 +12,43 @@
 set -euo pipefail
 
 usage() {
-  echo "Usage: $0 <slug>|workspaces/<slug> [--target <path>] [--tool \"<command>\"]" >&2
+  echo "Usage: $0 <slug>|workspaces/<slug> [--target <path>] [--tool \"<command>\"]  (--help for details)" >&2
   exit 1
+}
+
+show_help() {
+  cat <<'EOF'
+sync.sh — sync a workspaces/<slug> folder against an external shared folder
+
+Runs a configurable diff/sync tool (rsync, meld, unison, code --diff, etc.)
+between workspaces/<slug>/ and an external --target folder. Remembers the
+last --target and --tool used per workspace in a workspaces/.<slug>-sync
+dotfile, kept outside the workspace folder itself so it never gets swept
+up when the workspace is zipped or shared. Later runs can omit flags
+already remembered.
+
+Usage:
+  bin/sync.sh <slug>|workspaces/<slug> [--target <path>] [--tool "<command>"]
+
+Arguments:
+  <slug>              Workspace slug under workspaces/ (with or without the
+                       leading "workspaces/" prefix, and with or without a
+                       trailing slash).
+
+Options:
+  --target <path>     External folder to sync against. Required on first
+                       run for this slug; remembered after that.
+  --tool "<command>"  Sync/diff command to run, invoked as:
+                         <command> <workspace-dir> <target-dir>
+                       e.g. "rsync -av", "unison", "code --diff".
+                       Required on first run for this slug; remembered
+                       after that.
+  -h, --help          Show this help and exit.
+
+Examples:
+  bin/sync.sh acme-cloud-2026 --target ~/Dropbox/acme --tool "rsync -av"
+  bin/sync.sh acme-cloud-2026            # reuses remembered target/tool
+EOF
 }
 
 if [ "$#" -lt 1 ]; then
@@ -45,7 +80,8 @@ while [ "$#" -gt 0 ]; do
       shift
       ;;
     -h|--help)
-      usage
+      show_help
+      exit 0
       ;;
     *)
       if [ -n "$SLUG" ]; then

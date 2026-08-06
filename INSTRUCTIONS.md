@@ -55,6 +55,8 @@ Decisions are written to files **as they are made** — not batched at the end o
 
 `/questions` is also not part of this sequence — it can be run at any time to generate a candidate list of clarification questions for the issuer, but is recommended after `/analyse`, since `analysis.md` is a strong source of leads. It does not gate, and is not gated by, any other skill.
 
+`/bin` is a utility, not a lifecycle step — it discovers the local automation scripts under `bin/` (backups, workspace syncing, and any scripts added later), shows each one's `--help` usage, and runs them on request. It can be invoked at any time and never touches pursuit content.
+
 ## Command Naming by Surface
 
 Skill files in `skills/` refer to each other using the short name (`/deliberate`, `/catalogue`, etc.) because that same text is read verbatim in the stateless chat contract (`AI-CHAT.md`), which has no command registry and no naming collisions to avoid.

@@ -410,10 +410,13 @@ Each lifecycle step maps to a skill file in `skills/`:
 | Refine | `skills/refine.md` | `/refine` |
 | Assemble | `skills/assemble.md` | `/assemble` |
 | Help | `skills/help.md` | `/help` |
+| Bin *(utility, any time)* | `skills/bin.md` | `/bin` |
 
 Skills are backlog-aware. Each skill reads `backlog.md` at invocation to identify the current active item. Passing an explicit item number (e.g., `/deliberate item-03`) overrides this.
 
 `/help` is not a lifecycle step — it can be run at any point to explain the framework, diagnose the active pursuit's status, and recommend the next command. It is read-only and never modifies the workspace.
+
+`/bin` is also not a lifecycle step — it discovers the local automation scripts under `bin/` (backups, workspace syncing, and any scripts added later), shows each one's `--help` usage, and runs them on request. It never touches pursuit content itself.
 
 ### AI Modes
 
@@ -457,6 +460,10 @@ ref-rfx/
 ├── CLAUDE.md                    ← Claude Code agent entry point
 ├── AGENTS.md                    ← GitHub Copilot agent entry point
 ├── AI-CHAT.md                   ← stateless chat AI operating contract
+│
+├── bin/                         ← local automation scripts, discoverable/runnable via /bin
+│   ├── backup.sh                 ← zip a workspace for backup
+│   └── sync.sh                   ← sync a workspace against an external folder
 │
 ├── skills/                      ← canonical skill definitions (one per lifecycle step)
 │   ├── analyse.md
