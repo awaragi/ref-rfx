@@ -7,7 +7,7 @@ created_date: <auto: today's date>
 
 # Backlog
 
-| # | Title | RFx Ref | Limit | Weight | Status |
-|---|-------|---------|-------|--------|--------|
-| 01 | [Item title] | [Section X.X, p. X] | [X words] | [X%] | Not Started |
-| 02 | [Item title] | [Section X.X, p. X] | — | [X%] | Not Started |
+| # | Title | RFx Ref | Limit | Weight | Owner | Status |
+|---|-------|---------|-------|--------|-------|--------|
+| 01 | [Item title] | [Section X.X, p. X] | [X words] | [X%] | [Role] | Not Started |
+| 02 | [Item title] | [Section X.X, p. X] | — | [X%] | [Role] | Not Started |
