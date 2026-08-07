@@ -17,7 +17,7 @@ Read `workspaces/<slug>/backlog.md`.
 - **With an explicit item argument** (e.g. `/deliberate item-03`): work on that item regardless of status.
 - **Without an explicit item argument**: identify the first item with status `Not Started` or `Deliberating` and ask the user to confirm before proceeding — e.g. *"I'll work on **Item 03 – Team Structure** (status: Not Started). Shall I proceed, or would you like to work on a different item?"* Wait for confirmation.
 
-Update the item status to `Deliberating` in `workspaces/<slug>/backlog.md` before proceeding.
+Update the item status to `Deliberating` in `workspaces/<slug>/backlog.md` before proceeding. In `both` mode, update both `Status (Word)` and `Status (PowerPoint)` identically — Deliberate produces one shared decisions file (`item-XX-decisions.md`) regardless of `output_format`, so the two format tracks only begin to diverge once `/design` starts.
 
 ## Purpose
 
@@ -46,7 +46,7 @@ Once the user confirms, write the decisions file:
 
 - `workspaces/<slug>/items/item-XX-decisions.md`
 - Update `workspaces/<slug>/registry.md` with any global decisions surfaced during deliberation
-- Update item status in `workspaces/<slug>/backlog.md` to `Deliberate Complete`
+- Update item status in `workspaces/<slug>/backlog.md` to `Deliberate Complete` (both `Status (Word)` and `Status (PowerPoint)` in `both` mode — see Backlog Awareness above)
 
 ## item-XX-decisions.md Format
 

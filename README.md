@@ -68,9 +68,10 @@ Strategise → Global Decisions
 └──────────────────────────────────────────┘
     ↓
 Assemble Final Submission
-(auto-draft from design; placeholders for unstarted)
+(auto-draft from design; placeholders for unstarted; runs once per active format track)
     ↓
-final-submission.md · final-submission.docx
+final-submission-word.md and/or final-submission-powerpoint.md
+(.docx / .pptx conversion left to you)
 ```
 
 ### Big Bang
@@ -99,9 +100,10 @@ Strategise → Global Decisions
 └──────────────────────────────────────────┘
     ↓
 Assemble Final Submission
-(auto-draft from design; placeholders for unstarted)
+(auto-draft from design; placeholders for unstarted; runs once per active format track)
     ↓
-final-submission.md · final-submission.docx
+final-submission-word.md and/or final-submission-powerpoint.md
+(.docx / .pptx conversion left to you)
 ```
 
 Big Bang preserves decision quality while consolidating drafting and refinement into a single pursuit-level pass.
@@ -149,11 +151,13 @@ Capture and organize solicitation materials.
 
 **Client background** (`workspace/intake/client/`):
 
-Background materials about the client organization to inform evaluator-centric thinking during Deliberate. Can include previous RFxs, previous responses, winning submissions from prior pursuits, annual reports, strategic plans, org charts, press releases, or any other client-relevant research.
+Background materials about the client organization to inform evaluator-centric thinking during Deliberate. Can include previous RFxs, previous responses, winning submissions from prior pursuits (including prior slide decks, for `powerpoint`/`both` pursuits), annual reports, strategic plans, org charts, press releases, or any other client-relevant research.
 
 **Supporting documentation** (`workspace/intake/supporting/`):
 
-Corporate assets relevant to the RFx that will support deliberation — proprietary intellectual property, frameworks, methodologies, platforms, capability statements, certifications, accreditations, case studies, past performance references, and reusable delivery accelerators.
+Corporate assets relevant to the RFx that will support deliberation — proprietary intellectual property, frameworks, methodologies, platforms, capability statements, certifications, accreditations, case studies, past performance references, reusable delivery accelerators, and, for `powerpoint`/`both` pursuits, any corporate PowerPoint template the response should be built against.
+
+Any PowerPoint template or previous deck found in either folder is used by `/design` to orient PowerPoint slide structure, layout, and visual style — see Output Generation below. Absent one, PowerPoint authors have complete discretion; this framework imposes no layout, bullet-density, or visual convention of its own.
 
 Once intake materials are in place, the pursuit is ready for Analyse.
 
@@ -238,7 +242,7 @@ Sample dimensions to work through:
 - **Delivery model** — onshore, offshore, nearshore, or hybrid staffing posture
 - **Technology environment** — which platforms, tools, or tech stack to lead with
 - **Alliances and partnerships** — teaming arrangements, JVs, named subcontractors
-- **Response format and medium** — document only, oral presentation, or both
+- **Response format and medium** — document only, oral presentation, or both; confirms/sets `output_format` (`word`, `powerpoint`, or `both`) for the pursuit
 - **Pricing posture** — competitive, value-based, or cost-optimization focus
 - **Risk posture** — performance guarantees, risk-sharing, or mitigation commitments
 
@@ -313,7 +317,7 @@ Key activities:
 
 Output:
 
-- `workspace/items/item-XX-design.md`
+- `workspace/items/<format>/item-XX-design.md` — `<format>` is `word` and/or `powerpoint`, per the pursuit's `output_format`; run independently for each active track
 
 #### Draft *(Standard Path only)*
 
@@ -326,10 +330,10 @@ In the **Standard Path**, each item is drafted individually as its Deliberate/De
 - Backlog item
 - Global Decision Registry
 - Item Decision Registry (`workspace/items/item-XX-decisions.md`)
-- Design document (`workspace/items/item-XX-design.md`)
+- Design document (`workspace/items/<format>/item-XX-design.md`)
 - Evidence Registry
 
-Response files contain only the response body. All metadata is stored in the YAML frontmatter, including item reference, linked decisions, evidence citations, QVAs, word count target, and submission section mapping. Example:
+Response files contain only the response body. All metadata is stored in the YAML frontmatter, including item reference, linked decisions, evidence citations, QVAs, a length target, and submission section mapping. The length target field depends on the track — `word_count_target` for Word, `slide_count_target` for PowerPoint. Word example:
 
 ```yaml
 ---
@@ -345,9 +349,11 @@ section_reference: "Section 4.2"
 ---
 ```
 
+The PowerPoint response body is organized as slide blocks rather than prose, but the framework imposes no fixed layout, bullet density, or visual convention — authors have full discretion, and are expected to mirror an existing PowerPoint template or previous deck/response found in `intake/` when one is available. See `templates/powerpoint/item-response.md`.
+
 Output:
 
-- `workspace/items/item-XX-response.md`
+- `workspace/items/<format>/item-XX-response.md`
 
 #### Refine *(per backlog item)*
 
@@ -355,37 +361,37 @@ Review and finalize each item's response. Refine absorbs the full review loop �
 
 In the **Big Bang** path, Refine is not a mandatory separate step — teams refine directly on the generated final submission. However, Refine can be applied to individual items at any point, followed by a re-Assemble to incorporate updates.
 
+In `both` mode, each format track is refined and signed off independently — `/refine item-XX word` and `/refine item-XX powerpoint` are separate passes, each against its own status column.
+
 Output:
 
-- `workspace/items/item-XX-response.md` (approved)
+- `workspace/items/<format>/item-XX-response.md` (approved)
 
 #### Assemble *(full pursuit)*
 
-Produce the final submission through three sequential stages.
+Produce the final submission Markdown through two sequential stages, run once per active format track (`word`, `powerpoint`, or both if `output_format: both`).
 
 **Stage 1 — Auto-generate missing item responses**
 
-For every item in `workspace/backlog.md` that has a design document (`workspace/items/item-XX-design.md`) but no response file yet, the Draft skill logic is applied to generate `workspace/items/item-XX-response.md`. Items that already have a response are left untouched.
+For every item in `workspace/backlog.md`, and for each active track, if it has a design document (`workspace/items/<format>/item-XX-design.md`) but no response file yet, the Draft skill logic is applied to generate `workspace/items/<format>/item-XX-response.md`. Items that already have a response are left untouched.
 
-**Stage 2 — Assemble `workspace/final-submission.md`**
+**Stage 2 — Assemble the final submission Markdown**
 
-All item response files are concatenated in backlog order into `workspace/final-submission.md`. YAML frontmatter is stripped from each file before inclusion. Items that have no response and no design receive a labelled placeholder:
+For each active track, all item response files are concatenated in backlog order into `workspace/final-submission-word.md` and/or `workspace/final-submission-powerpoint.md`. YAML frontmatter is stripped from each file before inclusion. Items that have no response and no design receive a labelled placeholder:
 
 ```text
 [RESPONSE PENDING: Item 01 – Corporate Qualifications]
 ```
 
-**Stage 3 — Convert to `workspace/final-submission.docx`**
-
-`workspace/final-submission.md` is converted to Word. All `[PLACEHOLDER TEXT]` spans are highlighted in yellow. Standard built-in Word styles are used throughout so the document can be copied directly into any corporate RFx template without reformatting.
+**Conversion to `.docx` / `.pptx` is intentionally out of scope.** REF-RFX stops at Markdown — turning the compiled Markdown into a final Word document or PowerPoint deck is left to whatever tool the user has on hand (a coding agent with code execution, a chatbot, Pandoc, etc.), which keeps the toolkit dependency-free and portable across every AI surface it supports. See `skills/assemble.md` for the Markdown-to-style conventions a converter should follow (heading levels for Word; slide markers, layout hints, and a speaker-notes blockquote convention for PowerPoint).
 
 Assemble is safe to run at any point in the pursuit. In the **Standard Path** it can be run incrementally at any stage to produce a draft submission reflecting work done so far. In the **Big Bang** path, Assemble is the terminal step — Draft runs embedded within it, and Refine is not a mandatory separate step. Teams work through Deliberate and Design for each item, then run Assemble once to produce the complete response and refine directly on the generated documents. Refine can still be applied to individual items at any point, with Assemble re-run to incorporate the refined responses into an updated submission.
 
 Output:
 
-- `workspace/items/item-XX-response.md` (any newly generated item responses)
-- `workspace/final-submission.md`
-- `workspace/final-submission.docx`
+- `workspace/items/<format>/item-XX-response.md` (any newly generated item responses, per active track)
+- `workspace/final-submission-word.md` (if `output_format` is `word` or `both`)
+- `workspace/final-submission-powerpoint.md` (if `output_format` is `powerpoint` or `both`)
 
 ## AI Integration
 
@@ -444,7 +450,7 @@ Drop `AI-CHAT.md` into any chat window to activate the agent operating contract.
 - `backlog.md` — always include
 - `registry.md` — always include
 - `skills/[step].md` — the skill for the current step
-- Working files for the active item (`outputs/item-XX-decisions.md`, etc.)
+- Working files for the active item (`items/item-XX-decisions.md`, etc.)
 
 The `AI-CHAT.md` contract governs how the AI interacts: it prompts for any missing files and outputs all file changes as copy-paste-ready blocks with explicit instructions on where to apply them.
 
@@ -490,22 +496,26 @@ ref-rfx/
 │   │   ├── rfx/                 ← RFx documents, appendices, SOW, evaluation criteria
 │   │   ├── client/              ← client background, previous RFxs/responses, research
 │   │   └── supporting/          ← corporate IPs, frameworks, platforms, capabilities, certifications
-│   ├── backlog.md               ← full pursuit backlog
+│   ├── backlog.md               ← full pursuit backlog (output_format: word | powerpoint | both)
 │   ├── analysis.md              ← RFx analysis (produced by /analyse)
 │   ├── questions.md             ← clarification questions for the issuer (produced by /questions)
 │   ├── registry.md              ← global decision registry
 │   ├── evidences.md             ← evidence registry
 │   ├── assumptions.md           ← assumptions registry
-│   ├── final-submission.md      ← assembled final response
-│   ├── final-submission.docx    ← Word document for submission
+│   ├── final-submission-word.md         ← assembled Word-track response (if word or both)
+│   ├── final-submission-powerpoint.md   ← assembled PowerPoint-track response (if powerpoint or both)
 │   └── items/                   ← per-item working artifacts (sorted by item number)
-│       ├── item-01-decisions.md ← item decisions
-│       ├── item-01-design.md    ← item design/blueprint
-│       ├── item-01-response.md  ← item response (body + frontmatter)
+│       ├── item-01-decisions.md ← item decisions (shared across format tracks)
 │       ├── item-02-decisions.md
-│       ├── item-02-design.md
-│       ├── item-02-response.md
-│       └── ...
+│       ├── ...
+│       ├── word/                ← present if output_format is word or both
+│       │   ├── item-01-design.md
+│       │   ├── item-01-response.md
+│       │   └── ...
+│       └── powerpoint/          ← present if output_format is powerpoint or both
+│           ├── item-01-design.md
+│           ├── item-01-response.md
+│           └── ...
 │
 └── templates/
     ├── backlog.md               ← backlog template
@@ -514,10 +524,16 @@ ref-rfx/
     ├── registry.md              ← global decision registry template (includes guiding principles)
     ├── evidences.md             ← evidence registry template
     ├── assumptions.md           ← assumptions registry template
-    ├── item-decisions.md        ← per-item decisions template
-    ├── item-design.md           ← per-item design template
-    └── item-response.md         ← per-item response template (body + frontmatter)
+    ├── item-decisions.md        ← per-item decisions template (shared, format-independent)
+    ├── word/
+    │   ├── item-design.md       ← per-item design template — Word (sections/prose)
+    │   └── item-response.md     ← per-item response template — Word (body + frontmatter)
+    └── powerpoint/
+        ├── item-design.md       ← per-item design template — PowerPoint (slide blueprint; no fixed layout/visual convention, mirrors a reference template/deck if one exists)
+        └── item-response.md     ← per-item response template — PowerPoint (slide blocks; structure, bullets, and visuals are the author's call)
 ```
+
+Note: converting the assembled Markdown into a final `.docx` or `.pptx` is intentionally left to the user (see Assemble and Output Generation below) — no conversion scripts or runtime dependencies are bundled in this repository.
 
 ## RFx-Specific Features
 
@@ -561,7 +577,7 @@ The Decision Registry is a core REF-RFX artifact operating at two levels.
 
 Global decisions are not restricted to the start of a pursuit. They can be introduced or revised at any time as the team's understanding of the opportunity evolves. When a global decision is added or changed, it triggers a reapplication pass across all previously completed items to ensure the full response remains consistent.
 
-**Item Decisions** are scoped to a specific backlog item and stored as individual files in the `outputs/` folder (`outputs/item-XX-decisions.md`), keeping all item-level outputs together and naturally sorted by item number:
+**Item Decisions** are scoped to a specific backlog item and stored as individual files in the `items/` folder (`items/item-XX-decisions.md`), keeping all item-level outputs together and naturally sorted by item number. This file is shared across format tracks — Design, Draft, and Refine are the steps that fan out per `output_format`:
 
 - Item narrative and positioning
 - Item-specific differentiators and QVAs
@@ -611,13 +627,15 @@ Assumptions may be:
 
 The registry ensures assumptions are visible, traceable, and consistently applied across all items. Unvalidated assumptions are flagged during Refine.
 
-### Word Document Generation
+### Output Generation
 
-`final-submission.docx` is generated from `final-submission.md`.
+REF-RFX supports two independent output tracks, chosen per pursuit via `output_format` (`word`, `powerpoint`, or `both`) in `backlog.md` frontmatter. Assemble compiles each active track into its own Markdown file — `final-submission-word.md` and/or `final-submission-powerpoint.md` — and stops there. **Converting that Markdown into a final `.docx` or `.pptx` is intentionally left to the user**, using whatever tool is on hand: a coding agent with code execution (local or cloud), a chatbot, Pandoc, or any other converter. This keeps the toolkit dependency-free — no bundled runtime or scripts to install — and fully portable across Claude Code, Cursor, GitHub Copilot, and the stateless chat contract alike.
+
+Both conventions below exist so that whoever performs the conversion produces a predictable, template-ready result.
 
 **Placeholder highlighting**
 
-Any text matching the placeholder convention `[PLACEHOLDER TEXT]` is automatically highlighted in yellow in the generated Word document, making unfilled placeholders immediately visible for review before submission.
+Any text matching the placeholder convention `[PLACEHOLDER TEXT]` (or `[RESPONSE PENDING: ...]`) should be flagged distinctly in the converted output — highlighted yellow in Word, bold red text in PowerPoint (highlight-run support is inconsistent there) — so unfilled placeholders stay visible right up to submission.
 
 Example placeholders:
 
@@ -629,9 +647,7 @@ Example placeholders:
 [POINT OF CONTACT]
 ```
 
-**Standard Word styles**
-
-All content uses standard built-in Word style names. This means the document can be copied directly into any corporate RFx template and the content will adopt the template's styles automatically without manual reformatting.
+**Word conventions**, from `final-submission-word.md` — standard built-in Word style names, so the document can be copied directly into any corporate RFx template and adopt its styles automatically without manual reformatting:
 
 | Markdown element | Word style    |
 |------------------|---------------|
@@ -644,6 +660,17 @@ All content uses standard built-in Word style names. This means the document can
 | Table            | Table Grid    |
 | Bold inline      | Strong        |
 | Code / verbatim  | Verbatim Char |
+
+**PowerPoint conventions**, from `final-submission-powerpoint.md`. REF-RFX does not impose a layout taxonomy, bullet density, or visual convention of its own — authors mirror an existing corporate PowerPoint template or previous deck when one is provided in `intake/`, or use full discretion when none exists. The mapping below is guidance for whoever converts the Markdown, not a structure the response is required to follow:
+
+| Markdown element | PPTX mapping |
+|------------------|--------------|
+| `## Slide N — Title` (or whatever heading convention was actually used) | New slide; text becomes the Title placeholder |
+| `**Layout:** ...` (if present) | Slide layout to use — whatever the author specified or a reference template called for |
+| Bullet list           | Content placeholder bullets |
+| `> Speaker notes: ...` (if present, optional) | Notes pane — not visible on the slide itself |
+| Table                  | Table shape |
+| `![alt](path)`         | Picture placeholder / embedded image |
 
 ## Family Frameworks
 

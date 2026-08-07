@@ -28,8 +28,8 @@ Read whichever of these exist under `workspaces/<slug>/`; silently skip any that
 
 - `backlog.md`, `registry.md`, `evidences.md`, `analysis.md`, `questions.md`, `assumptions.md`
 - `intake/rfx/`, `intake/client/`, `intake/supporting/` (list contents, don't read every document in full)
-- `items/item-XX-decisions.md`, `items/item-XX-design.md`, `items/item-XX-response.md`
-- `final-submission.md`, `final-submission.docx`
+- `items/item-XX-decisions.md` (shared), plus `items/<format>/item-XX-design.md` and `items/<format>/item-XX-response.md` for each active format track — read `output_format` in `backlog.md` frontmatter (`word`, `powerpoint`, or `both`; treat a missing field as `word`) to know which folder(s) to check
+- `final-submission-word.md` (if `word`/`both` is active), `final-submission-powerpoint.md` (if `powerpoint`/`both` is active) — note that `.docx`/`.pptx` conversion is intentionally out of scope for this framework, so their absence is not a gap to flag
 
 ## Step 3 — Diagnose lifecycle position
 
@@ -43,8 +43,8 @@ Judge completion from file *content*, not just presence — a freshly copied tem
 | Catalogue | `evidences.md` has one or more E-xx entries, not just the template header |
 | Decompose | `backlog.md` has real item rows, not the template's `[Item title]` placeholders |
 | Strategise | `registry.md` Global Decisions (G-01+) are filled in, not bracketed placeholders |
-| Deliberate / Design / Draft / Refine *(per item)* | read the Status column in `backlog.md` for each row: `Not Started` → `Deliberate Complete` → `Design Complete` → `Drafted` → `Approved`. Cross-check against the presence of the item's `items/item-XX-*.md` files — flag any mismatch (e.g. status says `Drafted` but no response file exists) rather than silently trusting one source. |
-| Assemble | `final-submission.md` / `.docx` exist |
+| Deliberate / Design / Draft / Refine *(per item, per active format track)* | read the Status column(s) in `backlog.md` for each row — a single `Status` column when `output_format` is `word` or `powerpoint`, or `Status (Word)` / `Status (PowerPoint)` when `both`: `Not Started` → `Deliberate Complete` → `Design Complete` → `Drafted` → `Approved`. Cross-check against the presence of the item's `items/<format>/item-XX-*.md` files — flag any mismatch (e.g. status says `Drafted` but no response file exists) rather than silently trusting one source. |
+| Assemble | `final-submission-<format>.md` exists for each active track (`.docx`/`.pptx` conversion is left to the user by design, so it's not part of this diagnosis) |
 
 ## Step 4 — Present status and recommend the next step
 
@@ -65,6 +65,8 @@ Map backlog item status to next action:
 | `Design Complete` | `/draft item-XX` (Standard) or hold for `/assemble` (Big Bang) |
 | `Drafted` | `/refine item-XX` |
 | `Approved` | nothing — ready to be included in `/assemble` |
+
+In `both` mode, apply this mapping to each of `Status (Word)` and `Status (PowerPoint)` independently, and recommend the track-qualified command where one is needed (e.g. `/design item-03 word`, `/refine item-03 powerpoint`) rather than the bare form — the two tracks routinely sit at different stages.
 
 Map pursuit-level gaps to next action:
 
@@ -115,7 +117,7 @@ Use this to explain the flow when the user is new to the framework or asks "what
 | Design | `/design item-XX` | Turn an item's decisions into a response blueprint |
 | Draft | `/draft item-XX` | Generate draft response content for one item (Standard Path) |
 | Refine | `/refine item-XX` | Review, critique, and finalize an item's response |
-| Assemble | `/assemble` | Produce `final-submission.md` / `.docx` from all item responses |
+| Assemble | `/assemble` | Produce `final-submission-<format>.md` from all item responses, per active format track (`.docx`/`.pptx` conversion is left to the user) |
 
 ## Output
 

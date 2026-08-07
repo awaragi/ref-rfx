@@ -12,9 +12,16 @@ command: /refine
 
 ## Backlog Awareness
 
-Read `workspaces/<slug>/backlog.md`. Without an explicit item argument, work on the first item with status `Drafted`. With an explicit item number (e.g. `/refine item-03`), work on that item regardless of status.
+Read `workspaces/<slug>/backlog.md`. Without an explicit item argument, work on the first item with status `Drafted` (in `both` mode, the first item with either format track at that status — then resolve which track per Output Format Awareness below). With an explicit item number (e.g. `/refine item-03`), work on that item regardless of status.
 
-Read `workspaces/<slug>/items/item-XX-decisions.md`, `workspaces/<slug>/items/item-XX-design.md`, and `workspaces/<slug>/items/item-XX-response.md` for the active item.
+## Output Format Awareness
+
+Read `output_format` from `workspaces/<slug>/backlog.md` frontmatter (`word`, `powerpoint`, or `both`; treat a missing field as `word`).
+
+- **`word` or `powerpoint`:** operate on that single track — `workspaces/<slug>/items/word/item-XX-*.md` or `workspaces/<slug>/items/powerpoint/item-XX-*.md` respectively.
+- **`both`:** a track qualifier is required, e.g. `/refine item-03 word` or `/refine item-03 powerpoint`. If the invocation doesn't include one, ask which track to refine rather than assuming — the two tracks are refined and signed off independently, each against its own `Status (Word)` / `Status (PowerPoint)` column.
+
+Read `workspaces/<slug>/items/item-XX-decisions.md` (shared across tracks), `workspaces/<slug>/items/<format>/item-XX-design.md`, and `workspaces/<slug>/items/<format>/item-XX-response.md` for the active item and track.
 
 Status stays `Drafted` throughout the loop. Only transitions to `Approved` on sign-off.
 
@@ -45,13 +52,13 @@ Re-read the relevant RFx section, the decisions file, the design file, and the r
 7. **Cross-item consistency** — flag any terminology or claims that conflict with other completed response files.
 8. **Suggested edits** — specific, actionable changes (not general feedback).
 
-After presenting the review, ask: *"Would you like to add any notes before I apply these changes?"* Incorporate any additional user notes, then apply all changes to `workspaces/<slug>/items/item-XX-response.md`.
+After presenting the review, ask: *"Would you like to add any notes before I apply these changes?"* Incorporate any additional user notes, then apply all changes to `workspaces/<slug>/items/<format>/item-XX-response.md`.
 
 ## Step 2B — Manual Review
 
 Ask: *"Please share your feedback and I'll apply it to the draft."*
 
-Apply all changes to `workspaces/<slug>/items/item-XX-response.md`.
+Apply all changes to `workspaces/<slug>/items/<format>/item-XX-response.md`.
 
 ## Step 3 — Iterate
 
@@ -62,9 +69,9 @@ After applying changes, ask: *"Would you like another review pass, or are you re
 
 ## Sign-Off
 
-Update the `status` field in the YAML frontmatter of `workspaces/<slug>/items/item-XX-response.md` to `approved` and update `workspaces/<slug>/backlog.md` item status to `Approved`.
+Update the `status` field in the YAML frontmatter of `workspaces/<slug>/items/<format>/item-XX-response.md` to `approved` and update the item's status for that track in `workspaces/<slug>/backlog.md` to `Approved`.
 
 ## Output
 
-- Updated `workspaces/<slug>/items/item-XX-response.md`
+- Updated `workspaces/<slug>/items/<format>/item-XX-response.md`
 - Updated `workspaces/<slug>/backlog.md`

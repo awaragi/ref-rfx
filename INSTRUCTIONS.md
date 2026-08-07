@@ -93,7 +93,7 @@ Update `workspaces/<slug>/backlog.md` at every phase transition. Log every signi
 | Global decisions | `workspaces/<slug>/registry.md` |
 | Evidence | `workspaces/<slug>/evidences.md` |
 | Assumptions | `workspaces/<slug>/assumptions.md` |
-| Per-item decisions | `workspaces/<slug>/items/item-XX-decisions.md` |
-| Per-item design | `workspaces/<slug>/items/item-XX-design.md` |
-| Per-item response | `workspaces/<slug>/items/item-XX-response.md` |
-| Final submission | `workspaces/<slug>/final-submission.md` / `workspaces/<slug>/final-submission.docx` |
+| Per-item decisions | `workspaces/<slug>/items/item-XX-decisions.md` (shared across format tracks) |
+| Per-item design | `workspaces/<slug>/items/<format>/item-XX-design.md` (`<format>` is `word` and/or `powerpoint`, per `output_format` in `backlog.md`) |
+| Per-item response | `workspaces/<slug>/items/<format>/item-XX-response.md` |
+| Final submission | `workspaces/<slug>/final-submission-word.md` and/or `workspaces/<slug>/final-submission-powerpoint.md`, per `output_format`. Converting these to `.docx`/`.pptx` is left to the user — Assemble's output stops at Markdown. |

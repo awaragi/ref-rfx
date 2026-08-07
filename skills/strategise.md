@@ -27,7 +27,7 @@ Dimensions to cover:
 - **Delivery model** — Onshore, offshore, nearshore, or hybrid staffing posture? Any location commitments or transition considerations?
 - **Technology environment** — Which platforms, tools, or tech stack to lead with? Any proprietary IP, partnerships, or preferred technology narrative?
 - **Alliances and partnerships** — Any teaming arrangements, JVs, named subcontractors, or strategic partners to highlight and how to position them?
-- **Response format and medium** — Document only, oral presentation, both? How to structure the submission for maximum evaluator impact?
+- **Response format and medium** — Document only, oral presentation, both? How to structure the submission for maximum evaluator impact? Confirm `output_format` (`word`, `powerpoint`, or `both`) in `workspaces/<slug>/backlog.md` frontmatter — this is normally set during `/decompose`, but revisit it here if the strategic conversation surfaces a reason to change it (e.g. deciding to add an orals deck alongside the written response). If it changes, update `backlog.md` directly as part of this dimension rather than waiting for Output. If the change is to or from `both`, also update the `Status` column(s) to match: splitting a single `Status` column into `Status (Word)` / `Status (PowerPoint)` (copying the current value into both, since any Deliberate work already done applies to both tracks equally), or merging them back into one if dropping `both`.
 - **Pricing posture** — Competitive on price, value-based premium, cost-optimization focus, or fixed-price confidence?
 - **Risk posture** — What is the firm's risk appetite for this pursuit? Any performance guarantees, risk-sharing arrangements, or risk mitigation commitments to establish upfront?
 
