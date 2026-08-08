@@ -33,28 +33,35 @@ Read every file in `workspaces/<slug>/intake/rfx/` in full, including any addend
 - Module/scope inventories, pricing tables, and requirement lists, cross-checked for internal inconsistencies (missing items, mismatched counts, contradictory statements between sections)
 - Anything the RFx itself flags as unreliable, non-binding, or "for information only"
 
-### 3. Identify Candidate Questions
+### 3. Confirm the Priority Target
+
+Ask the user what target High/Medium/Low priority split to aim for across the whole question set, suggesting **~30% High / 40% Medium / 30% Low** as a sensible default if they have no preference. Make clear this is a soft guide, not a hard quota — actual assignment must always follow the substance of each question (see criteria in Step 4), not force-fit the ratio. Record the confirmed target so it can be reported in the closing summary (Step 6).
+
+If `workspaces/<slug>/questions.md` already exists with `Priority` values assigned, re-confirm the target still holds before re-running Step 4 across existing questions (a prior pass may have used a different or no target).
+
+### 4. Identify Candidate Questions
 
 Systematically scan for every genuine ambiguity, missing piece of information, internal inconsistency, and risk-worthy clarification. For each candidate question, determine:
 - Which topic category it belongs to (group logically — see the illustrative categories in `templates/questions.md`; add, rename, or omit categories based on what this RFx actually raises)
 - Whether asking it would reveal the team's specific technical approach, pricing strategy, partnership plans, or differentiators to competitors (relevant if the RFx distributes Q&A responses to all bidders) — flag these with a **Sensitivity** value such as `Sensitive` or `Sensitive-light`
+- **Priority** (`High`/`Medium`/`Low`): a blend of (a) how much the answer would materially change bid strategy, price, or go/no-go, (b) how time-urgent it is to get answered given the RFx timeline, and (c) whether leaving it unanswered risks a compliance trap. Assign per-question on substance first; use the confirmed target split from Step 3 only as a sanity check across the full set once all questions are drafted — rebalance individual borderline calls toward the target, but never invent urgency/impact/risk that isn't there just to hit the ratio.
 - Any internal-only rationale worth preserving alongside the question (why it matters, what it protects against) — this becomes the question's `> [!NOTE]` callout, never part of the question text itself
 
 Wherever there is any credible basis for it — a compressed timeline, scope/document complexity, an addendum that already pushed other dates, etc. — always include a request for additional time to respond as a candidate question. It costs little to ask and can materially help the pursuit team, so default to including it as the first question in the Procurement Process / Timeline category unless the RFx timeline is genuinely generous.
 
 There is no minimum or maximum question count — be exhaustive. It is the pursuit team's job to triage down, not the model's job to pre-filter.
 
-### 4. Write the Questions Document
+### 5. Write the Questions Document
 
 If `workspaces/<slug>/questions.md` does not exist, copy `templates/questions.md` to `workspaces/<slug>/questions.md` and populate it in place. If it already exists, read it first and update it in place — add new questions, renumber only where a new question is inserted ahead of existing ones, and correct any content invalidated by newly issued addenda — rather than regenerating the whole file from scratch.
 
 `templates/questions.md` defines the required structure — table of contents, section/question numbering, per-question fields, and the closing summary — and carries inline guidance for each part. Follow it exactly.
 
-### 5. Update Metadata and Confirm
+### 6. Update Metadata and Confirm
 
 Update the YAML frontmatter (`pursuit`, `issuer`, `submission_deadline` — including the exact channel) from the RFx documents. Confirm these are consistent with `workspaces/<slug>/analysis.md` and `workspaces/<slug>/backlog.md` if they exist — flag any discrepancy to the user.
 
-Present a brief summary: total questions written, category breakdown, and a reminder that this is a working list requiring triage before submission.
+Present a brief summary: total questions written, category breakdown, the actual High/Medium/Low priority breakdown versus the confirmed target from Step 3, and a reminder that this is a working list requiring triage before submission.
 
 ## Output
 

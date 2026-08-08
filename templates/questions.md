@@ -13,7 +13,7 @@ status: "Draft — unfiltered working list, not yet triaged or submitted"
 
 This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-worthy clarification surfaced from the RFx package. **It is not a submission-ready question set.** Before sending anything to the issuer:
 
-1. **Triage for necessity.** Only submit questions whose answer materially changes how the team bids (price, approach, go/no-go) or that are needed to avoid a compliance trap. Anything answerable from the RFx itself, or that is a matter of internal judgment, should be cut.
+1. **Triage for necessity.** Only submit questions whose answer materially changes how the team bids (price, approach, go/no-go) or that are needed to avoid a compliance trap. Anything answerable from the RFx itself, or that is a matter of internal judgment, should be cut. Each question's **Priority** (`High`/`Medium`/`Low`) is a first-pass signal for this — reflecting bid-impact, timeline urgency, and compliance-trap risk — but always re-confirm it against the actual RFx text rather than relying on the label alone.
 2. **Triage for competitive exposure.** [State whether Q&A responses/addenda are distributed to all bidders or only to the asker, per the RFx's stated process, citing the section.] Reword or drop any question that would signal the team's specific technical approach, pricing strategy, partnership plans, or differentiators to competitors. Questions with a **Sensitivity** other than `—` below are exactly the ones most likely to need rewording into a more neutral form, or to be asked only if the informational value outweighs the signal given away.
 3. **Route through the correct channel only.** [State the exact permitted channel(s) for submitting questions — e.g. e-tendering portal messaging to a named contact, a specific email address — and the hard deadline, citing the RFx section. Note whether any other channel is explicitly disallowed.]
 4. Group and consolidate before submission — some issuers cap the number or length of questions in practice even where the RFx doesn't state a formal limit.
@@ -34,10 +34,18 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
 
 ## 1. Category Title
 
+<!-- Priority (High/Medium/Low) reflects a blend of: how much the answer would change bid
+     strategy/price/go-no-go, how time-urgent it is to get answered given the RFx timeline, and
+     whether leaving it unanswered risks a compliance trap. Confirm the target High/Medium/Low
+     split with the user before assigning (default suggestion: ~30% High / 40% Medium / 30% Low
+     as a soft guide, not a hard quota — actual assignment should follow the substance of each
+     question, not force-fit the ratio). -->
+
 ### 1.1 Question title
 
 - **Batch:**
 - **Sensitivity:** —
+- **Priority:** [High | Medium | Low]
 
 [The question itself, written as a single clear paragraph that could be pasted directly into an email or portal message. Include enough context — with an RFx section reference — for the issuer to know exactly what's being asked. Keep any internal-only rationale out of this paragraph; it belongs in the Note below instead.]
 
@@ -73,7 +81,7 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
 
 ## Summary count
 
-**N candidate questions** drafted across N categories (numbered `section.question`, e.g. **4.1** = Section 4, 1st question). Recommend the pursuit team:
+**N candidate questions** drafted across N categories (numbered `section.question`, e.g. **4.1** = Section 4, 1st question) — **N High / N Medium / N Low** priority (target split confirmed with the user: [e.g. "~30/40/30, as suggested" or the user's stated alternative]). Recommend the pursuit team:
 - Cut anything answerable from the RFx itself on a closer re-read.
-- Prioritize the highest-value, lowest-competitive-exposure items first if only a short list can be submitted.
+- Prioritize **High**-priority, lowest-competitive-exposure items first if only a short list can be submitted.
 - Drop or substantially reword every item with a non-`—` **Sensitivity**.
