@@ -25,14 +25,30 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
 <!-- Regenerate this list to match the sections and questions actually written below.
      Anchors must be plain GitHub/Cursor-style slugs of the heading text
      (lowercase, spaces -> hyphens, punctuation stripped) — do not use custom
-     <a id> anchors, they are not honored by Cursor's or GitHub's link navigation. -->
+     <a id> anchors, they are not honored by Cursor's or GitHub's link navigation.
 
-- [1. Category Title](#1-category-title)
-  - [1.1 Question title](#11-question-title)
+     Include every heading in document order: Active Questions with its categories/questions,
+     Summary count, then one top-level "Submitted batch N on [date]" entry per batch actually
+     sent (omit entirely until the first one exists), each with its own freshly-numbered
+     category/question sub-entries (see that section's guidance — numbers there are independent
+     of Active Questions and of any other batch). If a heading's number and title happen to
+     duplicate another heading elsewhere in the document, GitHub/Cursor slugs the repeat with a
+     "-1"/"-2"/... suffix (in document order) — link to the correct suffixed anchor, not the
+     plain one. -->
+
+- [Active Questions](#active-questions)
+  - [1. Category Title](#1-category-title)
+    - [1.1 Question title](#11-question-title)
+- [Summary count](#summary-count)
+- [Submitted batch 1 on [date]](#submitted-batch-1-on-date)
+  - [1. Category Title](#1-category-title-1)
+    - [1.1 Question title](#11-question-title-1)
 
 ---
 
-## 1. Category Title
+## Active Questions
+
+### 1. Category Title
 
 <!-- Priority (High/Medium/Low) reflects a blend of: how much the answer would change bid
      strategy/price/go-no-go, how time-urgent it is to get answered given the RFx timeline, and
@@ -41,7 +57,7 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
      as a soft guide, not a hard quota — actual assignment should follow the substance of each
      question, not force-fit the ratio). -->
 
-### 1.1 Question title
+#### 1.1 Question title
 
 - **Batch:**
 - **Sensitivity:** —
@@ -57,16 +73,16 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
 
 ---
 
-<!-- Add additional ### X.Y question headings within this section, and additional ## sections,
+<!-- Add additional #### X.Y question headings within this section, and additional ### sections,
      as warranted. Number sections sequentially (1, 2, 3, ...) and questions within each section
      as X.1, X.2, .... There is no maximum number of sections or questions.
 
      Within each section, order questions highest-to-lowest Priority (High -> Medium -> Low);
      break ties by keeping the existing relative order. Question numbers are positional, not
-     stable IDs — renumber X.1, X.2, ... to match this sorted order whenever a question is added,
-     removed, or its Priority changes on a later pass. Exception: once a batch of questions has
-     already been submitted to the issuer under specific numbers, don't renumber those — resort
-     only the not-yet-submitted remainder.
+     stable IDs — renumber X.1, X.2, ... to match this order whenever a question is added,
+     removed, or reprioritized. Once a question is actually sent to the issuer, move it to that
+     batch's heading at the end of this document (see the guidance there) instead of leaving it
+     here.
 
      Illustrative categories — add, rename, or omit based on what the specific RFx actually raises: -->
 
@@ -92,3 +108,43 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
 - Cut anything answerable from the RFx itself on a closer re-read.
 - Prioritize **High**-priority, lowest-competitive-exposure items first if only a short list can be submitted.
 - Drop or substantially reword every item with a non-`—` **Sensitivity**.
+
+---
+
+<!-- No batches have been submitted yet. The moment the user confirms a batch was actually sent
+     (never on your own initiative), add a new "## Submitted batch N on [date] (via [channel])"
+     heading here at the end of the document — one per batch, in submission order. Under it, move
+     — don't copy — each question in that batch, title and content unchanged, but numbered fresh
+     the same way Active Questions are: categories keep their relative order but are renumbered
+     1, 2, 3... within this batch alone (independent of their original category number, of Active
+     Questions, and of any other batch), and questions within each are ordered by Priority (ties
+     keep relative order) and renumbered M.1, M.2, .... Carry every other original field (Batch,
+     Sensitivity, Priority), the question text, and note over unchanged — nothing added or
+     dropped. Delete the original from its active category above and renumber that category to
+     close the gap; add the new heading(s) to the Table of Contents. The Summary count is not
+     updated — its tallies cover only the still-active, not-yet-submitted questions.
+
+     Example — this batch happens to move one question originally under category 1 and one
+     originally under category 4; both keep their title/content but get this batch's own fresh
+     numbers:
+       ## Submitted batch 1 on August 10, 2026 (via e-tendering portal message #1234)
+
+       ### 1. Procurement Process, Timeline & Incumbent
+
+       #### 1.1 Request for additional time to respond
+
+       - **Batch:** 1
+       - **Sensitivity:** —
+       - **Priority:** High
+
+       [question text, unchanged]
+
+       ### 2. Scope & Module Inventory Clarifications
+
+       #### 2.1 Current AODA/GO-ITS accessibility compliance status of the legacy modules
+
+       - **Batch:** 1
+       - **Sensitivity:** —
+       - **Priority:** High
+
+       [question text, unchanged] -->
