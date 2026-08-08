@@ -55,6 +55,8 @@ There is no minimum or maximum question count — be exhaustive. It is the pursu
 
 If `workspaces/<slug>/questions.md` does not exist, copy `templates/questions.md` to `workspaces/<slug>/questions.md` and populate it in place. If it already exists, read it first and update it in place — add new questions, renumber only where a new question is inserted ahead of existing ones, and correct any content invalidated by newly issued addenda — rather than regenerating the whole file from scratch.
 
+Within each section, order questions from highest Priority to lowest (`High` → `Medium` → `Low`), breaking ties by keeping the existing relative order, then renumber `X.1`, `X.2`, ... to match. Question numbers are positional, not stable identifiers — re-sort and renumber the whole section whenever a question is added, removed, or an existing question's Priority changes (e.g. during Step 3/4's re-confirmation on a re-run). Update the table of contents and the Summary count section's number ranges to match afterward. **Exception:** if any questions in a section have already been submitted to the issuer under their current numbers, leave those in place and only re-sort the not-yet-submitted remainder around them — flag this to the user if it means the sort isn't fully clean.
+
 `templates/questions.md` defines the required structure — table of contents, section/question numbering, per-question fields, and the closing summary — and carries inline guidance for each part. Follow it exactly.
 
 ### 6. Update Metadata and Confirm

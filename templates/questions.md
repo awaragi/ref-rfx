@@ -61,6 +61,13 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
      as warranted. Number sections sequentially (1, 2, 3, ...) and questions within each section
      as X.1, X.2, .... There is no maximum number of sections or questions.
 
+     Within each section, order questions highest-to-lowest Priority (High -> Medium -> Low);
+     break ties by keeping the existing relative order. Question numbers are positional, not
+     stable IDs — renumber X.1, X.2, ... to match this sorted order whenever a question is added,
+     removed, or its Priority changes on a later pass. Exception: once a batch of questions has
+     already been submitted to the issuer under specific numbers, don't renumber those — resort
+     only the not-yet-submitted remainder.
+
      Illustrative categories — add, rename, or omit based on what the specific RFx actually raises: -->
 
 | Example Category | Typical Focus |
