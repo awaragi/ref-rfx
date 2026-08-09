@@ -59,8 +59,8 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
 
 #### 1.1 Question title
 
-- **Batch:**
-- **Sensitivity:** —
+- **Batch: **
+- **Sensitivity: ** —
 - **Priority:** [High | Medium | Low]
 
 [The question itself, written as a single clear paragraph that could be pasted directly into an email or portal message. Include enough context — with an RFx section reference — for the issuer to know exactly what's being asked. Keep any internal-only rationale out of this paragraph; it belongs in the Note below instead.]
