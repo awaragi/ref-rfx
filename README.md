@@ -237,7 +237,7 @@ Set the pursuit-wide strategic foundation before any item-level work begins. Str
 
 Sample dimensions to work through:
 
-- **Win theme** — the single overarching message the evaluator should be left with
+- **Win theme** — the single overarching message the evaluator should be left with, plus the 3–5 supporting pillars that prove it, each mapped to where it must appear across the response
 - **Competitive positioning** — how to frame against likely competition
 - **Delivery model** — onshore, offshore, nearshore, or hybrid staffing posture
 - **Technology environment** — which platforms, tools, or tech stack to lead with

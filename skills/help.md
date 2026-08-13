@@ -42,7 +42,7 @@ Judge completion from file *content*, not just presence — a freshly copied tem
 | Analyse *(optional)* | `analysis.md` has populated A-xx entries, not placeholder text |
 | Catalogue | `evidences.md` has one or more E-xx entries, not just the template header |
 | Decompose | `backlog.md` has real item rows, not the template's `[Item title]` placeholders |
-| Strategise | `registry.md` Global Decisions (G-01+) are filled in, not bracketed placeholders |
+| Strategise | `registry.md` Global Decisions (G-01+) are filled in, not bracketed placeholders — including at least one real row in the Win Theme Pillars table |
 | Deliberate / Design / Draft / Refine *(per item, per active format track)* | read the Status column(s) in `backlog.md` for each row — a single `Status` column when `output_format` is `word` or `powerpoint`, or `Status (Word)` / `Status (PowerPoint)` when `both`: `Not Started` → `Deliberate Complete` → `Design Complete` → `Drafted` → `Approved`. Cross-check against the presence of the item's `items/<format>/item-XX-*.md` files — flag any mismatch (e.g. status says `Drafted` but no response file exists) rather than silently trusting one source. |
 | Assemble | `final-submission-<format>.md` exists for each active track (`.docx`/`.pptx` conversion is left to the user by design, so it's not part of this diagnosis) |
 

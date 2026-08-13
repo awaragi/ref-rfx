@@ -22,7 +22,7 @@ Also read `workspaces/<slug>/analysis.md` (if it exists) and all files in `works
 
 Dimensions to cover:
 
-- **Win theme** — What is the single overarching message that ties the entire pursuit together? The narrative a evaluator should be left with after reading the full submission.
+- **Win theme** — First establish the single overarching narrative the evaluator should be left with after reading the full submission (this becomes G-01). Then identify 3–5 supporting win theme pillars that prove it — explore them one at a time, each with: a short label, a one-sentence core message, why it matters for this specific RFx (tied to a stated evaluation criterion or a named client pain point, not a generic claim), and where it should be threaded (which backlog items/sections must carry this pillar). These become rows in the **Win Theme Pillars** table.
 - **Competitive positioning** — How to frame against the likely competition: incumbent-challenger, specialist, transformation leader, low-risk safe pair of hands, or other?
 - **Delivery model** — Onshore, offshore, nearshore, or hybrid staffing posture? Any location commitments or transition considerations?
 - **Technology environment** — Which platforms, tools, or tech stack to lead with? Any proprietary IP, partnerships, or preferred technology narrative?
@@ -38,14 +38,17 @@ After all dimensions are covered, ask: *"I have covered all strategic dimensions
 Once the user confirms, update `workspaces/<slug>/registry.md`:
 
 - Populate or update the **Global Decisions** section with one G-XX entry per confirmed decision
+- Populate or update the **Win Theme Pillars** table with one row per confirmed pillar
 - Preserve all existing Standing Decisions (S-XX entries) unchanged
-- If the registry already contains G-XX entries, update them in place rather than duplicating
+- If the registry already contains G-XX entries or pillar rows, update them in place rather than duplicating
 
 Then confirm to the user: *"Global decisions recorded in workspaces/<slug>/registry.md. You are ready to begin item-level Deliberate."*
 
-## G-XX Entry Format
+## G-XX Entry Format and Win Theme Pillars
 
-Use the G-XX entry format defined in `templates/registry.md`. Populate **Category**, **Decision**, and **Rationale** from the confirmed strategic choices.
+Use the G-XX entry format defined in `templates/registry.md` for single-value decisions (Delivery posture, Security posture, Pricing narrative, etc.). Populate **Category**, **Decision**, and **Rationale** from the confirmed strategic choices.
+
+The win theme itself is two-tiered: G-01 holds the single overarching narrative; the **Win Theme Pillars** table (immediately below G-01 in `registry.md`) holds the 3–5 supporting pillars, one row each, with **Pillar**, **Core Message**, **Why It Matters For This RFx**, and **Where To Apply**. The last column is what lets Deliberate and Design check, per item, which pillars that item must carry.
 
 ## Notes
 

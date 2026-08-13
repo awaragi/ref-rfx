@@ -35,54 +35,57 @@ _**Rationale:** value_
 
 ### G-01
 **Category:** Win theme
-**Decision:** [The single overarching positioning message for this pursuit]
+**Decision:** [The single overarching positioning message for this pursuit — the narrative every evaluator should be left with after reading the full submission]
 **Rationale:**
+
+---
+
+### Win Theme Pillars
+
+The supporting differentiators that prove the win theme above. One row per pillar (typically 3–5, ranked by strategic fit). **Where To Apply** names the backlog items/sections that must carry this pillar — Deliberate and Design check this table for every item to stay consistent with S-06.
+
+| # | Pillar | Core Message | Why It Matters For This RFx | Where To Apply |
+|---|--------|---------------|------------------------------|-----------------|
+| 1 | [Short label] | [One-sentence differentiator claim] | [Tie to a stated evaluation criterion or named client pain point — not a generic claim] | [Items/sections this must appear in] |
 
 ---
 
 ### G-02
-**Category:** Differentiators
-**Decision:** [The 2–3 firm-level differentiators that apply across all items]
-**Rationale:**
-
----
-
-### G-03
 **Category:** Delivery posture
 **Decision:** [Cross-cutting delivery approach, e.g. agile, fixed-price, phased]
 **Rationale:**
 
 ---
 
-### G-04
+### G-03
 **Category:** Security posture
 **Decision:** [Cross-cutting security and risk position]
 **Rationale:**
 
 ---
 
-### G-05
+### G-04
 **Category:** Value theme
 **Decision:** [Primary value story: cost, speed, risk reduction, or innovation — pick one; the others become supporting evidence]
 **Rationale:**
 
 ---
 
-### G-06
+### G-05
 **Category:** Pricing narrative
 **Decision:** [How the price is positioned: value-based, risk-adjusted, market-competitive, or investment framing]
 **Rationale:**
 
 ---
 
-### G-07
+### G-06
 **Category:** Past performance selection
 **Decision:** [Which 2–3 reference engagements best prove capability for this pursuit and will be cited consistently across all items]
 **Rationale:**
 
 ---
 
-### G-08
+### G-07
 **Category:** Competitive posture
 **Decision:** [How to position against the likely incumbent or primary competitors — ghost their weaknesses without naming them]
 **Rationale:**
