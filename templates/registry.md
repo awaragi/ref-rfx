@@ -48,6 +48,16 @@ The supporting differentiators that prove the win theme above. One row per pilla
 |---|--------|---------------|------------------------------|-----------------|
 | 1 | [Short label] | [One-sentence differentiator claim] | [Tie to a stated evaluation criterion or named client pain point — not a generic claim] | [Items/sections this must appear in] |
 
+<!-- Illustrative example only — showing the level of specificity expected, not literal content to
+     reuse. Delete this comment once the real pillars above are populated for the actual pursuit.
+
+     | # | Pillar | Core Message | Why It Matters For This RFx | Where To Apply |
+     |---|--------|---------------|------------------------------|-----------------|
+     | 1 | Proven transit modernization delivery | We have replaced fare collection platforms for three transit authorities without a single service-affecting outage. | Section 2.3 names service continuity during cutover as a top evaluation criterion, and the incumbent has never run a transition at this scale. | Executive Summary; Delivery Approach; Transition Plan |
+     | 2 | Governed, testable rule migration | Every fare rule migrates through a documented trace from legacy code to signed-off UAT, so no fare policy is lost in translation. | Section 4.1 requires proof that concession and transfer rules survive migration — this directly answers the evaluator's stated concern about silent rule loss. | Technical Approach; Quality Assurance; Data Migration |
+     | 3 | Local workforce continuity | We commit to hiring and training at least 15 locally based staff during transition, so operational knowledge stays in-region. | Section 6 scores local economic benefit at 10%, matching the client's own stated transition priority. | Team & Staffing; Transition & Knowledge Transfer |
+-->
+
 ---
 
 ### G-02
