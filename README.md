@@ -553,6 +553,26 @@ ref-rfx/
 
 Note: converting the assembled Markdown into a final `.docx` or `.pptx` is intentionally left to the user (see Assemble and Output Generation below) — no conversion scripts or runtime dependencies are bundled in this repository.
 
+## Identifier Conventions
+
+Every registry in REF-RFX uses a short, prefixed, sequential ID (`XX` = zero-padded, `01`, `02`, ...) so items can be cited unambiguously across files, both by the AI and by the pursuit team in conversation.
+
+| Prefix | Meaning | Lives in | Set by | Scope |
+|---|---|---|---|---|
+| `A-XX` | Analysis finding item (Procurement Overview, Scope Summary, Evaluation Framework, Mandatory Requirements, Submission Requirements, Key Risks and Constraints, plus any pursuit-specific additions) | `analysis.md` | `/analyse` | Pursuit-wide, narrative |
+| `P-XX` | Assumption entry (scope, delivery, client, or technical assumption) — "P" for Premise, chosen to avoid colliding with `analysis.md`'s `A-XX` above | `assumptions.md` | `/deliberate` (as assumptions surface), or added manually | Pursuit-wide |
+| `M-XX` | Mandatory / pass-fail requirement | `mandatory-requirements.md` | Created by `/analyse`; cross-linked to a backlog item by `/decompose`; `Status` updated by `/refine` | Pursuit-wide, one row per requirement |
+| `C-XX` | Scored / weighted evaluation criterion | `scoring-criteria.md` | Created by `/analyse`; cross-linked to a backlog item by `/decompose`; `Status` updated by `/refine` | Pursuit-wide, one row per criterion |
+| `E-XX` | Evidence registry entry (past performance, certification, framework, etc.) | `evidences.md` | `/catalogue` | Pursuit-wide, reusable across items |
+| `S-XX` | Standing Decision — fixed voice/quality rule that applies to every pursuit and item, never overridden | `registry.md` | Pre-set; not authored per pursuit | Global, fixed |
+| `G-XX` | Global Decision — pursuit-wide strategic choice (win theme, delivery posture, security posture, etc.) | `registry.md` | `/strategise` | Pursuit-wide strategic |
+| `D<item>-NN` (e.g. `D04-01`) | Item-level decision — `<item>` is the backlog item number, `NN` is sequential within that item | `items/item-XX-decisions.md` | `/deliberate` | Scoped to one backlog item |
+| Item `#` (e.g. `01`, `02`) | Backlog item number — no letter prefix, just the zero-padded number | `backlog.md` | `/decompose` | One per backlog item, referenced everywhere else as `item-XX` |
+| `X.Y` (e.g. `4.3`) | Clarification question — section number `.` question number within that section | `questions.md` | `/questions` | Working list; re-sorted and renumbered as questions are added, removed, or reprioritized |
+| `Batch N` | A group of questions actually sent to the issuer together | `questions.md` | `/questions`, only on user confirmation a batch was sent | One per submission round |
+
+Cross-reference fields tie these together: `backlog.md`'s `Criteria Ref` column and `item-XX-decisions.md`'s "Mapped Criteria" section both cite `M-XX`/`C-XX`; `mandatory-requirements.md`/`scoring-criteria.md`'s `Owning Item` fields cite the backlog item number back.
+
 ## RFx-Specific Features
 
 REF-RFX contains practices specifically optimized for competitive procurement responses.

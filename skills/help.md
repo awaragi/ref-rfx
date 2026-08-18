@@ -83,10 +83,31 @@ Map pursuit-level gaps to next action:
 
 ## Step 5 — Answer specific questions
 
-If the invocation includes an item reference (e.g. `/help item-03`) or a question about a specific skill (e.g. `/help what does deliberate do`), answer that directly instead of dumping the full pursuit overview:
+If the invocation includes an item reference (e.g. `/help item-03`), a question about a specific skill (e.g. `/help what does deliberate do`), or a question about an ID prefix (e.g. `/help what is C-05` or `/help what does M- mean`), answer that directly instead of dumping the full pursuit overview:
 
 - **Item reference** — report that item's current status, which files exist for it, and the single next action.
 - **Skill question** — summarize the referenced skill's purpose, inputs, and outputs by reading the corresponding `skills/<name>.md`, in plain language.
+- **ID / prefix question** — look up the prefix in the Identifier Reference table below, then, if a specific ID was named (not just the prefix in the abstract), read the row itself from the relevant file and report its content directly (e.g. `/help what is M-05` reads that row from `mandatory-requirements.md`).
+
+## Identifier Reference
+
+Every registry in REF-RFX uses a short, prefixed, sequential ID (`XX` = zero-padded, `01`, `02`, ...) so items can be cited unambiguously across files. Use this table to resolve any prefix a user asks about:
+
+| Prefix | Meaning | Lives in | Set by | Scope |
+|---|---|---|---|---|
+| `A-XX` | Analysis finding item (Procurement Overview, Scope Summary, Evaluation Framework, Mandatory Requirements, Submission Requirements, Key Risks and Constraints, plus any pursuit-specific additions) | `analysis.md` | `/analyse` | Pursuit-wide, narrative |
+| `P-XX` | Assumption entry (scope, delivery, client, or technical assumption) — "P" for Premise, chosen to avoid colliding with `analysis.md`'s `A-XX` above | `assumptions.md` | `/deliberate` (as assumptions surface), or added manually | Pursuit-wide |
+| `M-XX` | Mandatory / pass-fail requirement | `mandatory-requirements.md` | Created by `/analyse`; cross-linked to a backlog item by `/decompose`; `Status` updated by `/refine` | Pursuit-wide, one row per requirement |
+| `C-XX` | Scored / weighted evaluation criterion | `scoring-criteria.md` | Created by `/analyse`; cross-linked to a backlog item by `/decompose`; `Status` updated by `/refine` | Pursuit-wide, one row per criterion |
+| `E-XX` | Evidence registry entry (past performance, certification, framework, etc.) | `evidences.md` | `/catalogue` | Pursuit-wide, reusable across items |
+| `S-XX` | Standing Decision — fixed voice/quality rule that applies to every pursuit and item, never overridden | `registry.md` | Pre-set; not authored per pursuit | Global, fixed |
+| `G-XX` | Global Decision — pursuit-wide strategic choice (win theme, delivery posture, security posture, etc.) | `registry.md` | `/strategise` | Pursuit-wide strategic |
+| `D<item>-NN` (e.g. `D04-01`) | Item-level decision — `<item>` is the backlog item number, `NN` is sequential within that item | `items/item-XX-decisions.md` | `/deliberate` | Scoped to one backlog item |
+| Item `#` (e.g. `01`, `02`) | Backlog item number — no letter prefix, just the zero-padded number | `backlog.md` | `/decompose` | One per backlog item, referenced everywhere else as `item-XX` |
+| `X.Y` (e.g. `4.3`) | Clarification question — section number `.` question number within that section | `questions.md` | `/questions` | Working list; re-sorted and renumbered as questions are added, removed, or reprioritized |
+| `Batch N` | A group of questions actually sent to the issuer together | `questions.md` | `/questions`, only on user confirmation a batch was sent | One per submission round |
+
+Cross-reference fields tie these together: `backlog.md`'s `Criteria Ref` column and `item-XX-decisions.md`'s "Mapped Criteria" section both cite `M-XX`/`C-XX`; `mandatory-requirements.md`/`scoring-criteria.md`'s `Owning Item` fields cite the backlog item number back.
 
 ## Lifecycle Reference
 

@@ -7,8 +7,7 @@ last_updated: <auto: today's date>
 
 # Assumptions Registry
 
-
 | ID | Category | Assumption | Status | Item(s) affected |
 |----|----------|-----------|--------|-----------------|
-| A-01 | Scope | [Assumption text] | Unvalidated | [Item XX] |
-| A-02 | Delivery | [Assumption text] | Validated | [Item XX] |
+| P-01 | Scope | [Assumption text] | Unvalidated | [Item XX] |
+| P-02 | Delivery | [Assumption text] | Validated | [Item XX] |
