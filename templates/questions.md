@@ -28,7 +28,7 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
      <a id> anchors, they are not honored by Cursor's or GitHub's link navigation.
 
      Include every heading in document order: Active Questions with its categories/questions,
-     Summary count, then one top-level "Submitted batch N on [date]" entry per batch actually
+     Summary count, then one top-level "Submitted batch QB-NN on [date]" entry per batch actually
      sent (omit entirely until the first one exists), each with its own freshly-numbered
      category/question sub-entries (see that section's guidance — numbers there are independent
      of Active Questions and of any other batch). If a heading's number and title happen to
@@ -38,11 +38,11 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
 
 - [Active Questions](#active-questions)
   - [1. Category Title](#1-category-title)
-    - [1.1 Question title](#11-question-title)
+    - [Q-1.1 Question title](#q-11-question-title)
 - [Summary count](#summary-count)
-- [Submitted batch 1 on [date]](#submitted-batch-1-on-date)
+- [Submitted batch QB-01 on [date]](#submitted-batch-qb-01-on-date)
   - [1. Category Title](#1-category-title-1)
-    - [1.1 Question title](#11-question-title-1)
+    - [Q-1.1 Question title](#q-11-question-title-1)
 
 ---
 
@@ -57,10 +57,10 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
      as a soft guide, not a hard quota — actual assignment should follow the substance of each
      question, not force-fit the ratio). -->
 
-#### 1.1 Question title
+#### Q-1.1 Question title
 
-- **Batch: **
-- **Sensitivity: ** —
+- **Batch:** —
+- **Sensitivity:** —
 - **Priority:** [High | Medium | Low]
 
 [The question itself, written as a single clear paragraph that could be pasted directly into an email or portal message. Include enough context — with an RFx section reference — for the issuer to know exactly what's being asked. Keep any internal-only rationale out of this paragraph; it belongs in the Note below instead.]
@@ -73,13 +73,13 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
 
 ---
 
-<!-- Add additional #### X.Y question headings within this section, and additional ### sections,
+<!-- Add additional #### Q-X.Y question headings within this section, and additional ### sections,
      as warranted. Number sections sequentially (1, 2, 3, ...) and questions within each section
-     as X.1, X.2, .... There is no maximum number of sections or questions.
+     as Q-X.1, Q-X.2, .... There is no maximum number of sections or questions.
 
      Within each section, order questions highest-to-lowest Priority (High -> Medium -> Low);
      break ties by keeping the existing relative order. Question numbers are positional, not
-     stable IDs — renumber X.1, X.2, ... to match this order whenever a question is added,
+     stable IDs — renumber Q-X.1, Q-X.2, ... to match this order whenever a question is added,
      removed, or reprioritized. Once a question is actually sent to the issuer, move it to that
      batch's heading at the end of this document (see the guidance there) instead of leaving it
      here.
@@ -104,7 +104,7 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
 
 ## Summary count
 
-**N candidate questions** drafted across N categories (numbered `section.question`, e.g. **4.1** = Section 4, 1st question) — **N High / N Medium / N Low** priority (target split confirmed with the user: [e.g. "~30/40/30, as suggested" or the user's stated alternative]). Recommend the pursuit team:
+**N candidate questions** drafted across N categories (numbered `Q-section.question`, e.g. **Q-4.1** = Section 4, 1st question) — **N High / N Medium / N Low** priority (target split confirmed with the user: [e.g. "~30/40/30, as suggested" or the user's stated alternative]). Recommend the pursuit team:
 - Cut anything answerable from the RFx itself on a closer re-read.
 - Prioritize **High**-priority, lowest-competitive-exposure items first if only a short list can be submitted.
 - Drop or substantially reword every item with a non-`—` **Sensitivity**.
@@ -112,28 +112,30 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
 ---
 
 <!-- No batches have been submitted yet. The moment the user confirms a batch was actually sent
-     (never on your own initiative), add a new "## Submitted batch N on [date] (via [channel])"
-     heading here at the end of the document — one per batch, in submission order. Under it, move
-     — don't copy — each question in that batch, title and content unchanged, but numbered fresh
-     the same way Active Questions are: categories keep their relative order but are renumbered
-     1, 2, 3... within this batch alone (independent of their original category number, of Active
-     Questions, and of any other batch), and questions within each are ordered by Priority (ties
-     keep relative order) and renumbered M.1, M.2, .... Carry every other original field (Batch,
-     Sensitivity, Priority), the question text, and note over unchanged — nothing added or
-     dropped. Delete the original from its active category above and renumber that category to
-     close the gap; add the new heading(s) to the Table of Contents. The Summary count is not
-     updated — its tallies cover only the still-active, not-yet-submitted questions.
+     (never on your own initiative), assign it the next sequential batch ID (QB-01, QB-02, ...)
+     and add a new "## Submitted batch QB-NN on [date] (via [channel])" heading here at the end of
+     the document — one per batch, in submission order. Under it, move — don't copy — each
+     question in that batch, title and content unchanged, but numbered fresh the same way Active
+     Questions are: categories keep their relative order but are renumbered 1, 2, 3... within this
+     batch alone (independent of their original category number, of Active Questions, and of any
+     other batch), and questions within each are ordered by Priority (ties keep relative order)
+     and renumbered Q-1.1, Q-1.2, .... Carry every other original field (Batch, Sensitivity,
+     Priority), the question text, and note over unchanged — nothing added or dropped, except the
+     Batch field itself, which is set to this batch's QB-NN ID. Delete the original from its
+     active category above and renumber that category to close the gap; add the new heading(s) to
+     the Table of Contents. The Summary count is not updated — its tallies cover only the
+     still-active, not-yet-submitted questions.
 
      Example — this batch happens to move one question originally under category 1 and one
      originally under category 4; both keep their title/content but get this batch's own fresh
      numbers:
-       ## Submitted batch 1 on August 10, 2026 (via e-tendering portal message #1234)
+       ## Submitted batch QB-01 on August 10, 2026 (via e-tendering portal message #1234)
 
        ### 1. Procurement Process, Timeline & Incumbent
 
-       #### 1.1 Request for additional time to respond
+       #### Q-1.1 Request for additional time to respond
 
-       - **Batch:** 1
+       - **Batch:** QB-01
        - **Sensitivity:** —
        - **Priority:** High
 
@@ -141,9 +143,9 @@ This is an exhaustive, unfiltered brainstorm of every ambiguity, gap, and risk-w
 
        ### 2. Scope & Module Inventory Clarifications
 
-       #### 2.1 Current AODA/GO-ITS accessibility compliance status of the legacy modules
+       #### Q-2.1 Current AODA/GO-ITS accessibility compliance status of the legacy modules
 
-       - **Batch:** 1
+       - **Batch:** QB-01
        - **Sensitivity:** —
        - **Priority:** High
 

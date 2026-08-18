@@ -104,8 +104,8 @@ Every registry in REF-RFX uses a short, prefixed, sequential ID (`XX` = zero-pad
 | `G-XX` | Global Decision — pursuit-wide strategic choice (win theme, delivery posture, security posture, etc.) | `registry.md` | `/strategise` | Pursuit-wide strategic |
 | `D<item>-NN` (e.g. `D04-01`) | Item-level decision — `<item>` is the backlog item number, `NN` is sequential within that item | `items/item-XX-decisions.md` | `/deliberate` | Scoped to one backlog item |
 | Item `#` (e.g. `01`, `02`) | Backlog item number — no letter prefix, just the zero-padded number | `backlog.md` | `/decompose` | One per backlog item, referenced everywhere else as `item-XX` |
-| `X.Y` (e.g. `4.3`) | Clarification question — section number `.` question number within that section | `questions.md` | `/questions` | Working list; re-sorted and renumbered as questions are added, removed, or reprioritized |
-| `Batch N` | A group of questions actually sent to the issuer together | `questions.md` | `/questions`, only on user confirmation a batch was sent | One per submission round |
+| `Q-X.Y` (e.g. `Q-4.3`) | Clarification question — section number `.` question number within that section, prefixed `Q-` | `questions.md` | `/questions` | Working list; re-sorted and renumbered (the `X.Y` portion) as questions are added, removed, or reprioritized |
+| `QB-NN` (e.g. `QB-01`) | A group of questions actually sent to the issuer together | `questions.md` | `/questions`, only on user confirmation a batch was sent | One per submission round |
 
 Cross-reference fields tie these together: `backlog.md`'s `Criteria Ref` column and `item-XX-decisions.md`'s "Mapped Criteria" section both cite `M-XX`/`C-XX`; `mandatory-requirements.md`/`scoring-criteria.md`'s `Owning Item` fields cite the backlog item number back.
 
