@@ -26,7 +26,7 @@ Follow the Workspace Resolution section of `INSTRUCTIONS.md`, with one differenc
 
 Read whichever of these exist under `workspaces/<slug>/`; silently skip any that don't (a missing file is signal, not an error):
 
-- `backlog.md`, `registry.md`, `evidences.md`, `analysis.md`, `questions.md`, `assumptions.md`
+- `backlog.md`, `registry.md`, `evidences.md`, `analysis.md`, `mandatory-requirements.md`, `scoring-criteria.md`, `questions.md`, `assumptions.md`
 - `intake/rfx/`, `intake/client/`, `intake/supporting/` (list contents, don't read every document in full)
 - `items/item-XX-decisions.md` (shared), plus `items/<format>/item-XX-design.md` and `items/<format>/item-XX-response.md` for each active format track — read `output_format` in `backlog.md` frontmatter (`word`, `powerpoint`, or `both`; treat a missing field as `word`) to know which folder(s) to check
 - `final-submission-word.md` (if `word`/`both` is active), `final-submission-powerpoint.md` (if `powerpoint`/`both` is active) — note that `.docx`/`.pptx` conversion is intentionally out of scope for this framework, so their absence is not a gap to flag
@@ -39,7 +39,7 @@ Judge completion from file *content*, not just presence — a freshly copied tem
 |---|---|
 | Setup | `workspaces/<slug>/` scaffolding and starter files exist |
 | Intake | at least one file exists in `intake/rfx/` |
-| Analyse *(optional)* | `analysis.md` has populated A-xx entries, not placeholder text |
+| Analyse *(optional)* | `analysis.md` has populated A-xx entries, not placeholder text; `mandatory-requirements.md` and `scoring-criteria.md` have populated M-xx/C-xx rows |
 | Catalogue | `evidences.md` has one or more E-xx entries, not just the template header |
 | Decompose | `backlog.md` has real item rows, not the template's `[Item title]` placeholders |
 | Strategise | `registry.md` Global Decisions (G-01+) are filled in, not bracketed placeholders — including at least one real row in the Win Theme Pillars table |
@@ -54,6 +54,7 @@ Give a compact, scannable answer, not a wall of text:
 2. **Per-item table** (only if a backlog exists): `# | Title | Status | Next action`.
 3. **One clear recommendation** — the exact next command to run and why, in the surface-appropriate form (see above). If several items are ready for the same next skill, name the first and note the others can follow the same way (e.g. `/deliberate item-02` — items 03–05 are also `Not Started` and can follow the same command once 02 is done).
 4. **Path check** — the moment every item first reaches `Design Complete` with none yet `Drafted`, the Standard and Big Bang paths diverge. Ask the user which they intend to follow (Standard: `/draft` then `/refine` per item; Big Bang: skip straight to `/assemble`, which drafts and finalizes in one pass) rather than assuming.
+5. **Compliance snapshot** (only if `mandatory-requirements.md` and/or `scoring-criteria.md` exist): count of `M-XX` rows not yet `Compliant` and `C-XX` rows not yet `Addressed`/`Verified`. Surface this whenever it's non-zero, even outside `/assemble` — it's the fastest signal of live disqualification or scoring risk.
 
 Map backlog item status to next action:
 
@@ -74,7 +75,7 @@ Map pursuit-level gaps to next action:
 |---|---|
 | No workspace | `/setup` |
 | Workspace exists, `intake/rfx/` empty | add RFx documents to `intake/` (manual, no command) |
-| Intake present, no `analysis.md` | `/analyse` (recommended, optional) |
+| Intake present, no `analysis.md` (and no registers) | `/analyse` (recommended, optional) — also produces `mandatory-requirements.md` and `scoring-criteria.md` |
 | `evidences.md` not populated | `/catalogue` |
 | `backlog.md` not populated | `/decompose` |
 | Backlog exists, Global Decisions not set | `/strategise` |
@@ -108,7 +109,7 @@ Use this to explain the flow when the user is new to the framework or asks "what
 |---|---|---|
 | Setup | `/setup` | Scaffold `workspaces/<slug>/` and copy starter files |
 | Intake | *(manual)* | Drop RFx, client background, and supporting materials into `intake/` |
-| Analyse | `/analyse` | Produce a structured `analysis.md` from the RFx documents |
+| Analyse | `/analyse` | Produce `analysis.md`, `mandatory-requirements.md`, and `scoring-criteria.md` from the RFx documents |
 | Questions | `/questions` | Generate a candidate list of clarification questions for the issuer (`questions.md`) — optional, any time |
 | Catalogue | `/catalogue` | Scan intake and populate the evidence registry (`evidences.md`) |
 | Decompose | `/decompose` | Break the solicitation into backlog items (`backlog.md`) |

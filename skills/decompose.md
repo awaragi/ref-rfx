@@ -26,8 +26,8 @@ Validate available materials, analyze the solicitation, and break it into discre
 
 ## Step 2 — Decompose into Backlog Items
 
-1. Read all documents in `workspaces/<slug>/intake/rfx/` in full.
-2. Identify all response sections, evaluation criteria, mandatory requirements, and any other components that require a written response.
+1. Read all documents in `workspaces/<slug>/intake/rfx/` in full. If `workspaces/<slug>/mandatory-requirements.md` and/or `workspaces/<slug>/scoring-criteria.md` exist (produced by `/analyse`), read them too — they are the fastest, most exhaustive source of the requirements and criteria backlog items need to cover.
+2. Identify all response sections, evaluation criteria, mandatory requirements, and any other components that require a written response. Where the two registers exist, every `C-XX` and every `M-XX` with a written-response component should map to at least one backlog item — flag any that don't fit a proposed item as a candidate for a new one.
 3. Surface any submission constraints (due date, page/word limits, file format) in conversation so the user is aware before backlog items are created.
 4. Determine `output_format` for the pursuit: does the solicitation require a written narrative response (Word), a slide deck (e.g. for an oral presentation or orals defense), or both? If the RFx is explicit about this, state the detected value and confirm it with the user; if it's silent or leaves it to the offeror's discretion, ask directly. Record the confirmed value (`word`, `powerpoint`, or `both`) in the `output_format` field of `workspaces/<slug>/backlog.md` frontmatter. If it isn't already clear from context, this is also worth flagging as a candidate for `/questions` to the issuer.
 5. Compare any pursuit metadata extracted from the RFx documents (pursuit name, issuer, due date, etc.) against the values currently in `workspaces/<slug>/backlog.md`. If any values differ or were previously unknown, confirm the correct values with the user and then propagate the updates to the YAML frontmatter of every `.md` file in `workspaces/<slug>/` that contains the affected field.
@@ -37,6 +37,7 @@ Validate available materials, analyze the solicitation, and break it into discre
    - RFx reference (section, page)
    - Word or page limit (if specified)
    - Evaluation weighting (if specified)
+   - Criteria/requirement refs — the `M-XX`/`C-XX` IDs this item addresses, if the registers exist
    - Owner (the bid-team role responsible for the item — see Step 3 below)
 7. Always include standard RFx response documents in the proposed list if they are not already required by the solicitation. Suggest any that are appropriate for the pursuit and flag them as recommended additions:
    - Cover / transmittal letter
@@ -46,7 +47,8 @@ Validate available materials, analyze the solicitation, and break it into discre
    - Assumptions and constraints
    - Exceptions and deviations
 8. Review the proposed list with the user. Adjust based on feedback — items may be merged, split, reordered, or removed.
-9. Once the user confirms the list, write `workspaces/<slug>/backlog.md`, including the confirmed `output_format`. If `output_format` is `both`, split the table's `Status` column into `Status (Word)` and `Status (PowerPoint)`, both initialized to `Not Started` — see `templates/backlog.md` for the exact convention.
+9. Once the user confirms the list, write `workspaces/<slug>/backlog.md`, including the confirmed `output_format` and the `Criteria Ref` column (see `templates/backlog.md`). If `output_format` is `both`, split the table's `Status` column into `Status (Word)` and `Status (PowerPoint)`, both initialized to `Not Started` — see `templates/backlog.md` for the exact convention.
+10. If `workspaces/<slug>/mandatory-requirements.md` and/or `workspaces/<slug>/scoring-criteria.md` exist, update their `Owning Item` / `Owning Item(s)` columns in place to reference the confirmed item numbers — this closes the loop so both files point at each other bidirectionally. Leave `— (administrative)` for `M-XX` rows that genuinely have no written-response item.
 
 ## Step 3 — Assign an Owner to Each Item
 
@@ -60,5 +62,6 @@ Every backlog item is assigned to a bid-team **role** (not necessarily a named i
 ## Output
 
 - `workspaces/<slug>/backlog.md` — full backlog with all items at status `Not Started`
+- Updated `workspaces/<slug>/mandatory-requirements.md` and `workspaces/<slug>/scoring-criteria.md` (if they exist) — `Owning Item` fields cross-linked to the confirmed item numbers
 
 Copy `templates/backlog.md` to `workspaces/<slug>/backlog.md` (if it does not already exist), then populate the YAML frontmatter and table rows from the confirmed item list.

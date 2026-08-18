@@ -15,7 +15,7 @@ Read `workspaces/<slug>/backlog.md` in full before proceeding. Assemble operates
 
 ## Output Format Awareness
 
-Read `output_format` from `workspaces/<slug>/backlog.md` frontmatter (`word`, `powerpoint`, or `both`; treat a missing field as `word`). Assemble runs Stages 1–2 once per active track, independently:
+Read `output_format` from `workspaces/<slug>/backlog.md` frontmatter (`word`, `powerpoint`, or `both`; treat a missing field as `word`). Assemble runs Stages 1–3 once per active track, independently:
 
 | `output_format` | Active track(s) | Item files read from | Compiled Markdown output |
 |---|---|---|---|
@@ -48,6 +48,16 @@ For each active track:
    ```
    [RESPONSE PENDING: Item XX — Title]
    ```
+
+## Stage 3 — Compliance Gate
+
+If `workspaces/<slug>/mandatory-requirements.md` and/or `workspaces/<slug>/scoring-criteria.md` exist, check them after Stage 2 completes for each active track:
+
+1. List every `M-XX` row not at `Compliant` — these are live disqualification risks. Include administrative rows (`Owning Item: — (administrative)`), since Assemble has no way to verify those itself.
+2. List every `C-XX` row not at `Addressed` or `Verified`, ordered by `Weight` descending — these are scoring exposure, worst first.
+3. Present both lists to the user as a compliance summary, even if empty (report "No open gaps" explicitly rather than staying silent). Do not block assembly on open gaps — Assemble stays safe to run at any point per its Purpose — but the summary must be impossible to miss, e.g. placed immediately after the per-track file list in Assemble's final confirmation message.
+
+This gate is advisory, not a rewrite of the registers themselves — `/refine` remains the place where `Status` values actually change.
 
 ## Conversion to `.docx` / `.pptx` — out of scope, by design
 
@@ -89,3 +99,4 @@ In both formats, any text matching `[PLACEHOLDER TEXT]` or `[RESPONSE PENDING: .
 - `workspaces/<slug>/items/<format>/item-XX-response.md` (any newly generated item responses, per active track)
 - `workspaces/<slug>/final-submission-word.md` (if `output_format` is `word` or `both`)
 - `workspaces/<slug>/final-submission-powerpoint.md` (if `output_format` is `powerpoint` or `both`)
+- A compliance summary in conversation (Stage 3) — no file is written by this stage

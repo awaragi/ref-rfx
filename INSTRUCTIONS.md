@@ -49,7 +49,7 @@ Decisions are written to files **as they are made** — not batched at the end o
 
 `/setup` → `/analyse` → `/catalogue` → `/decompose` → `/strategise` → `/deliberate` → `/design` → `/draft` → `/refine` → `/assemble`
 
-`/analyse` is optional but recommended before `/decompose`. `/catalogue` runs after `/analyse` to populate the evidence registry from intake files before deliberation begins. `/refine` can be re-run at any point on a `Drafted` item.
+`/analyse` is optional but recommended before `/decompose` — besides `analysis.md`, it also produces `mandatory-requirements.md` and `scoring-criteria.md`, the itemized registers that `/decompose`, `/deliberate`, `/refine`, and `/assemble` cross-check against. `/catalogue` runs after `/analyse` to populate the evidence registry from intake files before deliberation begins. `/refine` can be re-run at any point on a `Drafted` item.
 
 `/help` is not part of this sequence — it can be run at any time to explain the framework, diagnose the active pursuit's status, and recommend the next command. It is read-only.
 
@@ -74,7 +74,7 @@ When a skill finishes, briefly confirm what was produced and name the next skill
 1. **File-first.** Every decision, design, and draft lives in a file — never in conversation memory.
 2. **Skill-gated.** Do not begin a step until explicitly triggered. Do not combine steps.
 3. **Backlog-driven.** Always read `workspaces/<slug>/backlog.md` to determine the current active item before acting.
-4. **Criteria-driven.** Every response must trace back to a specific requirement or evaluation criterion.
+4. **Criteria-driven.** Every response must trace back to a specific requirement or evaluation criterion — `mandatory-requirements.md` and `scoring-criteria.md` are the itemized registers that make this traceable rather than aspirational.
 5. **Iterative.** Review is a loop, not a gate. Expect multiple revision cycles.
 
 ## Content Standards
@@ -89,6 +89,8 @@ Update `workspaces/<slug>/backlog.md` at every phase transition. Log every signi
 |----------|------|
 | Backlog | `workspaces/<slug>/backlog.md` |
 | RFx analysis | `workspaces/<slug>/analysis.md` |
+| Mandatory requirements register | `workspaces/<slug>/mandatory-requirements.md` |
+| Scoring criteria register | `workspaces/<slug>/scoring-criteria.md` |
 | Clarification questions | `workspaces/<slug>/questions.md` |
 | Global decisions | `workspaces/<slug>/registry.md` |
 | Evidence | `workspaces/<slug>/evidences.md` |

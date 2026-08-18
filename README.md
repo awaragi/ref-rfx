@@ -180,9 +180,18 @@ A-06 – Key Risks and Constraints
 
 Additional A-xx items are added based on what the specific RFx contains — there is no maximum. Each item is substantive paragraph-form analysis written for strategic decision-making, not a bullet summary.
 
+Alongside `analysis.md`, Analyse also produces two itemized registers that later steps check against directly, rather than re-deriving from the RFx each time:
+
+- `workspace/mandatory-requirements.md` — one `M-XX` row per pass/fail requirement (RFx ref, category, consequence if unmet, owning backlog item, status)
+- `workspace/scoring-criteria.md` — one `C-XX` row per rated/weighted criterion (RFx ref, weight, sub-criteria, owning backlog item(s), status)
+
+A-03/A-04 in `analysis.md` stay narrative — methodology, implications, and risk — and reference the registers by ID instead of duplicating the full list.
+
 Output:
 
 - `workspace/analysis.md`
+- `workspace/mandatory-requirements.md`
+- `workspace/scoring-criteria.md`
 
 #### Questions *(optional, callable at any time)*
 
@@ -225,11 +234,12 @@ Item 05 – Security
 ...
 ```
 
-Each item becomes an independently managed work package.
+Each item becomes an independently managed work package. If `mandatory-requirements.md` and/or `scoring-criteria.md` exist, Decompose cross-links every backlog item to the `M-XX`/`C-XX` IDs it addresses (a `Criteria Ref` column in `backlog.md`) and writes the item number back into each register's `Owning Item` field — closing the loop bidirectionally.
 
 Output:
 
 - `workspace/backlog.md`
+- Updated `workspace/mandatory-requirements.md` and `workspace/scoring-criteria.md` (if they exist)
 
 #### Strategise
 
@@ -357,7 +367,7 @@ Output:
 
 #### Refine *(per backlog item)*
 
-Review and finalize each item's response. Refine absorbs the full review loop — choose between automated AI critique across 8 dimensions (compliance, decision alignment, design alignment, evidence coverage, QVA completeness, evaluator alignment, cross-item consistency, suggested edits) or manual feedback. Apply changes and iterate until sign-off. Item status stays `Drafted` throughout and transitions to `Approved` on sign-off.
+Review and finalize each item's response. Refine absorbs the full review loop — choose between automated AI critique across 8 dimensions (compliance, decision alignment, design alignment, evidence coverage, scoring coverage, evaluator alignment, cross-item consistency, suggested edits) or manual feedback. The compliance and scoring-coverage dimensions check the item's mapped `M-XX`/`C-XX` rows directly, and sign-off updates those rows' `Status` to `Compliant`/`Verified` once confirmed. Apply changes and iterate until sign-off. Item status stays `Drafted` throughout and transitions to `Approved` on sign-off.
 
 In the **Big Bang** path, Refine is not a mandatory separate step — teams refine directly on the generated final submission. However, Refine can be applied to individual items at any point, followed by a re-Assemble to incorporate updates.
 
@@ -383,6 +393,10 @@ For each active track, all item response files are concatenated in backlog order
 [RESPONSE PENDING: Item 01 – Corporate Qualifications]
 ```
 
+**Stage 3 — Compliance Gate**
+
+If `mandatory-requirements.md` and/or `scoring-criteria.md` exist, Assemble closes with a compliance summary: every `M-XX` row not yet `Compliant` (live disqualification risk), and every `C-XX` row not yet `Addressed`/`Verified`, ordered by weight descending (scoring exposure). This is advisory only — Assemble never blocks on it, staying true to "safe to run at any point" — but the summary is surfaced prominently rather than silently.
+
 **Conversion to `.docx` / `.pptx` is intentionally out of scope.** REF-RFX stops at Markdown — turning the compiled Markdown into a final Word document or PowerPoint deck is left to whatever tool the user has on hand (a coding agent with code execution, a chatbot, Pandoc, etc.), which keeps the toolkit dependency-free and portable across every AI surface it supports. See `skills/assemble.md` for the Markdown-to-style conventions a converter should follow (heading levels for Word; slide markers, layout hints, and a speaker-notes blockquote convention for PowerPoint).
 
 Assemble is safe to run at any point in the pursuit. In the **Standard Path** it can be run incrementally at any stage to produce a draft submission reflecting work done so far. In the **Big Bang** path, Assemble is the terminal step — Draft runs embedded within it, and Refine is not a mandatory separate step. Teams work through Deliberate and Design for each item, then run Assemble once to produce the complete response and refine directly on the generated documents. Refine can still be applied to individual items at any point, with Assemble re-run to incorporate the refined responses into an updated submission.
@@ -405,7 +419,7 @@ Each lifecycle step maps to a skill file in `skills/`:
 |---|---|---|
 | Setup | `skills/setup.md` | `/setup` |
 | Intake | — | — |
-| Analyse | `skills/analyse.md` | `/analyse` |
+| Analyse | `skills/analyse.md` | `/analyse` (also produces `mandatory-requirements.md`, `scoring-criteria.md`) |
 | Questions *(optional, any time)* | `skills/questions.md` | `/questions` |
 | Catalogue | `skills/catalogue.md` | `/catalogue` |
 | Decompose | `skills/decompose.md` | `/decompose` |
@@ -498,6 +512,8 @@ ref-rfx/
 │   │   └── supporting/          ← corporate IPs, frameworks, platforms, capabilities, certifications
 │   ├── backlog.md               ← full pursuit backlog (output_format: word | powerpoint | both)
 │   ├── analysis.md              ← RFx analysis (produced by /analyse)
+│   ├── mandatory-requirements.md ← pass/fail requirements register (produced by /analyse)
+│   ├── scoring-criteria.md      ← rated/weighted criteria register (produced by /analyse)
 │   ├── questions.md             ← clarification questions for the issuer (produced by /questions)
 │   ├── registry.md              ← global decision registry
 │   ├── evidences.md             ← evidence registry
@@ -520,6 +536,8 @@ ref-rfx/
 └── templates/
     ├── backlog.md               ← backlog template
     ├── analysis.md              ← RFx analysis template
+    ├── mandatory-requirements.md ← pass/fail requirements register template
+    ├── scoring-criteria.md      ← rated/weighted criteria register template
     ├── questions.md             ← clarification questions template
     ├── registry.md              ← global decision registry template (includes guiding principles)
     ├── evidences.md             ← evidence registry template
@@ -538,6 +556,17 @@ Note: converting the assembled Markdown into a final `.docx` or `.pptx` is inten
 ## RFx-Specific Features
 
 REF-RFX contains practices specifically optimized for competitive procurement responses.
+
+### Mandatory & Scoring Traceability
+
+Beyond the narrative analysis in `analysis.md`, REF-RFX maintains two itemized, one-row-per-requirement registers, produced by `/analyse`:
+
+- **`mandatory-requirements.md`** — every pass/fail, must-meet, or eligibility gate (`M-01`, `M-02`, ...), each with its RFx reference, category, consequence if unmet, owning backlog item (or `— (administrative)` if no written response applies), and a `Status` that tracks from `Not Verified` to `Compliant`.
+- **`scoring-criteria.md`** — every rated/weighted evaluation criterion (`C-01`, `C-02`, ...), each with its RFx reference, weight, sub-criteria, owning backlog item(s), and a `Status` that tracks from `Not Addressed` through `Addressed` to `Verified`.
+
+`/decompose` cross-links backlog items to these IDs bidirectionally; `/deliberate` and `/refine` work against the specific `M-XX`/`C-XX` rows mapped to the item in front of them rather than re-deriving requirements from the raw RFx each time; `/refine` updates `Status` on sign-off; `/assemble` closes with a compliance summary — every open `M-XX` gap (disqualification risk) and every unaddressed `C-XX` ordered by weight (scoring exposure) — so nothing slips through to submission unnoticed.
+
+Both registers are optional in the sense that `/analyse` itself is optional, but strongly recommended — they are what makes the framework's "criteria-driven" guiding principle mechanically enforceable rather than aspirational.
 
 ### Evaluator-Centric Thinking
 

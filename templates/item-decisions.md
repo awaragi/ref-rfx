@@ -6,6 +6,15 @@ title: "[Item title]"
 
 # Item [XX] — [Title] — Decisions
 
+## Mapped Criteria
+
+- **Mandatory:** [M-XX, M-XX — or "None"]
+- **Scored:** [C-XX, C-XX — or "None"]
+
+<!-- Copy these from the "Criteria Ref" column for this item in backlog.md. Leave both as "None"
+     if the registers (workspaces/<slug>/mandatory-requirements.md, scoring-criteria.md) don't
+     exist or genuinely don't apply to this item. -->
+
 ## Evaluator Intent
 
 [What the evaluator is actually buying and the risk they are trying to mitigate]

@@ -12,9 +12,15 @@ output_format: word   # word | powerpoint | both
      so each format track is tracked independently — every other column stays shared. Both columns
      start at "Not Started" and move together through Deliberate (decisions are shared across
      tracks, so there's only ever one Deliberate pass per item); they only begin to diverge once
-     Design starts, since Design/Draft/Refine run independently per track. -->
+     Design starts, since Design/Draft/Refine run independently per track.
 
-| # | Title | RFx Ref | Limit | Weight | Owner | Status |
-|---|-------|---------|-------|--------|-------|--------|
-| 01 | [Item title] | [Section X.X, p. X] | [X words] | [X%] | [Role] | Not Started |
-| 02 | [Item title] | [Section X.X, p. X] | — | [X%] | [Role] | Not Started |
+     "Criteria Ref" cross-links to workspaces/<slug>/mandatory-requirements.md (M-XX) and
+     scoring-criteria.md (C-XX), if those registers exist (produced by /analyse). List every ID
+     this item addresses, comma-separated (e.g. "M-03, C-05, C-06"). Leave "—" if the registers
+     don't exist yet or genuinely no ID maps to this item (e.g. a standard boilerplate item like
+     the cover letter). -->
+
+| # | Title | RFx Ref | Limit | Weight | Criteria Ref | Owner | Status |
+|---|-------|---------|-------|--------|--------------|-------|--------|
+| 01 | [Item title] | [Section X.X, p. X] | [X words] | [X%] | [M-XX, C-XX] | [Role] | Not Started |
+| 02 | [Item title] | [Section X.X, p. X] | — | [X%] | [M-XX, C-XX] | [Role] | Not Started |

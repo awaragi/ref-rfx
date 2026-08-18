@@ -25,6 +25,8 @@ Explore all material angles for a backlog item and record the decisions that wil
 
 Global cross-cutting decisions (win theme, delivery model, technology posture, alliances, etc.) are set by `/strategise` and stored in `workspaces/<slug>/registry.md`. Read them before starting — they are authoritative and should not be contradicted at the item level.
 
+If `workspaces/<slug>/mandatory-requirements.md` and/or `workspaces/<slug>/scoring-criteria.md` exist, read the rows whose `Owning Item`/`Owning Item(s)` reference this item (cross-check against the `Criteria Ref` column in `backlog.md`) — these are the exact gates and weighted criteria this item's decisions must satisfy.
+
 ## Explore Loop
 
 Follow the interaction pattern in INSTRUCTIONS.md: ask **one question per turn**, present **3–5 numbered suggestions** ranked by strategic fit, add **Other** as the final option, and wait for the user's response before proceeding.
@@ -34,9 +36,10 @@ Dimensions to work through:
 1. **Evaluator intent** — what is the evaluator actually buying? What risk are they trying to mitigate?
 2. **Differentiators** — which specific engagements, tools, credentials, or approaches are most relevant?
 3. **Positioning** — what is the single strongest narrative angle for this item?
-4. **QVAs** — what measurable value adds beyond mandatory requirements could be offered?
-5. **Evidence** — which evidence items from `workspaces/<slug>/evidences.md` best support this response?
-6. **Risks / landmines** — what would a weak response look like? What could cost marks?
+4. **Mandatory coverage** — for each `M-XX` mapped to this item, how will the response demonstrate compliance? (Skip if none map.)
+5. **QVAs** — for each `C-XX` mapped to this item, what measurable value add beyond the mandatory baseline could win maximum score on that specific criterion? (Fall back to a general QVA pass if the registers don't exist.)
+6. **Evidence** — which evidence items from `workspaces/<slug>/evidences.md` best support this response?
+7. **Risks / landmines** — what would a weak response look like? What could cost marks — reference specific `C-XX`/`M-XX` IDs at risk, if applicable?
 
 Continue asking until all dimensions are covered. Only then ask: *"I have enough to write up the decisions. Is there anything else you'd like to add before I do?"*
 

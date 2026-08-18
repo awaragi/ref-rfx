@@ -46,21 +46,23 @@ created_date: <auto: today's date>
 
 ### A-03: Evaluation Framework
 
+_The full itemized list of scored criteria and their weights lives in `workspaces/<slug>/scoring-criteria.md` (one `C-XX` row per criterion) — do not duplicate that list here. This item covers methodology and strategic implications only._
+
 1. [Evaluation methodology and overall structure — stages/gates, pass-fail elements, total points.]
-2. [Rated criteria and their weighting, broken out by stage or category.]
-3. [Minimum thresholds to advance between stages, and consequence of falling short.]
-4. [Which criteria carry the most weight, and what the evaluator appears to value most.]
-5. [How the scoring methodology rewards differentiation versus mere compliance — e.g. rubric language on "excellent" vs. "acceptable."]
-6. [Add further numbered points for any other evaluation-mechanics facts material to the pursuit — e.g. reserved rights, tie-breaking rules. No maximum.]
+2. [Minimum thresholds to advance between stages, and consequence of falling short.]
+3. [Which criteria carry the most weight, and what the evaluator appears to value most — reference the relevant `C-XX` IDs from `scoring-criteria.md` rather than restating them.]
+4. [How the scoring methodology rewards differentiation versus mere compliance — e.g. rubric language on "excellent" vs. "acceptable."]
+5. [Add further numbered points for any other evaluation-mechanics facts material to the pursuit — e.g. reserved rights, tie-breaking rules. No maximum.]
 
 ---
 
 ### A-04: Mandatory Requirements
 
-1. [Each must-meet or pass/fail requirement as its own numbered point, citing the RFx section.]
-2. [For each, flag whether it is straightforward or whether it warrants a pursuit-level decision.]
-3. [Highlight any requirement that is unusual, potentially disqualifying, or requires specific certifications, security clearances, insurance coverage, or past-performance thresholds.]
-4. [Add further numbered points as needed — one per distinct mandatory requirement or gate. No maximum.]
+_The full itemized list of pass/fail requirements lives in `workspaces/<slug>/mandatory-requirements.md` (one `M-XX` row per requirement) — do not duplicate that list here. This item covers implications and risk only._
+
+1. [Which mandatory requirements are straightforward versus which warrant a pursuit-level decision — reference the relevant `M-XX` IDs from `mandatory-requirements.md` rather than restating them.]
+2. [Highlight any requirement that is unusual, potentially disqualifying, or requires specific certifications, security clearances, insurance coverage, or past-performance thresholds.]
+3. [Add further numbered points as needed — one per distinct implication or risk theme, not one per requirement (that granularity belongs in the register). No maximum.]
 
 ---
 
